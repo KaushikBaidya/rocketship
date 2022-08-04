@@ -20,8 +20,13 @@ const Footer = () => {
           <div className="">
             <div className="grid grid-cols-1 justify-items-center">
               <h1 className="text-[24px] lg:text-[45px] text-gray-800 font-semibold text-center px-5 nunito">
-                Welcome To Rocketship
+                Welcome To
               </h1>
+              <Link href="/">
+                <div className="px-5">
+                  <Image src={logoPic} width={300} height={40} alt="" />
+                </div>
+              </Link>
             </div>
             <div className="w-full flex flex-wrap gap-4 justify-center py-3">
               <div className="w-10 h-10 flex bg-[#4992FB] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#0155D1]">
@@ -99,11 +104,7 @@ const Footer = () => {
           ©{new Date().getFullYear()}
           <span className="ml-2">Rocketship All rights reserved</span>
         </p>
-        <Link href="/">
-          <div className="px-5">
-            <Image src={logoPic} width={400} height={50} alt="" />
-          </div>
-        </Link>
+
         <p className="text-uppercase text-[#182b31] mb-1">
           Developed By
           <a
