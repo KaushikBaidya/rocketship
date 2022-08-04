@@ -18,10 +18,10 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={teacher} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-2">
+              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-3">
                 Flagship Admission
               </h2>
-              <p className="text-justify font-medium text-lg p-4">
+              <p className="text-justify font-medium text-lg p-5">
                 Complete admissions support for aspiring international students
                 willingt to study in the USA, Canada, Japan, Europe and many
                 more!
@@ -31,10 +31,10 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={run} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-2">
+              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-3">
                 Flagship SAT Speedrun
               </h2>
-              <p className="text-justify font-medium text-lg p-4">
+              <p className="text-justify font-medium text-lg p-5">
                 We bring forward to you our next big thing, the SAT Speedrun,
                 after lots of requests from potential students who we had to
                 turn away for the time being due to the limited class size!
@@ -44,10 +44,10 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={review} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-2">
+              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-3">
                 Essay Review
               </h2>
-              <p className="text-justify font-medium text-lg p-4">
+              <p className="text-justify font-medium text-lg p-5">
                 Get your Personal statement and supplemental essays reviewed by
                 experts and furnish your essay to make it ready for you
                 application!
