@@ -19,9 +19,6 @@ const Footer = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-items-center gap-y-2 py-2 mt-2">
           <div className="">
             <div className="grid grid-cols-1 justify-items-center">
-              <h1 className="text-[24px] lg:text-[45px] text-gray-800 font-semibold text-center px-5 nunito">
-                Welcome To
-              </h1>
               <Link href="/">
                 <div className="px-5">
                   <Image src={logoPic} width={300} height={40} alt="" />
