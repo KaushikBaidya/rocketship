@@ -18,7 +18,7 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={teacher} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-3">
+              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-5">
                 Flagship Admission
               </h2>
               <p className="text-justify font-medium text-lg p-5">
@@ -44,7 +44,7 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={review} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-3">
+              <h2 className="text-center text-[#0055CE] font-bold text-3xl p-5">
                 Essay Review
               </h2>
               <p className="text-justify font-medium text-lg p-5">
