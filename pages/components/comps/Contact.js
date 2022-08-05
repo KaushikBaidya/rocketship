@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import banner from '../../../public/banner.png'
+import banner from '../../../public/banner.jpg'
 
 const Contact = () => {
   return (
@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
             <div className="grid grid-cols-1 my-5 px-2 gap-2">
               <textarea
-                className="p-3 m-3 h-52 bg-gray-200 rounded-md"
+                className="p-3 m-1 h-52 bg-gray-200 rounded-md"
                 type="text"
                 name="details"
                 placeholder="Write your message"
@@ -52,8 +52,8 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className="hidden lg:block p-5">
-          <Image src={banner} width={1000} height={900} alt="" />
+        <div className="hidden lg:block mr-10">
+          <Image src={banner} width={500} height={600} alt="" />
         </div>
       </div>
     </section>
