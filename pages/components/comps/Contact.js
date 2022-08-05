@@ -1,5 +1,5 @@
-import Image from "next/image";
-import banner from "../../../public/banner.png";
+import Image from 'next/image'
+import banner from '../../../public/banner.png'
 
 const Contact = () => {
   return (
@@ -10,13 +10,13 @@ const Contact = () => {
           <form>
             <div className="grid grid-cols-1 lg:grid-cols-2 my-5 px-2 gap-2">
               <input
-                className="p-3 m-3 bg-gray-200 rounded-md"
+                className="p-3 m-1 bg-gray-200 rounded-md"
                 type="text"
                 name="your_name"
                 placeholder="Your Name"
               />
               <input
-                className="p-3 m-3 bg-gray-200 rounded-md"
+                className="p-3 m-1 bg-gray-200 rounded-md"
                 type="text"
                 name="your_email"
                 placeholder="Your Email"
@@ -24,13 +24,13 @@ const Contact = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 my-5 px-2 gap-2">
               <input
-                className="p-3 m-3 bg-gray-200 rounded-md"
+                className="p-3 m-1 bg-gray-200 rounded-md"
                 type="text"
                 name="subject"
                 placeholder="Subject"
               />
               <input
-                className="p-3 m-3 bg-gray-200 rounded-md"
+                className="p-3 m-1 bg-gray-200 rounded-md"
                 type="text"
                 name="phone"
                 placeholder="Phone"
@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
             <div className="grid grid-cols-1 my-5 px-2 gap-2">
               <textarea
-                className="p-3 m-3 h-56 bg-gray-200 rounded-md"
+                className="p-3 m-3 h-52 bg-gray-200 rounded-md"
                 type="text"
                 name="details"
                 placeholder="Write your message"
@@ -52,12 +52,12 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className="hidden lg:block">
-          <Image src={banner} width={1000} height={700} alt="" />
+        <div className="hidden lg:block p-5">
+          <Image src={banner} width={1000} height={900} alt="" />
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
