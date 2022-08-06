@@ -6,7 +6,7 @@ const Contact = () => {
     <section>
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
         <div className="mx-10 text-center">
-          <h1 className="text-3xl ">GET IN TOUCH</h1>
+          <h1 className="text-3xl font-semibold">GET IN TOUCH</h1>
           <form>
             <div className="grid grid-cols-1 lg:grid-cols-2 my-5 px-2 gap-2">
               <input
