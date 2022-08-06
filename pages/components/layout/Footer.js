@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   FiFacebook,
   FiTwitter,
@@ -7,14 +7,14 @@ import {
   FiMapPin,
   FiMail,
   FiPhoneCall,
-} from 'react-icons/fi'
-import Link from 'next/link'
-import Image from 'next/image'
-import logoPic from '../../../public/logo.png'
+} from "react-icons/fi";
+import Link from "next/link";
+import Image from "next/image";
+import logoPic from "../../../public/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="max-w-5xl mx-auto mt-10 border-t">
+    <footer className="mt-10 border-t">
       <div className="w-full grid grid-cols-1 justify-items-center mt-10 bg-white">
         <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-items-center gap-y-2 py-2 mt-2">
           <div className="">
@@ -115,7 +115,7 @@ const Footer = () => {
         </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

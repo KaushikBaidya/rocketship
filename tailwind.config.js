@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        "3xl": "1920PX",
+        // print: { raw: "print" },
+      },
       fontFamily: {
         body: ["Montserrat"],
       },

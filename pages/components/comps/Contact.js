@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import banner from '../../../public/banner.jpg'
+import Image from "next/image";
+import banner from "../../../public/banner.jpg";
 
 const Contact = () => {
   return (
     <section>
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full  ">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
         <div className="mx-10 text-center">
           <h1 className="text-3xl ">GET IN TOUCH</h1>
           <form>
@@ -53,11 +53,11 @@ const Contact = () => {
           </form>
         </div>
         <div className="hidden lg:block mr-10">
-          <Image src={banner} width={500} height={600} alt="" />
+          <Image src={banner} width={500} height={550} alt="" />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
