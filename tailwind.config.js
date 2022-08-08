@@ -11,7 +11,7 @@ module.exports = {
         // print: { raw: "print" },
       },
       backgroundImage: {
-        sbanner: "url('../images/sbanner.jpg')",
+        sbanner: "url('/sbanner.jpg')",
       },
       fontFamily: {
         body: ["Montserrat"],
