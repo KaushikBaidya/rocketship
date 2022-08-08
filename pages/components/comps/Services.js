@@ -2,7 +2,7 @@ import { FaPenNib, FaCheckCircle, FaUniversity, FaGlobe } from "react-icons/fa";
 const Services = () => {
   return (
     <section className=" bg-white antialiased ">
-      <div className="bg-[url('../public/sbanner.jpg')] bg-fixed">
+      <div className="bg-sbanner bg-fixed">
         <div className="bg-[#0653d0f0] text-white backdrop-blur-none grid grid-cols-1 gap-y-3 px-10 py-20 justify-items-center content-center mx-auto">
           <p className="text-3xl md:text-5xl text-center px-3">
             We advise you, you call the right decision!
