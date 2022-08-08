@@ -10,6 +10,9 @@ module.exports = {
         "3xl": "1920PX",
         // print: { raw: "print" },
       },
+      backgroundImage: {
+        sbanner: "url('../public/sbanner.jpg')",
+      },
       fontFamily: {
         body: ["Montserrat"],
       },

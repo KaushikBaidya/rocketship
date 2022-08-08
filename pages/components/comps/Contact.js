@@ -6,7 +6,7 @@ const Contact = () => {
     <section>
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
         <div className="mx-10 text-center">
-          <h1 className="text-3xl font-semibold">GET IN TOUCH</h1>
+          <h1 className="text-xl lg:text-3xl font-semibold">GET IN TOUCH</h1>
           <form>
             <div className="grid grid-cols-1 lg:grid-cols-2 my-5 px-2 gap-2">
               <input
@@ -53,7 +53,7 @@ const Contact = () => {
           </form>
         </div>
         <div className="hidden lg:block mr-10">
-          <Image src={banner} width={500} height={550} alt="" />
+          <Image src={banner} width={475} height={505} alt="" />
         </div>
       </div>
     </section>

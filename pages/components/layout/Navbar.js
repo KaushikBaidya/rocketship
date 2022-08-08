@@ -31,8 +31,14 @@ export default function Navbar() {
       >
         <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link href="/">
-            <div className="mx-5">
-              <Image src={logoPic} width={280} height={40} alt="" />
+            <div className="w-56 mx-5">
+              <Image
+                src={logoPic}
+                width={280}
+                height={40}
+                objectFit="cover"
+                alt=""
+              />
             </div>
           </Link>
           <button
