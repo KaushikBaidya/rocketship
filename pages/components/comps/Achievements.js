@@ -1,5 +1,5 @@
 import { FaPenNib, FaCheckCircle, FaUniversity, FaGlobe } from "react-icons/fa";
-const Services = () => {
+const Achievements = () => {
   return (
     <section className=" bg-white antialiased ">
       <div className="bg-sbanner bg-fixed">
@@ -35,4 +35,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Achievements;

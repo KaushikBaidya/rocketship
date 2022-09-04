@@ -34,7 +34,7 @@ const Testimonial = () => {
   console.log(data);
   return (
     <section>
-      <div className="w-full grid grid-cols-1 justify-items-center content-center my-20">
+      <div className="w-full grid grid-cols-1 justify-items-center content-center my-14">
         <h2 className="text-2xl lg:text-5xl text-slate-600 font-bold my-3">
           Testimonials
         </h2>

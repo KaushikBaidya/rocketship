@@ -31,11 +31,11 @@ export default function Navbar() {
       >
         <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link href="/">
-            <div className="w-56 mx-5">
+            <div className="w-20 mx-5">
               <Image
                 src={logoPic}
-                width={280}
-                height={40}
+                width={100}
+                height={100}
                 objectFit="cover"
                 alt=""
               />
@@ -66,7 +66,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
-              <Link href="/services">
+              <Link href="/pages/services">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Services</a>
               </Link>
             </li>
