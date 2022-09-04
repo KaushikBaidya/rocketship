@@ -25,8 +25,8 @@ export default function Navbar() {
         className={
           "fixed w-full xl:max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between z-10 py-2 " +
           (bgColor
-            ? "bg-[#ffffffeb] backdrop-blur-sm text-black shadow-sm transition duration-200 ease-in"
-            : "bg-[#ffffffe7] backdrop-blur-sm text-white lg:bg-transparent ")
+            ? "bg-[#ffffffeb] backdrop-blur-sm text-[#211A54] shadow-sm transition duration-200 ease-in"
+            : "bg-[#ffffffe7] backdrop-blur-sm text-black lg:bg-transparent ")
         }
       >
         <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
@@ -55,27 +55,27 @@ export default function Navbar() {
           }
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
-              <Link href="/home">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+              <Link href="/">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>HOME</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
               <Link href="/about">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>About Us</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
               <Link href="/pages/services">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Services</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
               <Link href="/blogs">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Blogs</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#5490FF] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
               <Link href="/contact">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Contact</a>
               </Link>
