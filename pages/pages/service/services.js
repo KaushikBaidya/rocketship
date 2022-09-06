@@ -1,4 +1,5 @@
 import React from "react";
+import DetailsService from "./DetailsService";
 import HeroService from "./HeroService";
 import RatioService from "./RatioService";
 
@@ -7,6 +8,7 @@ const Services = () => {
     <section className="min-h-full">
       <HeroService />
       <RatioService />
+      <DetailsService />
     </section>
   );
 };

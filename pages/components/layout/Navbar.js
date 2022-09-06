@@ -55,29 +55,36 @@ export default function Navbar() {
           }
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
               <Link href="/">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>HOME</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
               <Link href="/about">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>About Us</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
               <Link href="/pages/service/services">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Services</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
               <Link href="/blogs">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Blogs</a>
               </Link>
             </li>
-            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
+            <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
               <Link href="/contact">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Contact</a>
+              </Link>
+            </li>
+            <li className="px-4 py-2 bg-red-400 font-medium uppercase mx-2 rounded-full hover:bg-red-700 text-white text-center">
+              <Link href="/">
+                <a onClick={() => setNavbarOpen(!navbarOpen)}>
+                  Book A Free Consult
+                </a>
               </Link>
             </li>
           </ul>
