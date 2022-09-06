@@ -12,8 +12,8 @@ export default function Home() {
     <div>
       <Hero />
       <Success />
-      <OurPrograms />
       <Achievements />
+      <OurPrograms />
       <Testimonial />
       <Blogs />
       <Contact />

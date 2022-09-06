@@ -66,7 +66,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 text-md font-medium uppercase">
-              <Link href="/pages/services">
+              <Link href="/pages/service/services">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Services</a>
               </Link>
             </li>
