@@ -18,7 +18,7 @@ const HeroService = () => {
       <div className="hidden lg:flex relative">
         <div className="bg-yellow-200 w-32 h-32 rounded-full absolute top-12"></div>
         <div className="bg-green-200 w-20 h-20 rounded-full absolute top-14 right-48"></div>
-        <div className="bg-red-200 w-20 h-20 rounded-full absolute top-36 right-72"></div>
+        <div className="bg-red-300 w-20 h-20 rounded-full absolute top-36 right-72"></div>
       </div>
     </div>
   );
