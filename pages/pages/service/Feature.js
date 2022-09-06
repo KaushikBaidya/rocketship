@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-const Fetaure = ({ feature }) => {
-  const { id, img, title, des } = feature;
+const Fetaure = ({ data }) => {
+  const { id, img, title, des } = data;
   return (
     <div className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-10 lg:py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 px-6 gap-x-6 items-center">

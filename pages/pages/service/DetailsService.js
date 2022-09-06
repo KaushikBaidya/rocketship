@@ -25,8 +25,8 @@ const DetailsService = () => {
   return (
     <>
       {data.length > 0 &&
-        data.map((feature, index) => (
-          <Feature key={index.toString()} feature={feature} />
+        data.map((data, index) => (
+          <Feature key={index.toString()} data={data} />
         ))}
     </>
   );
