@@ -30,11 +30,11 @@ const Blogs = () => {
     <section>
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
         <div className="flex flex-col items-center mx-auto mb-5">
-          <FaRocket className="text-4xl text-[#0852C9] font-bold mb-3" />
-          <h3 className="text-lg text-gray-600 text-center mx-28">
+          <FaRocket className="text-4xl text-[#EF1C26] font-bold mb-3" />
+          <h3 className="text-lg text-[#211A56] text-center mx-28">
             From The Blog Post
           </h3>
-          <h2 className="text-3xl lg:text-5xl text-gray-800 text-center font-bold mx-28">
+          <h2 className="text-3xl lg:text-5xl text-[#211A56] text-center font-bold mx-28">
             News & Articles
           </h2>
         </div>
