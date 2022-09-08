@@ -64,7 +64,8 @@ const Testimonial = () => {
                     <h3 className="text-xl lg:text-3xl text-gray-800 font-bold my-3 mx-5">
                       {item.name}
                     </h3>
-                    <hr />
+                    <div className="w-20 h-1 bg-red-500"></div>
+                    <br />
                     <p className="text-base lg:text-xl text-gray-700 text-center my-3 mx-2">
                       {item.quote}
                     </p>

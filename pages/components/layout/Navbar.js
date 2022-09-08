@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link href="/">
-            <div className="w-20 mx-5">
+            <div className="w-20 mx-5 ">
               <Image
                 src={logoPic}
                 width={100}
@@ -51,7 +51,8 @@ export default function Navbar() {
         </div>
         <div
           className={
-            "lg:flex flex-grow items-center" + (navbarOpen ? "flex" : " hidden")
+            "lg:flex flex-grow items-center " +
+            (navbarOpen ? "flex" : " hidden")
           }
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
