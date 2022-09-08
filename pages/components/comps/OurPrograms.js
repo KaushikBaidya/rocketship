@@ -10,7 +10,7 @@ const OurPrograms = () => {
     <section className="min-h-full pb-14">
       <div className="h-full grid grid-cols-1 content-center">
         <div className="max-w-2xl mx-auto pb-5">
-          <h2 className="text-[24px] text-slate-600 font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+          <h2 className="text-[24px] text-[#211A56] font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
             Our Services
           </h2>
         </div>
@@ -20,44 +20,52 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={teacher} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-xl p-5">
+              <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 College Admissions Counseling
               </h2>
               <Link href="/pages/service/services">
-                <button>Learn More</button>
+                <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
+                  Learn More
+                </button>
               </Link>
             </div>
             <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
               <div className="p-5">
                 <Image src={essay} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-xl p-3">
+              <h2 className="text-center text-[#211A56] font-bold text-xl p-3">
                 Essay Editing Services
               </h2>
               <Link href="/pages/service/services">
-                <button>Learn More</button>
+                <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
+                  Learn More
+                </button>
               </Link>
             </div>
             <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
               <div className="p-5">
                 <Image src={finance} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-xl p-5">
+              <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Financial Planning Assistance
               </h2>
               <Link href="/pages/service/services">
-                <button>Learn More</button>
+                <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
+                  Learn More
+                </button>
               </Link>
             </div>
             <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
               <div className="p-5">
                 <Image src={test} width={250} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#0055CE] font-bold text-xl p-5">
+              <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Test Prep
               </h2>
               <Link href="/pages/service/services">
-                <button>Learn More</button>
+                <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
+                  Learn More
+                </button>
               </Link>
             </div>
           </div>

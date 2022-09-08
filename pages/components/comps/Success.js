@@ -17,10 +17,10 @@ const Success = () => {
     <section className="min-h-full py-14">
       <div className="h-full grid grid-cols-1 content-center">
         <div className="max-w-2xl mx-auto pb-5">
-          <h2 className="text-[24px] text-slate-600 font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+          <h2 className="text-[24px] text-[#211A56] font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
             “View our success stories”
           </h2>
-          <h3 className="text-lg text-gray-600 text-center mx-28">
+          <h3 className="text-lg text-[#EF1C26] text-center mx-28">
             Rocket Ship students got admitted admission to these schools
           </h3>
         </div>
@@ -29,7 +29,7 @@ const Success = () => {
             {/* <div className=" flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between "> */}
             {data.map((item) => (
               <div key={item.id} className="p-5">
-                <Image src={item.img} width={100} height={80} alt="" />
+                <Image src={item.img} width={90} height={70} alt="" />
               </div>
             ))}
           </div>
