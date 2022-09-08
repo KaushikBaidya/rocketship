@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <main>
       <div className="text-[#211A56] lg:px-24 py-28 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-white h-[700px]">
-        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-5xl ">
+        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-5xl font-bold ">
           <h1>
             We will help you with your -{" "}
             <Typewriter
