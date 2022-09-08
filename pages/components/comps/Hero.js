@@ -20,7 +20,7 @@ const Hero = () => {
           <h1>
             We will help you with your -{" "}
             <Typewriter
-              style={{ display: "inline" }}
+              // style={{ display: "inline" }}
               options={{
                 strings: [
                   "College Admissions Counseling",
