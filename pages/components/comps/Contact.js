@@ -4,9 +4,11 @@ import banner from "../../../public/banner.jpg";
 const Contact = () => {
   return (
     <section>
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
         <div className="mx-10 text-center">
-          <h1 className="text-xl lg:text-3xl font-semibold">GET IN TOUCH</h1>
+          <h1 className="text-xl lg:text-3xl text-[#211A56] font-semibold">
+            GET IN TOUCH
+          </h1>
           <form>
             <div className="grid grid-cols-1 lg:grid-cols-2 my-5 px-2 gap-2">
               <input
@@ -45,14 +47,14 @@ const Contact = () => {
               />
             </div>
             <button
-              className="p-3 rounded bg-[#0056CC] hover:bg-[#0030cc] text-white text-xl"
+              className="p-3 rounded bg-[#EF1C26] hover:bg-[#99060d] text-white text-xl"
               type="submit"
             >
               Send Message
             </button>
           </form>
         </div>
-        <div className="hidden lg:block mr-10">
+        <div className="hidden lg:block mx-10">
           <Image src={banner} width={475} height={505} alt="" />
         </div>
       </div>

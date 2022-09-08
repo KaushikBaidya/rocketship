@@ -26,22 +26,22 @@ const Footer = () => {
               </Link>
             </div>
             <div className="w-full flex flex-wrap gap-4 justify-center py-3">
-              <div className="w-10 h-10 flex bg-[#4992FB] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#0155D1]">
+              <div className="w-10 h-10 flex bg-[#211A56] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#EF1C26]">
                 <a href="#f">
                   <FiFacebook size={26} />
                 </a>
               </div>
-              <div className="w-10 h-10 flex bg-[#4992FB] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#0155D1]">
+              <div className="w-10 h-10 flex bg-[#211A56] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#EF1C26]">
                 <a href="#f">
                   <FiTwitter size={26} />
                 </a>
               </div>
-              <div className="w-10 h-10 flex bg-[#4992FB] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#0155D1]">
+              <div className="w-10 h-10 flex bg-[#211A56] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#EF1C26]">
                 <a href="#f">
                   <FiYoutube size={26} />
                 </a>
               </div>
-              <div className="w-10 h-10 flex bg-[#4992FB] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#0155D1]">
+              <div className="w-10 h-10 flex bg-[#211A56] justify-center items-center drop-shadow-xl rounded-lg text-[#fff] hover:bg-[#EF1C26]">
                 <a href="#f">
                   <FiLinkedin size={26} />
                 </a>
@@ -50,44 +50,44 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="text-2xl lg:text-3xl text-[#0155D1] font-semibold  text-center px-5 mt-2 mb-4">
+            <p className="text-2xl lg:text-3xl text-[#EF1C26] font-semibold  text-center px-5 mt-2 mb-4">
               Explore
             </p>
-            <p className="text-sm lg:text-lg text-[#0154D7] font-normal text-center px-5 flex items-center gap-2 my-3">
+            <p className="text-sm lg:text-lg text-[#EF1C26] font-normal text-center px-5 flex items-center gap-2 my-3">
               <FiMapPin />
               <span className="text-lg text-gray-700">USA</span>
             </p>
-            <p className="text-sm lg:text-lg text-[#0154D7] font-normal text-center px-5 flex items-center gap-2 my-3">
+            <p className="text-sm lg:text-lg text-[#EF1C26] font-normal text-center px-5 flex items-center gap-2 my-3">
               <FiMail />
               <span className="text-lg text-gray-700">info@rocketship.com</span>
             </p>
-            <p className="text-sm lg:text-lg text-[#0154D7] font-normal text-center px-5 flex items-center gap-2 my-3">
+            <p className="text-sm lg:text-lg text-[#EF1C26] font-normal text-center px-5 flex items-center gap-2 my-3">
               <FiPhoneCall />
               <span className="text-lg text-gray-700">646-861-8089</span>
             </p>
           </div>
 
           <div>
-            <p className="text-2xl text-[#0155D1] font-semibold  text-center px-5 mt-2 mb-4">
+            <p className="text-2xl text-[#EF1C26] font-semibold  text-center px-5 mt-2 mb-4">
               Quick Links
             </p>
-            <div className="text-[#4C90FD] hover:text-[#3c85fc] text-lg grid grid-cols-1 justify-items-center">
-              <p>
+            <div className="text-[#211A56] text-lg grid grid-cols-1 justify-items-center">
+              <p className="hover:text-[#EF1C26]">
                 <Link href="#seeHero">
                   <a>Home</a>
                 </Link>
               </p>
-              <p>
+              <p className="hover:text-[#EF1C26]">
                 <Link href="#seeHero">
                   <a>About</a>
                 </Link>
               </p>
-              <p>
+              <p className="hover:text-[#EF1C26]">
                 <Link href="#seeHero">
                   <a>Services</a>
                 </Link>
               </p>
-              <p>
+              <p className="hover:text-[#EF1C26]">
                 <Link href="#seeHero">
                   <a>Blogs</a>
                 </Link>
