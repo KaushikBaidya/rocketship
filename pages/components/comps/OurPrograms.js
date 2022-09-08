@@ -16,7 +16,7 @@ const OurPrograms = () => {
         </div>
         <div className="py-2">
           <div className="max-w-6xl grid grid-cols-1 md:grid-cols-4 mx-auto px-5 gap-5">
-            <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
+            <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
               <div className="p-5">
                 <Image src={teacher} width={250} height={150} alt="" />
               </div>
@@ -29,7 +29,7 @@ const OurPrograms = () => {
                 </button>
               </Link>
             </div>
-            <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
+            <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
               <div className="p-5">
                 <Image src={essay} width={250} height={150} alt="" />
               </div>
@@ -42,7 +42,7 @@ const OurPrograms = () => {
                 </button>
               </Link>
             </div>
-            <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
+            <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
               <div className="p-5">
                 <Image src={finance} width={250} height={150} alt="" />
               </div>
@@ -55,7 +55,7 @@ const OurPrograms = () => {
                 </button>
               </Link>
             </div>
-            <div className="bg-blue-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
+            <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between">
               <div className="p-5">
                 <Image src={test} width={250} height={150} alt="" />
               </div>

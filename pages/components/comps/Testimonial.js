@@ -35,10 +35,10 @@ const Testimonial = () => {
   return (
     <section>
       <div className="w-full grid grid-cols-1 justify-items-center content-center my-14">
-        <h2 className="text-2xl lg:text-5xl text-slate-600 font-bold my-3">
+        <h2 className="text-2xl lg:text-5xl text-[#211A56] font-bold my-3">
           Testimonials
         </h2>
-        <FaQuoteRight className="text-3xl text-[#0852C9] font-bold my-3" />
+        <FaQuoteRight className="text-3xl text-[#EF1C26] font-bold my-3" />
         <div className="w-full">
           <Swiper
             slidesPerView={1}

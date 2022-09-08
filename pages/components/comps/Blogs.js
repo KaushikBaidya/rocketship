@@ -43,7 +43,7 @@ const Blogs = () => {
             return (
               <div
                 key={item.id}
-                className="w-full bg-blue-100 flex flex-col justify-between items-center rounded-lg overflow-hidden h-full hover:drop-shadow-lg "
+                className="w-full bg-purple-100 flex flex-col justify-between items-center rounded-lg overflow-hidden h-full hover:drop-shadow-lg "
               >
                 <div className="rounded-lg overflow-hidden">
                   <Image
@@ -54,11 +54,11 @@ const Blogs = () => {
                     alt=""
                   />
                 </div>
-                <div className="bg-blue-100 flex flex-col items-start ">
-                  <p className="bg-blue-300 text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5">
+                <div className="bg-purple-100 flex flex-col items-start ">
+                  <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
                     {item.date}
                   </p>
-                  <h2 className="text-[#0055CE] font-bold text-base lg:text-2xl p-5">
+                  <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
                     {item.title}
                   </h2>
                   <p className="text-justify font-light text-base lg:text-lg px-5 pb-5">
