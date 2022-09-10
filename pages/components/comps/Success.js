@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper";
+import "swiper/css";
+import SwiperCore from "swiper";
 
 const Success = () => {
   const data = [
@@ -20,20 +24,43 @@ const Success = () => {
           <h2 className="text-[24px] text-[#211A56] font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
             “View our success stories”
           </h2>
-          <h3 className="text-lg text-[#EF1C26] text-center mx-28">
+          <h3 className="text-lg text-[#EF1C26] text-center mx-5 md:mx-28">
             Rocket Ship students got admitted admission to these schools
           </h3>
         </div>
         <div className="py-2">
-          <div className="max-w-6xl grid grid-cols-1 md:grid-cols-5 mx-auto px-5 gap-5 place-items-center ">
-            {/* <div className=" flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between "> */}
-            {data.map((item) => (
-              <div key={item.id} className="p-5">
-                <Image src={item.img} width={90} height={70} alt="" />
-              </div>
-            ))}
+          <div className="max-w-[1300px] mx-auto px-10">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                540: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 5,
+                  spaceBetween: 30,
+                },
+              }}
+            >
+              {data.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className="grid grid-cols-1 content-center justify-items-center w-full h-56 bg-cover gap-y-10">
+                    <Image src={item.img} width={100} height={70} alt="" />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-          {/* </div> */}
         </div>
       </div>
     </section>

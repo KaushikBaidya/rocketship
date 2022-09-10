@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import teacher from "../../../public/teacher.svg";
-import essay from "../../../public/essay.svg";
-import finance from "../../../public/finance.svg";
-import test from "../../../public/test.svg";
+import teacher from "../../../public/service/3.png";
+import essay from "../../../public/service/1.png";
+import finance from "../../../public/service/4.png";
+import test from "../../../public/service/2.png";
 
 const OurPrograms = () => {
   return (
@@ -18,7 +18,7 @@ const OurPrograms = () => {
           <div className="max-w-6xl grid grid-cols-1 md:grid-cols-4 mx-auto px-5 gap-5">
             <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
               <div className="p-5">
-                <Image src={teacher} width={250} height={150} alt="" />
+                <Image src={teacher} width={200} height={150} alt="" />
               </div>
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 College Admissions Counseling
@@ -31,7 +31,7 @@ const OurPrograms = () => {
             </div>
             <div className="bg-purple-100 flex flex-col items-center h-full py-5 rounded-xl hover:drop-shadow-lg justify-between ">
               <div className="p-5">
-                <Image src={essay} width={250} height={150} alt="" />
+                <Image src={essay} width={170} height={150} alt="" />
               </div>
               <h2 className="text-center text-[#211A56] font-bold text-xl p-3">
                 Essay Editing Services
@@ -60,7 +60,7 @@ const OurPrograms = () => {
                 <Image src={test} width={250} height={150} alt="" />
               </div>
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
-                Test Prep
+                Test Preparation
               </h2>
               <Link href="/pages/service/services">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
