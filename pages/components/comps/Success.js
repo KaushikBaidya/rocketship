@@ -21,8 +21,8 @@ const Success = () => {
     <section className="min-h-full py-14">
       <div className="h-full grid grid-cols-1 content-center">
         <div className="max-w-2xl mx-auto pb-5">
-          <h2 className="text-[24px] text-[#211A56] font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
-            “View our success stories”
+          <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+            “our success stories”
           </h2>
           <h3 className="text-lg text-[#EF1C26] text-center mx-5 md:mx-28">
             Rocket Ship students got admitted admission to these schools
@@ -55,7 +55,7 @@ const Success = () => {
               {data.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className="grid grid-cols-1 content-center justify-items-center w-full h-56 bg-cover gap-y-10">
-                    <Image src={item.img} width={100} height={70} alt="" />
+                    <Image src={item.img} width={100} height={65} alt="" />
                   </div>
                 </SwiperSlide>
               ))}

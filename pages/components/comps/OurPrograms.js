@@ -10,7 +10,7 @@ const OurPrograms = () => {
     <section className="min-h-full pb-14">
       <div className="h-full grid grid-cols-1 content-center">
         <div className="max-w-2xl mx-auto pb-5">
-          <h2 className="text-[24px] text-[#211A56] font-bold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+          <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
             Our Services
           </h2>
         </div>

@@ -35,7 +35,7 @@ const Testimonial = () => {
   return (
     <section>
       <div className="w-full grid grid-cols-1 justify-items-center content-center my-14">
-        <h2 className="text-2xl lg:text-5xl text-[#211A56] font-bold my-3">
+        <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
           Testimonials
         </h2>
         <FaQuoteRight className="text-3xl text-[#EF1C26] font-bold my-3" />
