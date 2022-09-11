@@ -24,14 +24,14 @@ const Testimonial = () => {
         "I had no idea how to get the whole process started and rocketship mentors were great when it came to helping me leverage my sporting and academic credentials and shaping my essay.",
     },
     {
-      id: "2",
+      id: "3",
       img: "/student3.jpg",
       name: "Jenefer",
       quote:
         "I had no idea how to get the whole process started and rocketship mentors were great when it came to helping me leverage my sporting and academic credentials and shaping my essay.",
     },
   ];
-  console.log(data);
+  // console.log(data);
   return (
     <section>
       <div className="w-full grid grid-cols-1 justify-items-center content-center my-14">
@@ -42,10 +42,10 @@ const Testimonial = () => {
         <div className="w-full">
           <Swiper
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={30}
+            loop={true}
             autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
+              delay: 5000,
             }}
           >
             {data.map((item) => {

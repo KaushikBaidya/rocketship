@@ -6,10 +6,15 @@ import OurPrograms from "./components/comps/OurPrograms";
 import Testimonial from "./components/comps/Testimonial";
 import Achievements from "./components/comps/Achievements";
 import Success from "./components/comps/Success";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>RocketShip Education</title>
+        <meta property="og:title" content="RocketShip Education" key="title" />
+      </Head>
       <Hero />
       <Success />
       <OurPrograms />
