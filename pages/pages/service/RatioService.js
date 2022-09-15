@@ -2,7 +2,7 @@ import React from "react";
 
 const RatioService = () => {
   return (
-    <section className="max-w-5xl mx-auto py-10 text-center bg-white">
+    <section className="max-w-5xl mx-auto py-10 text-center">
       <div className=" grid grid-cols-1 lg:grid-cols-3 place-items-center py-10">
         <div className="text-center flex flex-wrap items-center justify-center gap-5">
           <div className="bg-yellow-200 w-44 h-44 rounded-full flex items-center justify-center">

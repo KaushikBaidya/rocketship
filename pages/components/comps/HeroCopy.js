@@ -4,9 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import SwiperCore from "swiper";
+// import SwiperCore from "swiper";
+import SlideOne from "./SlideOne";
+import SlideTwo from "./SlideTwo";
+import SlideThree from "./SlideThree";
 
-SwiperCore.use([Pagination, Autoplay]);
+// SwiperCore.use([Pagination, Autoplay]);
 
 const Hero = () => {
   const data = [
@@ -16,8 +19,8 @@ const Hero = () => {
     { id: 3, img: "/service/2.png" },
   ];
   return (
-    <main className="h-[700px]">
-      <div className="text-[#211A56] lg:px-24 py-28 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
+    <main className="h-[700px] py-28">
+      {/* <div className="text-[#211A56] lg:px-24 py-28 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
         <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-5xl font-bold ">
           <div>
             <h1 className="text-left">
@@ -70,7 +73,28 @@ const Hero = () => {
             })}
           </Swiper>
         </div>
-      </div>
+      </div> */}
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        // direction={"vertical"}
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 4000,
+        }}
+      >
+        <SwiperSlide>
+          <SlideOne />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SlideTwo />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SlideThree />
+        </SwiperSlide>
+      </Swiper>
     </main>
   );
 };

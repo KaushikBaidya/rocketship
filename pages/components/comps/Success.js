@@ -4,6 +4,8 @@ import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import SwiperCore from "swiper";
 
+SwiperCore.use([Pagination, Autoplay]);
+
 const Success = () => {
   const data = [
     { id: "0", img: "/schools/Berkeley.png" },
@@ -33,10 +35,9 @@ const Success = () => {
             <Swiper
               slidesPerView={1}
               spaceBetween={10}
-              loop={true}
               autoplay={{
                 delay: 3000,
-                // disableOnInteraction: false,
+                disableOnInteraction: false,
               }}
               breakpoints={{
                 540: {

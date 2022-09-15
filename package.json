@@ -14,7 +14,6 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-simple-typewriter": "^3.0.1",
-    "react-type-animation": "^2.1.1",
     "swiper": "^8.3.2",
     "typewriter-effect": "^2.19.0"
   },

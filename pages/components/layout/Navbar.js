@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link href="/">
-            <div className="w-20 mx-5 ">
+            <div className="w-20 mx-5 cursor-pointer ">
               <Image
                 src={logoPic}
                 width={100}
@@ -81,7 +81,7 @@ export default function Navbar() {
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Contact</a>
               </Link>
             </li>
-            <li className="px-4 py-2 bg-red-400 font-medium uppercase mx-2 rounded-full hover:bg-red-700 text-white text-center">
+            <li className="px-4 py-2 bg-red-400 font-medium mx-2 rounded-full hover:bg-red-700 text-white text-center">
               <Link href="/">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>
                   Book A Free Consult
