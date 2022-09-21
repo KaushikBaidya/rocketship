@@ -25,8 +25,8 @@ const HeroService = () => {
             Read More
           </button> */}
         </div>
-        <div className="hidden lg:flex items-center justify-center">
-          <div className="w-[500px]">
+        <div className="flex items-center justify-center mx-5">
+          <div className="max-w-[500px]">
             <Image src={advice} alt="" />
           </div>
         </div>
