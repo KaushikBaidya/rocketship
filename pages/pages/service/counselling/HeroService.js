@@ -1,5 +1,5 @@
 import Image from "next/image";
-import advice from "../../../public/gallery/advice.jpg";
+import advice from "../../../../public/gallery/advice.jpg";
 
 const HeroService = () => {
   return (
