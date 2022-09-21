@@ -7,20 +7,21 @@ const DetailsService = () => {
     {
       id: 0,
       img: "/service/1.png",
-      title: "College Admissions Counseling ",
-      des: "Work with our expert nursing school admissions consultants to fine-tune every detail of your NursingCAS application. Our experts advise you on every aspect of your BSN application including school selection, crafting the perfect essays, applying for the right scholarships, interview prep, and more.",
+      title: "Individualized, growth-oriented coaching ",
+      des: "The college application can be better understood as the culmination of the growth a student will experience in high school. Prepory aims towards long-term outcomes that maximize student success, both academically and personally.",
     },
     {
       id: 1,
       img: "/service/1.png",
-      title: "Essay Editing Services ",
-      des: "Work with our expert nursing school admissions consultants to fine-tune every detail of your NursingCAS application. Our experts advise you on every aspect of your BSN application including school selection, crafting the perfect essays, applying for the right scholarships, interview prep, and more.",
+      title:
+        "Mentorship from the nation's most impressive college admissions team",
+      des: "College admissions coaches hail from the nation’s top colleges and universities, including Harvard, Duke, and Columbia. When you work with our team, you receive the most strategic college guidance with a personable and professional touch. Our coaches are relatable, approachable, and invested in your success.",
     },
     {
       id: 2,
       img: "/service/1.png",
-      title: "Financial Planning Assistance",
-      des: "Work with our expert nursing school admissions consultants to fine-tune every detail of your NursingCAS application. Our experts advise you on every aspect of your BSN application including school selection, crafting the perfect essays, applying for the right scholarships, interview prep, and more.",
+      title: "Best technology and curriculum in the industry",
+      des: "Colleges want to learn about who you are in your college application. Our student-centric curriculum developed by former admissions officers and college admissions strategists builds the self-awareness high school students need to leverage their strengths and showcase their talents in their college application.",
     },
   ];
   return (
@@ -32,18 +33,18 @@ const DetailsService = () => {
             key={item.id}
             className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-10 lg:py-10"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 px-6 gap-x-6 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 px-6 gap-x-6 items-center">
               <div
                 className={
                   item.id % 2 === 0
-                    ? "order-1 flex items-center justify-center"
-                    : "order-2 flex items-center justify-center"
+                    ? "order-1 flex items-center justify-center col-span-1"
+                    : "order-2 flex items-center justify-center col-span-1"
                 }
               >
                 <Image
                   src={item.img}
-                  width={350}
-                  height={350}
+                  width={250}
+                  height={250}
                   className="rounded p-5 lg:p-12"
                   alt=""
                 />
@@ -51,8 +52,8 @@ const DetailsService = () => {
               <div
                 className={
                   item.id % 2 === 0
-                    ? "order-2 text-black text-lg md:text-3xl"
-                    : "order-1 text-black text-lg md:text-3xl"
+                    ? "order-2 text-black text-lg md:text-3xl col-span-2"
+                    : "order-1 text-black text-lg md:text-3xl col-span-2"
                 }
               >
                 <h1 className="my-5">{item.title}</h1>
