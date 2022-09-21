@@ -14,7 +14,7 @@ const HeroService = () => {
           <h1 className="text-3xl lg:text-5xl py-5 ">
             Best Counseling Service for College Admission.
           </h1>
-          <h2 className="text-[16px] lg:text-xl py-5">
+          <h2 className="text-[16px] text-justify lg:text-xl py-5">
             Our start-to-finish BSN program consulting is meant to supercharge
             your ability to get accepted at the country’s most competitive
             nursing school programs. We tailor every aspect of your application
