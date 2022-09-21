@@ -36,7 +36,7 @@ const OurPrograms = () => {
               <h2 className="text-center text-[#211A56] font-bold text-xl p-3">
                 Essay Editing Services
               </h2>
-              <Link href="/pages/service/services">
+              <Link href="/pages/service/essay/essay">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
                   Learn More
                 </button>

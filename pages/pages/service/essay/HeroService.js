@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Service from "../../../../public/service/3.png";
+import advice from "../../../../public/gallery/advice.jpg";
 
 const HeroService = () => {
   return (
@@ -12,7 +12,7 @@ const HeroService = () => {
       <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 h-full py-28 mx-auto mt-14 z-10">
         <div className="mx-5 lg:mx-20 text-center lg:text-left z-10">
           <h1 className="text-3xl lg:text-5xl text-[#211A53] py-5 ">
-            Best Counseling Service for College Admission.
+            Essay Editing Services for College Admission.
           </h1>
           <h2 className="text-[16px] text-justify lg:text-xl py-5">
             Our start-to-finish BSN program consulting is meant to supercharge
@@ -24,7 +24,7 @@ const HeroService = () => {
         </div>
         <div className="flex items-center justify-center mx-5">
           <div className="max-w-[500px]">
-            <Image src={Service} alt="" />
+            <Image src={advice} alt="" />
           </div>
         </div>
       </div>
