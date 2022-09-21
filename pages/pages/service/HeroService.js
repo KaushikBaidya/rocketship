@@ -21,9 +21,9 @@ const HeroService = () => {
             to ensure the best quality right from your personal statement to
             your interview.
           </h2>
-          <button className="px-8 py-4 bg-[#201B53] hover:bg-[#6a61d2] rounded-3xl text-white my-5">
+          {/* <button className="px-8 py-4 bg-[#201B53] hover:bg-[#6a61d2] rounded-3xl text-white my-5">
             Read More
-          </button>
+          </button> */}
         </div>
         <div className="hidden lg:flex items-center justify-center">
           <div className="w-[500px]">
