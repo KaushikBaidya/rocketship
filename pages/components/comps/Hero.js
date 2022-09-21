@@ -16,33 +16,33 @@ const Hero = () => {
     { id: 3, img: "/service/2.png" },
   ];
   return (
-    <main className="h-[700px]">
-      <div className="text-[#211A56] lg:px-24 py-28 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
-        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-5xl font-bold ">
+    <main className="h-[700px] py-20 md:py-0">
+      <div className="text-[#211A56] lg:px-24 py-20 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
+        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-2xl lg:text-5xl font-bold">
           <div>
-            <h1 className="text-left">
+            <h1 className="text-center md:text-left">
               We will help you with your -{" "}
-              <Typewriter
-                options={{
-                  strings: [
-                    "Admission Counseling",
-                    "Essay Editing",
-                    "Financial Planning",
-                    "Test Preparation",
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  skipAddStyles: true,
-                }}
-              />
             </h1>
+            <Typewriter
+              options={{
+                strings: [
+                  "Admission Counseling",
+                  "Essay Editing",
+                  "Financial Planning",
+                  "Test Preparation",
+                ],
+                autoStart: true,
+                loop: true,
+                skipAddStyles: true,
+              }}
+            />
           </div>
 
           <button className="text-lg bg-[#EF1C26] p-4 rounded-full text-white font-semibold">
             Book a Free Consult
           </button>
         </div>
-        <div className="w-full">
+        <div className="w-full px-5">
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
