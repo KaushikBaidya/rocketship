@@ -9,7 +9,7 @@ const HeroService = () => {
         <div className="bg-green-200 w-28 h-28 rounded-full absolute top-28 right-24"></div>
         <div className="bg-red-200 w-16 h-16 rounded-full absolute top-36 left-96"></div>
       </div>
-      <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 h-full pt-28 pb-5 mx-auto z-10">
+      <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 h-full py-28 mx-auto mt-14 z-10">
         <div className="mx-5 lg:mx-20 text-center lg:text-left z-10">
           <h1 className="text-3xl lg:text-5xl text-[#211A53] py-5 ">
             Best Counseling Service for College Admission.

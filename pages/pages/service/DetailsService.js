@@ -25,13 +25,18 @@ const DetailsService = () => {
     },
   ];
   return (
-    <>
+    <div>
+      <div className="max-w-2xl mx-auto pt-10">
+        <h1 className="text-[24px] text-[#211A56] font-semibold lg:text-[30px] text-center px-5 uppercase tracking-wider">
+          Innovative Approach to College Counseling
+        </h1>
+      </div>
       {data.length > 0 &&
         data.map((item) => (
           // <Feature key={index.toString()} data={data} />
           <div
             key={item.id}
-            className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-10 lg:py-10"
+            className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-2 lg:py-4"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 px-6 gap-x-6 items-center">
               <div
@@ -52,8 +57,8 @@ const DetailsService = () => {
               <div
                 className={
                   item.id % 2 === 0
-                    ? "order-2 text-black text-lg md:text-3xl col-span-2"
-                    : "order-1 text-black text-lg md:text-3xl col-span-2"
+                    ? "order-2 text-black text-lg md:text-2xl col-span-2"
+                    : "order-1 text-black text-lg md:text-2xl col-span-2"
                 }
               >
                 <h1 className="my-5">{item.title}</h1>
@@ -62,7 +67,7 @@ const DetailsService = () => {
             </div>
           </div>
         ))}
-    </>
+    </div>
   );
 };
 
