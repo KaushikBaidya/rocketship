@@ -23,7 +23,7 @@ export default function Navbar() {
     <>
       <div
         className={
-          "fixed w-full xl:max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between z-10 py-2 " +
+          "fixed w-full xl:max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between z-50 py-2 " +
           (bgColor
             ? "bg-[#ffffffeb] backdrop-blur-sm text-[#211A54] shadow-sm transition duration-200 ease-in"
             : "bg-[#ffffffe7] backdrop-blur-sm text-black lg:bg-transparent ")
@@ -81,7 +81,7 @@ export default function Navbar() {
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Contact</a>
               </Link>
             </li>
-            <li className="px-4 py-2 bg-red-400 font-medium mx-2 rounded-full hover:bg-red-700 text-white text-center">
+            <li className="px-4 py-2 bg-red-400 font-medium mx-2 rounded-full hover:bg-[#F01C28] text-white text-center">
               <Link href="/">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>
                   Book A Free Consult
