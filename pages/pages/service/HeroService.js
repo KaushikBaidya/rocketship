@@ -3,7 +3,7 @@ import advice from "../../../public/gallery/advice.jpg";
 
 const HeroService = () => {
   return (
-    <section className=" w-full">
+    <section className="w-full">
       <div className="hidden lg:flex relative">
         <div className="bg-yellow-200 w-40 h-40 rounded-full absolute top-36 left-20 "></div>
         <div className="bg-green-200 w-28 h-28 rounded-full absolute top-28 right-24"></div>
