@@ -7,28 +7,27 @@ const DetailsService = () => {
     {
       id: 0,
       img: "/service/1.png",
-      title: "Individualized, growth-oriented coaching ",
-      des: "The college application can be better understood as the culmination of the growth a student will experience in high school. Prepory aims towards long-term outcomes that maximize student success, both academically and personally.",
+      title: "STEP 1: Application ",
+      des: "Fill out a free application (FAFSA). The federal processor calculates your Expected Family Contribution (EFC). Student will be emailed a Student Aid Report (SAR). File the FAFSA and verification documents (if required).",
     },
     {
       id: 1,
       img: "/service/1.png",
-      title:
-        "Mentorship from the nation's most impressive college admissions team",
-      des: "College admissions coaches hail from the nation’s top colleges and universities, including Harvard, Duke, and Columbia. When you work with our team, you receive the most strategic college guidance with a personable and professional touch. Our coaches are relatable, approachable, and invested in your success.",
+      title: "STEP 2: Verification",
+      des: "The Financial Aid office receives your FAFSA application. Students who are selected will receive an email from the Department of Education. Student completes verification process.",
     },
     {
       id: 2,
       img: "/service/1.png",
-      title: "Best technology and curriculum in the industry",
-      des: "Colleges want to learn about who you are in your college application. Our student-centric curriculum developed by former admissions officers and college admissions strategists builds the self-awareness high school students need to leverage their strengths and showcase their talents in their college application.",
+      title: "STEP 3: Award",
+      des: "Student must be accepted into chosen degree program. Eligibility for financial aid is determined. Eligible student aid recipients will receive an email notification from the University that their aid application has been processed. Financial aid is disbursed.",
     },
   ];
   return (
     <div>
       <div className="max-w-2xl mx-auto pt-10">
         <h1 className="text-[24px] text-[#211A56] font-semibold lg:text-[30px] text-center px-5 uppercase tracking-wider">
-          Innovative Approach to College Counseling
+          How to Apply for Financial Aid
         </h1>
       </div>
       {data.length > 0 &&
