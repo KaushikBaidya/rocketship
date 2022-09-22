@@ -6,19 +6,19 @@ const DetailsService = () => {
   const data = [
     {
       id: 0,
-      img: "/service/1.png",
+      img: "/service/4.png",
       title: "STEP 1: Application ",
       des: "Fill out a free application (FAFSA). The federal processor calculates your Expected Family Contribution (EFC). Student will be emailed a Student Aid Report (SAR). File the FAFSA and verification documents (if required).",
     },
     {
       id: 1,
-      img: "/service/1.png",
+      img: "/service/4.png",
       title: "STEP 2: Verification",
       des: "The Financial Aid office receives your FAFSA application. Students who are selected will receive an email from the Department of Education. Student completes verification process.",
     },
     {
       id: 2,
-      img: "/service/1.png",
+      img: "/service/4.png",
       title: "STEP 3: Award",
       des: "Student must be accepted into chosen degree program. Eligibility for financial aid is determined. Eligible student aid recipients will receive an email notification from the University that their aid application has been processed. Financial aid is disbursed.",
     },
@@ -47,7 +47,7 @@ const DetailsService = () => {
               >
                 <Image
                   src={item.img}
-                  width={250}
+                  width={350}
                   height={250}
                   className="rounded p-5 lg:p-12"
                   alt=""

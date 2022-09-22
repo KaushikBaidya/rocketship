@@ -48,7 +48,7 @@ const DetailsService = () => {
               >
                 <Image
                   src={item.img}
-                  width={250}
+                  width={350}
                   height={250}
                   className="rounded p-5 lg:p-12"
                   alt=""
