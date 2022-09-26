@@ -2,12 +2,30 @@
 * {
   font-family: "Josefin Sans", sans-serif;
 }
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .Typewriter {
-  display: inline;
+  /* display: inline; */
   color: red;
+}
+.card {
+  @apply grid grid-cols-1 place-self-center bg-white rounded-lg shadow-sm break-words p-5;
+}
+.list-wrapper {
+  @apply border-green-100 grid grid-cols-1 space-y-1 text-xs;
+}
+.list-header {
+  @apply hidden bg-gray-200 text-base p-3 rounded-t-md;
+}
+.list-body-def {
+  @apply odd:bg-gray-100 even:bg-gray-100 hover:bg-[#907ce9]  hover:text-white;
+}
+
+.list-body {
+  @apply py-3 px-3 text-base list-body-def;
+}
+.list-footer {
+  @apply bg-gray-300 rounded-b-md p-3 mt-2;
 }

@@ -13,9 +13,6 @@ module.exports = {
       backgroundImage: {
         sbanner: "url('/sbanner.jpg')",
       },
-      fontFamily: {
-        body: ["Montserrat"],
-      },
     },
   },
   plugins: [],
