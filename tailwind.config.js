@@ -10,6 +10,7 @@ module.exports = {
         "3xl": "1920PX",
         // print: { raw: "print" },
       },
+
       backgroundImage: {
         sbanner: "url('/sbanner.jpg')",
       },

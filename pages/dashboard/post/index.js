@@ -9,10 +9,23 @@ import TopHeader from "../../../components/dashboard/TopHeader";
 
 export default function Add() {
   const list = {
-    data: [{ id: 0, title: "blog" }],
+    data: [
+      { id: 0, title: "blog" },
+      { id: 1, title: "blog" },
+      { id: 2, title: "blog" },
+      { id: 3, title: "blog" },
+      { id: 4, title: "blog" },
+      { id: 5, title: "blog" },
+      { id: 6, title: "blog" },
+      { id: 7, title: "blog" },
+      { id: 8, title: "blog" },
+      { id: 9, title: "blog" },
+      { id: 10, title: "blog" },
+      { id: 11, title: "blog" },
+    ],
   };
   return (
-    <div className="card w-full max-w-screen-xl">
+    <div className="card w-full">
       <TopHeader
         title="Blogs List"
         btn="Save"

@@ -1,9 +1,9 @@
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
-import LeftNavbar from "../components/dashboard/LeftNavbar";
 import Header from "../components/dashboard/Header";
 import { useRouter } from "next/router";
 import "../styles/globals.css";
+import SideBar from "../components/dashboard/SideBar";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -16,12 +16,18 @@ function MyApp({ Component, pageProps }) {
           <Footer />
         </>
       ) : (
-        <div>
-          <LeftNavbar />
-          <Header />
-          <div className="flex flex-wrap ml-[200px] px-4">
-            <div className="w-full">
-              <Component {...pageProps} />
+        <div className="w-screen h-screen overflow-hidden">
+          <div className="grid lg:grid-cols-layout w-full h-screen max-w-screen-3xl mx-auto">
+            <div className="hidden lg:block">
+              <SideBar />
+            </div>
+            <div className="grid grid-rows-twoRows w-full h-screen overflow-hidden ">
+              <Header />
+              <div className="overflow-y-auto">
+                <div className="grid grid-cols-1 lg:ml-[200px]">
+                  <Component {...pageProps} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

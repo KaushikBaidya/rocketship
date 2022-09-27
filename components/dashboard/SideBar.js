@@ -5,7 +5,7 @@ import { AiFillDashboard, AiFillFileAdd } from "react-icons/ai";
 
 import logoPic from "../../public/logo.png";
 
-function LeftNavbar() {
+function SideBar() {
   return (
     <div className="fixed w-[200px] h-full bg-gray-100 drop-shadow-md ">
       <div className="flex justify-center p-3">
@@ -31,4 +31,4 @@ function LeftNavbar() {
   );
 }
 
-export default LeftNavbar;
+export default SideBar;

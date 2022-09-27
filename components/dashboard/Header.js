@@ -1,9 +1,9 @@
-import Image from "next/image";
 import React from "react";
+import { AiOutlineBars } from "react-icons/ai";
 
 function Header() {
   return (
-    <div className="flex flex-wrap h-20 bg-purple-100 ml-[200px] ">
+    <div className="flex flex-wrap h-20 bg-purple-100 lg:ml-[200px]">
       <div className="flex justify-evenly items-center ">
         <div className="ml-[40px] ">
           <h2 className="text-xl">
@@ -11,8 +11,8 @@ function Header() {
           </h2>
           <p>welcome to the board.</p>
         </div>
-        <div className="absolute right-5 ">
-          <p>Logout</p>
+        <div className="absolute right-5 block lg:hidden">
+          <AiOutlineBars size={30} />
         </div>
       </div>
     </div>

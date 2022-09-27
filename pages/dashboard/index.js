@@ -3,7 +3,7 @@ import React from "react";
 function Index() {
   return (
     <div className="w-full h-full m-5">
-      <h1 className="text-4xl text-center font-semibold ">This is dashboard</h1>
+      <h1 className="text-4xl font-semibold ">This is dashboard</h1>
     </div>
   );
 }
