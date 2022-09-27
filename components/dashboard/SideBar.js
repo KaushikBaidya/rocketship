@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDashboard, AiFillFileAdd } from "react-icons/ai";
 
 import logoPic from "../../public/logo.png";
 
 function SideBar() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="fixed w-[200px] h-full bg-gray-100 drop-shadow-md ">
       <div className="flex justify-center p-3">
@@ -19,7 +20,10 @@ function SideBar() {
               <a>Dashboard</a>
             </Link>
           </li>
-          <li className="flex items-center gap-1 ">
+          <li
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-1 "
+          >
             <AiFillFileAdd className="text-red-500 mb-1" />
             <Link href="/dashboard/post">
               <a>Post</a>

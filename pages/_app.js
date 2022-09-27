@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         </>
       ) : (
         <div className="w-screen h-screen overflow-hidden">
-          <div className="grid lg:grid-cols-layout w-full h-screen max-w-screen-3xl mx-auto">
+          <div className="grid w-full h-screen max-w-screen-3xl mx-auto">
             <div className="hidden lg:block">
               <SideBar />
             </div>
