@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       {router.pathname.split("/")[1] !== "dashboard" ? (
-        <>
+        <div className="max-w-screen-3xl mx-auto">
           <Navbar />
           <Component {...pageProps} />
           <Footer />
-        </>
+        </div>
       ) : (
         <div className="w-screen h-screen overflow-hidden">
           <div className="grid w-full h-screen max-w-screen-3xl mx-auto">

@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
+    <div className="mx-auto">
       <div
         className={
           "fixed w-full xl:max-w-screen-3xl mx-auto flex flex-wrap items-center justify-between z-50 py-2 " +
@@ -67,7 +67,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
-              <Link href="/pages/service/services">
+              <Link href="/service">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Services</a>
               </Link>
             </li>
@@ -91,6 +91,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }
