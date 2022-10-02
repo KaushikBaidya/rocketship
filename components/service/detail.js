@@ -37,7 +37,7 @@ const Detail = () => {
             key={item.id}
             className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-2 lg:py-4"
           >
-            <div className="grid grid-cols-1 md:grid-cols-6 px-6 gap-x-6 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-8 px-6 gap-x-6 items-center">
               <div className="order-1 flex items-center justify-center col-span-1">
                 <Image
                   src={item.img}
@@ -47,7 +47,7 @@ const Detail = () => {
                   alt=""
                 />
               </div>
-              <div className="order-2 text-black text-lg md:text-xl col-span-5">
+              <div className="order-2 text-black text-lg md:text-xl col-span-7">
                 <h1 className="my-5 font-semibold uppercase">{item.title}</h1>
                 <p className="text-lg">{item.des}</p>
               </div>
