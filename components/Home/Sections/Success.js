@@ -58,7 +58,9 @@ const Success = () => {
               {data.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div className="grid grid-cols-1 content-center justify-items-center w-full h-56 bg-cover gap-y-10">
-                    <Image src={item.img} width={100} height={65} alt="" />
+                    <div className="px-5">
+                      <Image src={item.img} width={110} height={75} alt="" />
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}
