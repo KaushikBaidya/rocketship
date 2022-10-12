@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt");
+
 import { getUserById, deleteUserById, createUser } from "../../../src/user";
 
 export default async function handler(req, res) {
@@ -18,8 +20,10 @@ export default async function handler(req, res) {
       break;
 
     case "POST":
-      const { name, password } = req.body;
-      result = await createUser(name, password);
+      const name = req.body.name;
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+      result = await createUser(name, hashedPassword);
       res.json({ ...result, message: `user with userId: ${name} created` });
       break;
 

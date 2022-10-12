@@ -1,4 +1,5 @@
 const mysql = require("mysql2/promise");
+const bcrypt = require("bcrypt");
 
 export default async function handler(req, res) {
   if (req.method === "POST") {

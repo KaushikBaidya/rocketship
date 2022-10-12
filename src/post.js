@@ -1,7 +1,7 @@
 const mysql = require("mysql2/promise");
 import mysqlConfig from "./db";
 
-const getUsers = async () => {
+const getPosts = async () => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
@@ -13,7 +13,7 @@ const getUsers = async () => {
   }
 };
 
-const getUserById = async (userId) => {
+const getPostById = async (postId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows] = await connection.execute(
@@ -50,8 +50,8 @@ const deleteUserById = async (userId) => {
 };
 
 const users = {
-  getUsers,
-  getUserById,
+  getUsers: getPosts,
+  getUserById: getpostById,
   createUser,
   deleteUserById,
 };
