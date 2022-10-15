@@ -1,4 +1,4 @@
-import { getUsers } from "../../src/user";
+import { getUsers } from "../../data/user";
 
 export default async function handler(req, res) {
   const result = await getUsers();

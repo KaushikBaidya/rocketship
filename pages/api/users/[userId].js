@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-import { getUserById, deleteUserById, createUser } from "../../../src/user";
+import { getUserById, deleteUserById, createUser } from "../../../data/user";
 
 export default async function handler(req, res) {
   const userId = req.query.userId;
