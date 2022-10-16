@@ -1,5 +1,6 @@
 import React from "react";
-// import { useNavigate } from "react-router";
+import { useRouter } from "next/router";
+
 import {
   AiOutlinePlusCircle,
   AiOutlineInfoCircle,
@@ -7,7 +8,7 @@ import {
 } from "react-icons/ai";
 
 const TopHeader = ({ title, btn = "None", show = 0, path = "" }) => {
-  // const navigate = useNavigate();
+  const router = useRouter();
   return (
     <div className="flex justify-between px-0 py-2 items-center">
       <h1 className="text-xl lg:text-2xl font-bold lg:text-semibold text-gray-600 capitalize">
@@ -17,7 +18,7 @@ const TopHeader = ({ title, btn = "None", show = 0, path = "" }) => {
       {btn === "Save" && show === 0 && (
         <button
           className="btn-header btn-animation text-dark"
-          // onClick={() => navigate(path)}
+          onClick={() => router.push(path)}
         >
           <AiOutlinePlusCircle size={36} />
         </button>
@@ -25,7 +26,7 @@ const TopHeader = ({ title, btn = "None", show = 0, path = "" }) => {
       {btn === "Return" && show === 0 && (
         <button
           className="btn-header btn-animation text-danger"
-          // onClick={() => navigate(path)}
+          onClick={() => router.push(path)}
         >
           <AiOutlineCloseCircle size={36} />
         </button>
@@ -33,7 +34,7 @@ const TopHeader = ({ title, btn = "None", show = 0, path = "" }) => {
       {btn === "List" && show === 0 && (
         <button
           className="btn-header btn-animation text-dark"
-          // onClick={() => navigate(path)}
+          onClick={() => router.push(path)}
         >
           <AiOutlineInfoCircle size={36} />
         </button>

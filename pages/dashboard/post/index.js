@@ -1,55 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EditButton from "../../../components/dashboard/button/EditButton";
-import DeleteButton from "../../../components/dashboard/button/DeleteButton";
+// import DeleteButton from "../../../components/dashboard/button/DeleteButton";
 import {
   ListCol,
   ListHeader,
 } from "../../../components/dashboard/ListColWithHeader";
 import TopHeader from "../../../components/dashboard/TopHeader";
+import axios from "axios";
 
 export default function Add() {
-  const list = {
-    data: [
-      { id: 0, title: "blog" },
-      { id: 1, title: "blog" },
-      { id: 2, title: "blog" },
-      { id: 3, title: "blog" },
-      { id: 4, title: "blog" },
-      { id: 5, title: "blog" },
-      { id: 6, title: "blog" },
-      { id: 7, title: "blog" },
-      { id: 8, title: "blog" },
-      { id: 9, title: "blog" },
-      { id: 10, title: "blog" },
-      { id: 11, title: "blog" },
-    ],
+  const [data, setData] = useState();
+  const handleDelete = (blogId) => {
+    console.log(blogId);
+    const confirm = window.confirm("Are you wants to delete ?");
+    if (confirm) {
+      fetch(`/api/blogs/${blogId}`, {
+        method: "DELETE",
+      });
+      // const remaining = user.filter((data) => data._id !== id);
+      // setuser(remaining);
+    }
   };
+
+  useEffect(() => {
+    const handledata = async () => {
+      const result = await fetch(`/api/blogs`);
+      // console.log(result);
+      const data = await result.json();
+      // console.log(data);
+      setData(data);
+    };
+    handledata();
+  }, []);
+
+  // const handledata = async () => {
+  //   const result = await fetch(`/api/blogs`);
+  //   // console.log(result);
+  //   const data = await result.json();
+  //   console.log(data);
+  //   setData(data);
+  // };
+
   return (
     <div className="card w-full">
-      <TopHeader
-        title="Blogs List"
-        btn="Save"
-        path="/admin/settings/exam/add"
-      />
+      <TopHeader title="Blogs List" btn="Save" path="/dashboard/post/addBlog" />
+      {/* <button onClick={handledata}>Click Me</button> */}
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
           <ListHeader label="Title" />
           <ListHeader label="" />
         </div>
-        {list.data.length > 0 &&
-          list.data.map((item) => (
+        {data?.length > 0 &&
+          data.map((item) => (
             <div
-              key={item.id}
+              key={item.blogId}
               className="grid grid-cols-1 md:grid-cols-2 list-body"
             >
               <ListCol label="Title :" value={item.title} />
+              {/* <ListCol label="Title :" value={item.blogId} /> */}
               <div>
                 <div className="flex justify-end space-x-2">
-                  <EditButton path={`/admin/settings/exam/edit/${item.id}`} />
-                  <DeleteButton
+                  <EditButton path={`/dashboard/post/edit/${item.id}`} />
+                  {/* <DeleteButton
                     // action={refetch}
-                    path={`/exam/delete/${item.id}`}
-                  />
+                    path={`/api/blogs/deleteBlogById/${item.blogId}`}
+                  /> */}
+                  <button onClick={() => handleDelete(item.blogId)}>
+                    delete
+                  </button>
                 </div>
               </div>
             </div>
@@ -58,7 +76,7 @@ export default function Add() {
         <div className="list-footer">
           <div className="col-span-10"></div>
           <div className="flex justify-center">
-            <span className="font-semibold">TOTAL : {list.data.length}</span>
+            <span className="font-semibold">TOTAL : {data?.length}</span>
           </div>
         </div>
       </div>

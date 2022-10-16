@@ -1,11 +1,11 @@
 const mysql = require("mysql2/promise");
 import mysqlConfig from "./db";
 
-const getPosts = async () => {
+const getBlogs = async () => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      "SELECT * FROM `userTable`"
+      "SELECT * FROM `blogTable`"
     );
     return rows;
   } catch (e) {
@@ -13,11 +13,11 @@ const getPosts = async () => {
   }
 };
 
-const getPostById = async (postId) => {
+const getBlogById = async (blogId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows] = await connection.execute(
-      `SELECT * FROM userTable WHERE id=${userId}`
+      `SELECT * FROM blogTable WHERE id=${blogId}`
     );
     return rows;
   } catch (e) {
@@ -25,11 +25,11 @@ const getPostById = async (postId) => {
   }
 };
 
-const createUser = async (name, hashedPassword) => {
+const createBlog = async (title, description) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `INSERT INTO userTable ( user, password) VALUES ("${name}", "${hashedPassword}");`
+      `INSERT INTO blogTable ( title, description) VALUES ("${title}", "${description}");`
     );
     return rows;
   } catch (e) {
@@ -37,11 +37,12 @@ const createUser = async (name, hashedPassword) => {
   }
 };
 
-const deleteUserById = async (userId) => {
+const deleteBlogById = async (blogId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `DELETE FROM userTable WHERE id = ${userId};`
+      console.log("sporte")// `DELETE FROM blogTable WHERE blogId = ${blogId};`
+      `DELETE FROM blogTable WHERE blogTable.blogId = ${blogId}`
     );
     return rows;
   } catch (e) {
@@ -49,11 +50,11 @@ const deleteUserById = async (userId) => {
   }
 };
 
-const users = {
-  getUsers: getPosts,
-  getUserById: getpostById,
-  createUser,
-  deleteUserById,
+const blogs = {
+  getBlogs,
+  getBlogById,
+  createBlog,
+  deleteBlogById,
 };
 
-module.exports = users;
+module.exports = blogs;

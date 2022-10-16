@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 // import { useQueryClient } from "react-query";
 // import { useDeleteData } from "../../../hooks/dataApi";
@@ -7,25 +8,23 @@ import { FiTrash2 } from "react-icons/fi";
 // import { useDeleteData } from "../../hooks/dataApi";
 // import Modal from "../Modal";
 
-const DeleteButton = ({ _key, path }) => {
+const DeleteButton = ({ path }) => {
+  // console.log(_key, path);
   // const queryClient = useQueryClient();
   // const { mutateAsync } = useDeleteData();
   // const [open, setOpen] = useState(false);
 
-  // const deleteHandler = async () => {
-  //   await mutateAsync({
-  //     path: path,
-  //   });
-  //   queryClient.invalidateQueries(_key);
-  //   setOpen(false);
-  // };
+  const deleteHandler = async () => {
+    console.log(path);
+    await axios.delete(path).then(() => console.log("deleted"));
+  };
 
   return (
     <>
       <button
         className="btn-delete"
         onClick={() => {
-          setOpen(true);
+          deleteHandler();
         }}
       >
         <FiTrash2 />

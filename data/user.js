@@ -17,7 +17,7 @@ const getUserById = async (userId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows] = await connection.execute(
-      `SELECT * FROM userTable WHERE id=${userId}`
+      `SELECT * FROM userTable WHERE userId=${userId}`
     );
     return rows;
   } catch (e) {
@@ -41,7 +41,7 @@ const deleteUserById = async (userId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `DELETE FROM userTable WHERE id = ${userId};`
+      `DELETE FROM userTable WHERE userId = ${userId};`
     );
     return rows;
   } catch (e) {
