@@ -10,12 +10,13 @@ import axios from "axios";
 
 export default function Add() {
   const [data, setData] = useState();
+
   const handleDelete = (blogId) => {
     console.log(blogId);
     const confirm = window.confirm("Are you wants to delete ?");
     if (confirm) {
-      fetch(`/api/blogs/${blogId}`, {
-        method: "DELETE",
+      axios.delete(`/api/blogs/deleteBlogById/${blogId}`).then(() => {
+        console.log("deleted");
       });
       // const remaining = user.filter((data) => data._id !== id);
       // setuser(remaining);
