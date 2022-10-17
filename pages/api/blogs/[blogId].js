@@ -1,4 +1,9 @@
-import { getBlogById, deleteBlogById, createBlog } from "../../../data/blogs";
+import {
+  getBlogById,
+  deleteBlogById,
+  createBlog,
+  updateBlog,
+} from "../../../data/blogs";
 
 export default async function handler(req, res) {
   const blogId = req.query.blogId;
@@ -23,6 +28,14 @@ export default async function handler(req, res) {
 
       result = await createBlog(title, description);
       res.json({ ...result, message: `user with userId: ${title} created` });
+      break;
+
+    case "PUT":
+      const updateTitle = req.body.updateTitle;
+      const updateDescription = req.body.updateDescription;
+
+      result = await updateBlog(blogId, updateTitle, updateDescription);
+      res.json({ ...result, message: `blog with title: ${blogId} updated` });
       break;
 
     default:

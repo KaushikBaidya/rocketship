@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 // import { useHistory } from "react-router";
 
-const EditButton = ({ path }) => {
+const EditButton = ({ path, id }) => {
   const router = useRouter();
   // const history = useHistory();
   return (

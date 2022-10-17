@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EditButton from "../../../components/dashboard/button/EditButton";
-// import DeleteButton from "../../../components/dashboard/button/DeleteButton";
+import { useRouter } from "next/router";
 import {
   ListCol,
   ListHeader,
@@ -9,43 +9,33 @@ import TopHeader from "../../../components/dashboard/TopHeader";
 import axios from "axios";
 
 export default function Add() {
+  const router = useRouter();
   const [data, setData] = useState();
 
-  const handleDelete = (blogId) => {
-    console.log(blogId);
-    const confirm = window.confirm("Are you wants to delete ?");
+  const handleDelete = async (blogId) => {
+    const confirm = window.confirm("Do you want to delete this?");
     if (confirm) {
-      axios.delete(`/api/blogs/deleteBlogById/${blogId}`).then(() => {
+      await axios.delete(`/api/blogs/${blogId}`).then(() => {
         console.log("deleted");
       });
-      // const remaining = user.filter((data) => data._id !== id);
-      // setuser(remaining);
+      const remaining = data.filter((item) => item.blogId !== blogId);
+      setData(remaining);
     }
   };
 
   useEffect(() => {
     const handledata = async () => {
       const result = await fetch(`/api/blogs`);
-      // console.log(result);
       const data = await result.json();
-      // console.log(data);
       setData(data);
     };
     handledata();
   }, []);
 
-  // const handledata = async () => {
-  //   const result = await fetch(`/api/blogs`);
-  //   // console.log(result);
-  //   const data = await result.json();
-  //   console.log(data);
-  //   setData(data);
-  // };
-
   return (
     <div className="card w-full">
       <TopHeader title="Blogs List" btn="Save" path="/dashboard/post/addBlog" />
-      {/* <button onClick={handledata}>Click Me</button> */}
+
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
           <ListHeader label="Title" />
@@ -58,14 +48,10 @@ export default function Add() {
               className="grid grid-cols-1 md:grid-cols-2 list-body"
             >
               <ListCol label="Title :" value={item.title} />
-              {/* <ListCol label="Title :" value={item.blogId} /> */}
               <div>
                 <div className="flex justify-end space-x-2">
-                  <EditButton path={`/dashboard/post/edit/${item.id}`} />
-                  {/* <DeleteButton
-                    // action={refetch}
-                    path={`/api/blogs/deleteBlogById/${item.blogId}`}
-                  /> */}
+                  <EditButton path={`/dashboard/post/edit/${item.blogId}`} />
+
                   <button onClick={() => handleDelete(item.blogId)}>
                     delete
                   </button>
