@@ -7,7 +7,6 @@ import {
 
 export default async function handler(req, res) {
   const blogId = req.query.blogId;
-
   const method = req.method;
 
   let result;
@@ -31,8 +30,8 @@ export default async function handler(req, res) {
       break;
 
     case "PUT":
-      const updateTitle = req.body.updateTitle;
-      const updateDescription = req.body.updateDescription;
+      const updateTitle = req.body.title;
+      const updateDescription = req.body.description;
 
       result = await updateBlog(blogId, updateTitle, updateDescription);
       res.json({ ...result, message: `blog with title: ${blogId} updated` });

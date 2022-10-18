@@ -17,7 +17,7 @@ const getBlogById = async (blogId) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows] = await connection.execute(
-      `SELECT * FROM blogTable WHERE blogId=${blogId}`
+      `SELECT * FROM blogTable WHERE blogId = ${blogId}`
     );
     return rows;
   } catch (e) {
