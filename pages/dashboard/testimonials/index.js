@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EditButton from "../../../components/dashboard/button/EditButton";
-
+import { useRouter } from "next/router";
 import {
   ListCol,
   ListHeader,
@@ -9,22 +9,23 @@ import TopHeader from "../../../components/dashboard/TopHeader";
 import axios from "axios";
 
 export default function Add() {
+  const router = useRouter();
   const [data, setData] = useState();
 
-  const handleDelete = async (serviceId) => {
+  const handleDelete = async (testimonialId) => {
     const confirm = window.confirm("Do you want to delete this?");
     if (confirm) {
-      await axios.delete(`/api/services/${serviceId}`).then(() => {
+      await axios.delete(`/api/testimonials/${testimonialId}`).then(() => {
         console.log("deleted");
       });
-      const remaining = data.filter((item) => item.serviceId !== serviceId);
+      const remaining = data.filter((item) => item.testimonialId !== testimonialId);
       setData(remaining);
     }
   };
 
   useEffect(() => {
     const handledata = async () => {
-      const result = await fetch(`/api/services`);
+      const result = await fetch(`/api/testimonials`);
       const data = await result.json();
       setData(data);
     };
@@ -33,11 +34,7 @@ export default function Add() {
 
   return (
     <div className="card w-full">
-      <TopHeader
-        title="Services List"
-        btn="Save"
-        path="/dashboard/service/addService"
-      />
+      <TopHeader title="Testimonial List" btn="Save" path="/dashboard/testimonials/addTestimonial" />
 
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
@@ -47,17 +44,15 @@ export default function Add() {
         {data?.length > 0 &&
           data.map((item) => (
             <div
-              key={item.serviceId}
+              key={item.testimonialId}
               className="grid grid-cols-1 md:grid-cols-2 list-body"
             >
               <ListCol label="Title :" value={item.title} />
               <div>
                 <div className="flex justify-end space-x-2">
-                  <EditButton
-                    path={`/dashboard/service/edit/${item.serviceId}`}
-                  />
+                  <EditButton path={`/dashboard/testimonials/edit/${item.testimonialId}`} />
 
-                  <button onClick={() => handleDelete(item.serviceId)}>
+                  <button onClick={() => handleDelete(item.testimonialId)}>
                     delete
                   </button>
                 </div>

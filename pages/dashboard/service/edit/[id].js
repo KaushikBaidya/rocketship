@@ -13,10 +13,10 @@ function Details() {
   const router = useRouter();
   const { id } = router.query;
 
-  const handleSubmit = async (blogId) => {
-    console.log(blogId);
+  const handleSubmit = async (serviceId) => {
+    console.log(serviceId);
     await axios
-      .put(`/api/blogs/${blogId}`, {
+      .put(`/api/services/${serviceId}`, {
         title: updatedTitle,
         description: updatedDescription,
       })
@@ -31,7 +31,7 @@ function Details() {
 
   useEffect(() => {
     const handleData = async () => {
-      const result = await axios.get(`/api/blogs/${id}`);
+      const result = await axios.get(`/api/services/${id}`);
       // console.log(result.data[0]);
       setData(result.data[0]);
     };
@@ -43,7 +43,11 @@ function Details() {
 
   return (
     <div className="card w-full max-w-screen-xl">
-      <TopHeader title="Edit Blog Post" btn="Return" path="/dashboard/post" />
+      <TopHeader
+        title="Edit Blog Post"
+        btn="Return"
+        path="/dashboard/service"
+      />
 
       <div>
         <form>
@@ -60,6 +64,22 @@ function Details() {
               defaultValue={data?.title}
               onChange={(e) => {
                 setUpdatedTitle(e.target.value);
+              }}
+              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="title"
+              className="block text-sm font-semibold text-gray-800"
+            >
+              Upload Image
+            </label>
+            <input
+              type="file"
+              placeholder="Title..."
+              onChange={(e) => {
+                setTitle(e.target.value);
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -83,7 +103,7 @@ function Details() {
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-              onClick={() => handleSubmit(data?.blogId)}
+              onClick={() => handleSubmit(data?.serviceId)}
             >
               Save
             </button>

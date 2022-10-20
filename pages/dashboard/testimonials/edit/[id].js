@@ -1,33 +1,58 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import TopHeader from "../../../components/dashboard/TopHeader";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import TopHeader from "../../../../components/dashboard/TopHeader";
+import axios from "axios";
 
-const AddBlog = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+function Details() {
+  const [data, setData] = useState();
+  const [updatedTitle, setUpdatedTitle] = useState(data?.title);
+  const [updatedDescription, setUpdatedDescription] = useState(
+    data?.description
+  );
+  const [isLoading, setLoading] = useState(false);
+  const router = useRouter();
+  const { id } = router.query;
 
-  const handleSubmit = async () => {
-    await Axios.post("/api/services/createService", {
-      title: title,
-      description: description,
-    }).then((response) => {
-      if (response.data.message) {
-        console.log(response.data.message);
-      } else {
-        console.log("failed to post data");
-      }
-    });
+  const handleSubmit = async (testimonialId) => {
+    console.log(testimonialId);
+    await axios
+      .put(`/api/testimonials/${testimonialId}`, {
+        title: updatedTitle,
+        description: updatedDescription,
+      })
+      .then((response) => {
+        if (response.data.message) {
+          console.log(response.data.message);
+        } else {
+          console.log("failed to post data");
+        }
+      });
   };
+
+  useEffect(() => {
+    const handleData = async () => {
+      const result = await axios.get(`/api/testimonials/${id}`);
+      // console.log(result.data[0]);
+      setData(result.data[0]);
+    };
+    handleData();
+  }, [id]);
+  // console.log(data);
+
+  if (isLoading) return <p>Loading...</p>;
+
   return (
     <div className="card w-full max-w-screen-xl">
       <TopHeader
-        title="Add New Service"
+        title="Edit testimonials"
         btn="Return"
-        path="/dashboard/service"
+        path="/dashboard/testimonials"
       />
+
       <div>
         <form>
           <div>
+            <input />
             <label
               htmlFor="title"
               className="block text-sm font-semibold text-gray-800"
@@ -36,9 +61,9 @@ const AddBlog = () => {
             </label>
             <input
               type="text"
-              placeholder="Title..."
+              defaultValue={data?.title}
               onChange={(e) => {
-                setTitle(e.target.value);
+                setUpdatedTitle(e.target.value);
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -68,9 +93,9 @@ const AddBlog = () => {
             </label>
             <textarea
               type="text"
-              placeholder="Description..."
+              defaultValue={data?.description}
               onChange={(e) => {
-                setDescription(e.target.value);
+                setUpdatedDescription(e.target.value);
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -78,7 +103,7 @@ const AddBlog = () => {
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-              onClick={() => handleSubmit()}
+              onClick={() => handleSubmit(data?.testimonialId)}
             >
               Save
             </button>
@@ -87,6 +112,6 @@ const AddBlog = () => {
       </div>
     </div>
   );
-};
+}
 
-export default AddBlog;
+export default Details;
