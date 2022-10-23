@@ -24,8 +24,13 @@ export default async function handler(req, res) {
     case "POST":
       const title = req.body.title;
       const description = req.body.description;
+      const filename = req.body.file;
 
-      result = await createBlog(title, description);
+      // if (!fname || !filename) {
+      //   res.status(422).json({ status: 422, message: "fill all the details" });
+      // }
+
+      result = await createBlog(title, description, filename);
       res.json({ ...result, message: `user with userId: ${title} created` });
       break;
 

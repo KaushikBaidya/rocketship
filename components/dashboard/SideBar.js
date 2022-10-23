@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { AiFillDashboard, AiFillFileAdd } from "react-icons/ai";
+import {
+  AiFillAppstore,
+  AiFillControl,
+  AiFillCrown,
+  AiFillDashboard,
+  AiFillFileAdd,
+} from "react-icons/ai";
 
 import logoPic from "../../public/logo.png";
 
@@ -33,7 +39,7 @@ function SideBar() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
           >
-            <AiFillFileAdd className="text-red-500 mb-1" />
+            <AiFillControl className="text-red-500 mb-1" />
             <Link href="/dashboard/service">
               <a>Service</a>
             </Link>
@@ -42,9 +48,18 @@ function SideBar() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
           >
-            <AiFillFileAdd className="text-red-500 mb-1" />
+            <AiFillAppstore className="text-red-500 mb-1" />
             <Link href="/dashboard/testimonials">
               <a>Testimonial</a>
+            </Link>
+          </li>
+          <li
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-1 "
+          >
+            <AiFillCrown className="text-red-500 mb-1" />
+            <Link href="/dashboard/achievement">
+              <a>Achievement</a>
             </Link>
           </li>
         </ul>
