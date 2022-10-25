@@ -1,43 +1,57 @@
 import {
-    getTestimonialById,
-    createTestimonial,
-    updateTestimonial,
-    deleteTestimonialId,
+  getTestimonialById,
+  createTestimonial,
+  updateTestimonial,
+  deleteTestimonialId,
 } from "../../../data/testimonials";
 
 export default async function handler(req, res) {
-    const testimonialId = req.query.testimonialId;
-    const method = req.method;
+  const testimonialId = req.query.testimonialId;
+  const method = req.method;
 
-    let result;
-    switch (method) {
-        case "GET":
-            result = await getTestimonialById(testimonialId);
-            res.json(result);
-            break;
+  let result;
+  switch (method) {
+    case "GET":
+      result = await getTestimonialById(testimonialId);
+      res.json(result);
+      break;
 
-        case "DELETE":
-            result = await deleteTestimonialId(testimonialId);
-            res.json({ ...result, message: `blog with testimonialId: ${testimonialId} deleted` });
-            break;
+    case "DELETE":
+      result = await deleteTestimonialId(testimonialId);
+      res.json({
+        ...result,
+        message: `blog with testimonialId: ${testimonialId} deleted`,
+      });
+      break;
 
-        case "POST":
-            const title = req.body.title;
-            const description = req.body.description;
+    case "POST":
+      const title = req.body.title;
+      const description = req.body.description;
+      const img = req.body.filename;
 
-            result = await createTestimonial(title, description);
-            res.json({ ...result, message: `user with userId: ${title} created` });
-            break;
+      result = await createTestimonial(title, description, img);
+      res.json({
+        ...result,
+        message: `testimonial with title: ${title} created`,
+      });
+      break;
 
-        case "PUT":
-            const updateTitle = req.body.title;
-            const updateDescription = req.body.description;
+    case "PUT":
+      const updateTitle = req.body.title;
+      const updateDescription = req.body.description;
 
-            result = await updateTestimonial(testimonialId, updateTitle, updateDescription);
-            res.json({ ...result, message: `blog with title: ${testimonialId} updated` });
-            break;
+      result = await updateTestimonial(
+        testimonialId,
+        updateTitle,
+        updateDescription
+      );
+      res.json({
+        ...result,
+        message: `blog with title: ${testimonialId} updated`,
+      });
+      break;
 
-        default:
-            res.status(405).end(`Method ${method} Not Allowed`);
-    }
+    default:
+      res.status(405).end(`Method ${method} Not Allowed`);
+  }
 }

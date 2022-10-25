@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       const img = req.body.filename;
 
       result = await createService(title, description, img);
-      res.json({ ...result, message: `user with userId: ${title} created` });
+      res.json({ ...result, message: `service with title: ${title} created` });
       break;
 
     case "PUT":

@@ -29,3 +29,12 @@
 .list-footer {
   @apply bg-gray-300 rounded-b-md p-3 mt-2;
 }
+.btn {
+  @apply p-2  font-semibold text-white flex justify-center items-center rounded-lg shadow-lg cursor-pointer transition delay-75;
+}
+.btn-success {
+  @apply btn bg-green-600 hover:bg-green-700;
+}
+.btn-danger {
+  @apply btn bg-red-600 hover:bg-red-700;
+}
