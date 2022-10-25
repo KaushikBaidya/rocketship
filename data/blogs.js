@@ -1,37 +1,11 @@
 const mysql = require("mysql2/promise");
 import mysqlConfig from "./db";
-const multer = require("multer");
-// const moment = require("moment");
 
-var imgconfig = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, "./images");
-  },
-  filename: (req, file, callback) => {
-    callback(null, `image-${Date.now()}.${file.originalname}`);
-  },
-});
-
-// img filter
-const isImage = (req, file, callback) => {
-  if (file.mimetype.startsWith("image")) {
-    callback(null, true);
-  } else {
-    callback(null, Error("only image is allowd"));
-  }
-};
-
-var upload = multer({
-  storage: imgconfig,
-  fileFilter: isImage,
-});
-
-const createBlog = async (title, description, filename) => {
-  upload.single("photo");
+const createBlog = async (title, description, img) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `INSERT INTO blogTable ( title, description, img) VALUES ("${title}", "${description}", "${filename}");`
+      `INSERT INTO blogTable ( title, description, img) VALUES ("${title}", "${description}", "${img}");`
     );
     return rows;
   } catch (e) {

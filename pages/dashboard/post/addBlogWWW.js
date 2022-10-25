@@ -24,11 +24,11 @@ const AddBlog = () => {
     description: "",
   };
 
-  const onSubmit = (formData) => {
+  const onSubmit = (data) => {
     setSubmitting(true);
     var data = new FormData();
-    data.append("title", formData.title);
-    data.append("description", formData.description);
+    data.append("title", FormData.title);
+    data.append("description", FormData.description);
     try {
       axios.post("/api/blogs/createBlog", data).then((response) => {
         if (response.data.message) {

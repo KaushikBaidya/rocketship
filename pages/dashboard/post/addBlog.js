@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import TopHeader from "../../../components/dashboard/TopHeader";
+import InputFile from "../../../components/layout/InputFile";
+import Image from "next/image";
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
+  const [file, setFile] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSubmit = async () => {
-    await Axios.post("/api/blogs/createBlog", {
+    await axios.post("/api/blogs/createBlog", {
       title: title,
+      filename: file,
       description: description,
-    }).then((response) => {
-      if (response.data.message) {
-        console.log(response.data.message);
-      } else {
-        console.log("failed to post data");
-      }
     });
+    // .then((response) => {
+    //   if (response.data.message) {
+    //     console.log(response.data.message);
+    //   } else {
+    //     console.log("failed to post data");
+    //   }
+    // });
   };
+
   return (
     <div className="card w-full max-w-screen-xl">
       <TopHeader
@@ -36,6 +42,7 @@ const AddBlog = () => {
             </label>
             <input
               type="text"
+              name="title"
               placeholder="Title..."
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -50,13 +57,32 @@ const AddBlog = () => {
             >
               Upload Image
             </label>
-            <input
+            {/* <input
               type="file"
-              placeholder="Title..."
+              name="photo"
               onChange={(e) => {
-                setTitle(e.target.value);
+                setFile(e.target.files[0]);
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            /> */}
+
+            {file.length > 0 ? (
+              <Image
+                // src={`https://lh3.googleusercontent.com/d/${file}=s220?authuser=0`}
+                src={`https://drive.google.com/thumbnail?id=${file}`}
+                // src={`https://drive.google.com/uc?export=view&id=${file}`}
+                alt="PHOTO"
+                height={300}
+                width={300}
+              />
+            ) : (
+              <span></span>
+            )}
+            <InputFile
+              name="photo"
+              label="Photo"
+              accept="image/*"
+              action={setFile}
             />
           </div>
           <div>
@@ -68,6 +94,7 @@ const AddBlog = () => {
             </label>
             <textarea
               type="text"
+              name="description"
               placeholder="Description..."
               onChange={(e) => {
                 setDescription(e.target.value);
@@ -78,7 +105,7 @@ const AddBlog = () => {
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-              onClick={() => handleSubmit()}
+              onClick={handleSubmit}
             >
               Save
             </button>

@@ -39,6 +39,7 @@ export default function Add() {
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
           <ListHeader label="Title" />
+          {/* <ListHeader label="description" /> */}
           <ListHeader label="" />
         </div>
         {data?.length > 0 &&

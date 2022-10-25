@@ -27,8 +27,9 @@ export default async function handler(req, res) {
     case "POST":
       const title = req.body.title;
       const description = req.body.description;
+      const img = req.body.filename;
 
-      result = await createService(title, description);
+      result = await createService(title, description, img);
       res.json({ ...result, message: `user with userId: ${title} created` });
       break;
 

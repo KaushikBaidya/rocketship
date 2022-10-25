@@ -25,11 +25,11 @@ const getServiceById = async (serviceId) => {
   }
 };
 
-const createService = async (title, description) => {
+const createService = async (title, description, img) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `INSERT INTO serviceTable ( title, description) VALUES ("${title}", "${description}");`
+      `INSERT INTO serviceTable ( title, description, img) VALUES ("${title}", "${description}", "${img}");`
     );
     return rows;
   } catch (e) {

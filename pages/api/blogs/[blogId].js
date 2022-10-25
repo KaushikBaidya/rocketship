@@ -4,10 +4,34 @@ import {
   createBlog,
   updateBlog,
 } from "../../../data/blogs";
+// const multer = require("multer");
 
 export default async function handler(req, res) {
   const blogId = req.query.blogId;
   const method = req.method;
+
+  // var imgconfig = multer.diskStorage({
+  //   destination: (req, file, callback) => {
+  //     callback(null, "./images");
+  //   },
+  //   filename: (req, file, callback) => {
+  //     callback(null, `image-${Date.now()}.${file.originalname}`);
+  //   },
+  // });
+
+  // // img filter
+  // const isImage = (req, file, callback) => {
+  //   if (file.mimetype.startsWith("image")) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(null, Error("only image is allowd"));
+  //   }
+  // };
+
+  // var upload = multer({
+  //   storage: imgconfig,
+  //   fileFilter: isImage,
+  // });
 
   let result;
   switch (method) {
@@ -24,13 +48,9 @@ export default async function handler(req, res) {
     case "POST":
       const title = req.body.title;
       const description = req.body.description;
-      const filename = req.body.file;
+      const img = req.body.filename;
 
-      // if (!fname || !filename) {
-      //   res.status(422).json({ status: 422, message: "fill all the details" });
-      // }
-
-      result = await createBlog(title, description, filename);
+      result = await createBlog(title, description, img);
       res.json({ ...result, message: `user with userId: ${title} created` });
       break;
 
