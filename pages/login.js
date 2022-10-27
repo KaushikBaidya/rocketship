@@ -20,6 +20,13 @@ export default function Login() {
       }
     });
   };
+  // useEffect(() => {
+  //   Axios.get("/api/login").then((response) => {
+  //     if (response.data.loggedIn == true) {
+  //       setLoginStatus(response.data.user[0].username);
+  //     }
+  //   });
+  // }, []);
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">

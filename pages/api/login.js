@@ -18,21 +18,27 @@ const getUser = async (user) => {
 
 export default async function handler(req, res) {
   const method = req.method;
-  if (method !== "POST") {
-    return res.status(405).end(`Method ${method} Not Allowed`);
-  }
+  if (method === "POST") {
+    let result;
 
-  let result;
+    const user = req.body.user;
+    const password = req.body.password;
 
-  const user = req.body.user;
-  const password = req.body.password;
+    result = await getUser(user);
 
-  result = await getUser(user);
-
-  const hashedPassword = result[0].password;
-  if (await bcrypt.compare(password, hashedPassword)) {
-    res.json({ message: "success login" });
+    const hashedPassword = result[0].password;
+    if (await bcrypt.compare(password, hashedPassword)) {
+      res.json({ message: "success login" });
+    } else {
+      res.json({ message: "not success login" });
+    }
+  } else if (method === "GET") {
+    if (req.session.user) {
+      res.send({ loggedIn: true, user: req.session.user });
+    } else {
+      res.send({ loggedIn: false });
+    }
   } else {
-    res.json({ message: "not success login" });
+    return res.status(405).end(`Method ${method} Not Allowed`);
   }
 }
