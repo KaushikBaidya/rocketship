@@ -1,37 +1,38 @@
+import mysqlConfig from "../../data/db";
+
 const mysql = require("mysql2/promise");
+
 const bcrypt = require("bcrypt");
 
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const user = req.body.name;
-    const password = req.body.password;
-    if (err) throw err;
-    const sqlSearch = "Select * from userTable where user = ?";
-    const search_query = mysql.format(sqlSearch, [user]);
-    await connection.query(search_query, async (err, result) => {
-      connection.release();
-
-      if (err) throw err;
-      if (result.length == 0) {
-        console.log("--------> User does not exist");
-        res.sendStatus(404);
-      } else {
-        const hashedPassword = result[0].password;
-        //get the hashedPassword from result
-        if (await bcrypt.compare(password, hashedPassword)) {
-          console.log("---------> Login Successful");
-          res.send(`${user} is logged in!`);
-        } else {
-          console.log("---------> Password Incorrect");
-          res.send("Password incorrect!");
-        } //end of bcrypt.compare()
-      } //end of User exists i.e. results.length==0
-    });
-  } else {
-    // Handle any other HTTP method
-  }
+const getUser = async (user) => {
   try {
+    const connection = await mysql.createConnection(mysqlConfig);
+    const [rows] = await connection.execute(
+      `SELECT * FROM userdb.usertable where user = '${user}'`
+    );
+    return rows;
   } catch (e) {
     console.error(e);
+  }
+};
+
+export default async function handler(req, res) {
+  const method = req.method;
+  if (method !== "POST") {
+    return res.status(405).end(`Method ${method} Not Allowed`);
+  }
+
+  let result;
+
+  const user = req.body.user;
+  const password = req.body.password;
+
+  result = await getUser(user);
+
+  const hashedPassword = result[0].password;
+  if (await bcrypt.compare(password, hashedPassword)) {
+    res.json({ message: "success login" });
+  } else {
+    res.json({ message: "not success login" });
   }
 }

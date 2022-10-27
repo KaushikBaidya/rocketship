@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [loginStatus, setLoginStatus] = useState("");
+  const router = useRouter();
 
   const signin = () => {
     Axios.post("/api/login", {
-      name: username,
+      username: username,
       password: password,
     }).then((response) => {
       if (response.data.message) {
@@ -19,7 +20,6 @@ export default function Login() {
       }
     });
   };
-
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
@@ -59,26 +59,15 @@ export default function Login() {
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" className="text-xs text-purple-600 hover:underline">
-            Forget Password?
-          </a>
           <div className="mt-6">
             <button
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-              onClick={() => signin()}
+              onClick={signin}
             >
               Login
             </button>
           </div>
         </form>
-
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
-          {" "}
-          Dont have an account?{" "}
-          <a href="#" className="font-medium text-purple-600 hover:underline">
-            Sign up
-          </a>
-        </p>
       </div>
     </div>
   );
