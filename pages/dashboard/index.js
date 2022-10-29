@@ -1,16 +1,6 @@
-import React from "react";
-// import { useRouter } from "next/router";
-// import { useGlobalContext } from "../../context/context";
 import Private from "../../components/private";
 
 function Index() {
-  // const Router = useRouter();
-  // const value = useGlobalContext();
-  // useEffect(() => {
-  //   if (value.user === null) {
-  //     Router.push("/login");
-  //   }
-  // });
   Private();
   return (
     <div className="w-full h-full m-5">
