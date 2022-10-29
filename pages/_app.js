@@ -4,11 +4,18 @@ import Header from "../components/dashboard/Header";
 import { useRouter } from "next/router";
 import "../styles/globals.css";
 import SideBar from "../components/dashboard/SideBar";
+import { useEffect, useState } from "react";
+import { AppProvider, useGlobalContext } from "../context/context";
+// import { AuthContext, AuthProvider } from "../context/authContext";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  // const { ptoken } = AuthContext();
+  // console.log(ptoken);
+  const value = useGlobalContext();
+  console.log(value);
   return (
-    <div>
+    <AppProvider>
       {router.pathname.split("/")[1] !== "dashboard" ? (
         <div className="max-w-screen-3xl mx-auto">
           <Navbar />
@@ -32,7 +39,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
       )}
-    </div>
+    </AppProvider>
   );
 }
 

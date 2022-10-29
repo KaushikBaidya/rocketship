@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { useRouter } from "next/router";
+import { useGlobalContext } from "../context/context";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
+  // const [loginStatus, setLoginStatus] = useState("");
   const router = useRouter();
-
-  const signin = () => {
+  const value = useGlobalContext();
+  const signin = (e) => {
     Axios.post("/api/login", {
       username: username,
       password: password,
     }).then((response) => {
       if (response.data.message) {
-        setLoginStatus(response.data.message);
+        console.log(response.data.message);
+        // localStorage.setItem("token", response.data.token);
+        console.log(username);
+        value.setUser(username);
+        value.setToken(response.data.token);
       } else {
         setLoginStatus(response.data[0].username);
       }
     });
+    console.log(e);
+    e.preventDefault();
   };
   // useEffect(() => {
   //   Axios.get("/api/login").then((response) => {
