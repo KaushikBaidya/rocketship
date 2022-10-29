@@ -4,7 +4,6 @@ import MobileSidebar from "./MobileSidebar";
 
 function Header() {
   const value = useGlobalContext();
-  console.log(value);
   return (
     <div className="p-4 h-20 bg-purple-100 lg:ml-[200px]">
       <div className="flex justify-between">

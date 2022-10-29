@@ -1,19 +1,14 @@
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import Header from "../components/dashboard/Header";
-import { useRouter } from "next/router";
-import "../styles/globals.css";
 import SideBar from "../components/dashboard/SideBar";
-import { useEffect, useState } from "react";
-import { AppProvider, useGlobalContext } from "../context/context";
-// import { AuthContext, AuthProvider } from "../context/authContext";
+import "../styles/globals.css";
+import { useRouter } from "next/router";
+import { AppProvider } from "../context/context";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  // const { ptoken } = AuthContext();
-  // console.log(ptoken);
-  const value = useGlobalContext();
-  console.log(value);
+
   return (
     <AppProvider>
       {router.pathname.split("/")[1] !== "dashboard" ? (

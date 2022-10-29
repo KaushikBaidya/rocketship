@@ -8,10 +8,12 @@ import {
   AiFillDashboard,
   AiFillFileAdd,
 } from "react-icons/ai";
+import { useGlobalContext } from "../../context/context";
 
 import logoPic from "../../public/logo.png";
 
 function SideBar() {
+  const value = useGlobalContext();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="fixed w-[200px] h-full bg-gray-100 drop-shadow-md ">
@@ -61,6 +63,17 @@ function SideBar() {
             <Link href="/dashboard/achievement">
               <a>Achievement</a>
             </Link>
+          </li>
+          <li
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-1 "
+          >
+            <AiFillCrown className="text-red-500 mb-1" />
+            <button onClick={value.signOut}>
+              <Link href="/">
+                <a>Sign Out</a>
+              </Link>
+            </button>
           </li>
         </ul>
       </div>
