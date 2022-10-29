@@ -32,7 +32,6 @@ const Detail = () => {
       </div>
       {data.length > 0 &&
         data.map((item) => (
-          // <Feature key={index.toString()} data={data} />
           <div
             key={item.id}
             className="max-w-7xl mx-auto text-black px-4 lg:px-24 grid gap-y-2 py-2 lg:py-4"

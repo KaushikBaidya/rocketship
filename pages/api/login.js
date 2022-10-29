@@ -37,15 +37,7 @@ export default async function handler(req, res) {
     } else {
       res.json({ message: "not success login" });
     }
-  }
-  //  else if (method === "GET") {
-  //   if (req.session.user) {
-  //     res.send({ loggedIn: true, user: req.session.user });
-  //   } else {
-  //     res.send({ loggedIn: false });
-  //   }
-  // }
-  else {
+  } else {
     return res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

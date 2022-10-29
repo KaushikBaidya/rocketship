@@ -17,13 +17,6 @@ const AddBlog = () => {
       filename: file,
       description: description,
     });
-    // .then((response) => {
-    //   if (response.data.message) {
-    //     console.log(response.data.message);
-    //   } else {
-    //     console.log("failed to post data");
-    //   }
-    // });
   };
 
   return (
@@ -59,14 +52,6 @@ const AddBlog = () => {
             >
               Upload Image
             </label>
-            {/* <input
-              type="file"
-              name="photo"
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-              }}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            /> */}
 
             {file.length > 0 ? (
               <Image

@@ -4,34 +4,10 @@ import {
   createBlog,
   updateBlog,
 } from "../../../data/blogs";
-// const multer = require("multer");
 
 export default async function handler(req, res) {
   const blogId = req.query.blogId;
   const method = req.method;
-
-  // var imgconfig = multer.diskStorage({
-  //   destination: (req, file, callback) => {
-  //     callback(null, "./images");
-  //   },
-  //   filename: (req, file, callback) => {
-  //     callback(null, `image-${Date.now()}.${file.originalname}`);
-  //   },
-  // });
-
-  // // img filter
-  // const isImage = (req, file, callback) => {
-  //   if (file.mimetype.startsWith("image")) {
-  //     callback(null, true);
-  //   } else {
-  //     callback(null, Error("only image is allowd"));
-  //   }
-  // };
-
-  // var upload = multer({
-  //   storage: imgconfig,
-  //   fileFilter: isImage,
-  // });
 
   let result;
   switch (method) {
