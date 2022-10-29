@@ -7,8 +7,11 @@ import {
 } from "../../../components/dashboard/ListColWithHeader";
 import TopHeader from "../../../components/dashboard/TopHeader";
 import axios from "axios";
+import Private from "../../../components/private";
 
 export default function Add() {
+  Private();
+
   const [data, setData] = useState();
 
   const handleDelete = async (serviceId) => {
