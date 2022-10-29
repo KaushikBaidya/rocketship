@@ -3,8 +3,11 @@ import Axios from "axios";
 import TopHeader from "../../../components/dashboard/TopHeader";
 import InputFile from "../../../components/layout/InputFile";
 import Image from "next/image";
+import Private from "../../../components/private";
 
 const AddTestimonial = () => {
+  Private();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");

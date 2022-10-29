@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import TopHeader from "../../../../components/dashboard/TopHeader";
 import axios from "axios";
+import Private from "../../../../components/private";
 
 function Details() {
+  Private();
+
   const [data, setData] = useState();
   const [updatedTitle, setUpdatedTitle] = useState(data?.title);
   const [updatedDescription, setUpdatedDescription] = useState(

@@ -7,8 +7,11 @@ import {
 } from "../../../components/dashboard/ListColWithHeader";
 import TopHeader from "../../../components/dashboard/TopHeader";
 import axios from "axios";
+import Private from "../../../components/private";
 
 export default function Add() {
+  Private();
+
   const router = useRouter();
   const [data, setData] = useState();
 
@@ -18,7 +21,9 @@ export default function Add() {
       await axios.delete(`/api/testimonials/${testimonialId}`).then(() => {
         console.log("deleted");
       });
-      const remaining = data.filter((item) => item.testimonialId !== testimonialId);
+      const remaining = data.filter(
+        (item) => item.testimonialId !== testimonialId
+      );
       setData(remaining);
     }
   };
@@ -34,7 +39,11 @@ export default function Add() {
 
   return (
     <div className="card w-full">
-      <TopHeader title="Testimonial List" btn="Save" path="/dashboard/testimonials/addTestimonial" />
+      <TopHeader
+        title="Testimonial List"
+        btn="Save"
+        path="/dashboard/testimonials/addTestimonial"
+      />
 
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
@@ -50,7 +59,9 @@ export default function Add() {
               <ListCol label="Title :" value={item.title} />
               <div>
                 <div className="flex justify-end space-x-2">
-                  <EditButton path={`/dashboard/testimonials/edit/${item.testimonialId}`} />
+                  <EditButton
+                    path={`/dashboard/testimonials/edit/${item.testimonialId}`}
+                  />
 
                   <button onClick={() => handleDelete(item.testimonialId)}>
                     delete
