@@ -7,8 +7,10 @@ import {
 import TopHeader from "../../../components/dashboard/TopHeader";
 import axios from "axios";
 import { Dialog, Transition } from "@headlessui/react";
+import Private from "../../../components/private";
 
 export default function Add() {
+  Private();
   let [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState();
 
