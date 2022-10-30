@@ -7,6 +7,7 @@ import {
   AiFillCrown,
   AiFillDashboard,
   AiFillFileAdd,
+  AiOutlineLogin,
 } from "react-icons/ai";
 import { useGlobalContext } from "../../context/context";
 
@@ -68,7 +69,7 @@ function SideBar() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
           >
-            <AiFillCrown className="text-red-500 mb-1" />
+            <AiOutlineLogin className="text-red-500 mb-1" />
             <button onClick={value.signOut}>
               <Link href="/">
                 <a>Sign Out</a>

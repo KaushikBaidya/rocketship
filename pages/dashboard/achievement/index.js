@@ -1,5 +1,6 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import EditButton from "../../../components/dashboard/button/EditButton";
+import { useRouter } from "next/router";
 import {
   ListCol,
   ListHeader,
@@ -12,11 +13,13 @@ export default function Add() {
   let [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState();
 
-  const onSubmit = async (blogId) => {
-    await axios.delete(`/api/blogs/${blogId}`).then(() => {
+  const onSubmit = async (achievementId) => {
+    await axios.delete(`/api/blogs/${achievementId}`).then(() => {
       console.log("deleted");
     });
-    const remaining = data.filter((item) => item.blogId !== blogId);
+    const remaining = data.filter(
+      (item) => item.achievementId !== achievementId
+    );
     setData(remaining);
     closeModal();
   };
@@ -31,7 +34,7 @@ export default function Add() {
 
   useEffect(() => {
     const handledata = async () => {
-      const result = await fetch(`/api/blogs`);
+      const result = await fetch(`/api/achievement`);
       const data = await result.json();
       setData(data);
     };
@@ -40,24 +43,29 @@ export default function Add() {
 
   return (
     <div className="card w-full">
-      <TopHeader title="Blogs List" btn="Save" path="/dashboard/post/addBlog" />
+      <TopHeader
+        title="achievement List"
+        btn="Save"
+        path="/dashboard/achievement/addAchievement"
+      />
 
       <div className="list-wrapper">
         <div className="md:grid grid-cols-2 list-header">
           <ListHeader label="Title" />
-          {/* <ListHeader label="description" /> */}
           <ListHeader label="" />
         </div>
         {data?.length > 0 &&
           data.map((item) => (
             <div
-              key={item.blogId}
+              key={item.achievementId}
               className="grid grid-cols-1 md:grid-cols-2 list-body"
             >
               <ListCol label="Title :" value={item.title} />
               <div>
                 <div className="flex justify-end space-x-2">
-                  <EditButton path={`/dashboard/post/edit/${item.blogId}`} />
+                  <EditButton
+                    path={`/dashboard/achievement/edit/${item.achievementId}`}
+                  />
 
                   <button
                     onClick={() => {
@@ -113,7 +121,7 @@ export default function Add() {
                             <button
                               className="w-24 btn-danger bg-green-300"
                               // onClick={onSubmit}
-                              onClick={() => onSubmit(item.blogId)}
+                              onClick={() => onSubmit(item.achievementId)}
                             >
                               Yes
                             </button>

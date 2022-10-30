@@ -6,8 +6,6 @@ import Image from "next/image";
 import Private from "../../../components/private";
 
 const AddBlog = () => {
-  Private();
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");

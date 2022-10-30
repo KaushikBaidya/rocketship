@@ -5,8 +5,6 @@ import axios from "axios";
 import Private from "../../../../components/private";
 
 function Details() {
-  Private();
-
   const [data, setData] = useState();
   const [updatedTitle, setUpdatedTitle] = useState(data?.title);
   const [updatedDescription, setUpdatedDescription] = useState(
