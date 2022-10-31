@@ -33,7 +33,7 @@ const OurPrograms = () => {
               <div className="p-5">
                 <Image src={essay} width={170} height={150} alt="" />
               </div>
-              <h2 className="text-center text-[#211A56] font-bold text-xl p-3">
+              <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Essay Editing Services
               </h2>
               <Link href="service/essay">
