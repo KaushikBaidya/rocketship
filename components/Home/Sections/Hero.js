@@ -55,15 +55,6 @@ const Hero = () => {
               return (
                 <SwiperSlide key={item.id}>
                   <div className="w-full mx-auto my-5">
-                    {/* <div className="rounded overflow-hidden m-3">
-                      <Image
-                        src={item.img}
-                        width={400}
-                        height={400}
-                        objectFit="cover"
-                        alt=""
-                      />
-                    </div> */}
                     <div className="flex items-center justify-center mx-5">
                       <div className="max-w-[500px] h-[300px]">
                         <Image src={item.img} layout="fill" alt="" />

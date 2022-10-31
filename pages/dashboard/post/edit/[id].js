@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import TopHeader from "../../../../components/dashboard/TopHeader";
 import axios from "axios";
-import Private from "../../../../components/private";
+import Image from "next/image";
+import InputFile from "../../../../components/layout/InputFile";
 
 function Details() {
-  const [data, setData] = useState();
-  const [updatedTitle, setUpdatedTitle] = useState(data?.title);
-  const [updatedDescription, setUpdatedDescription] = useState(
-    data?.description
-  );
-  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   const { id } = router.query;
+
+  const [isLoading, setLoading] = useState(false);
+
+  const [data, setData] = useState();
+  const [updatedTitle, setUpdatedTitle] = useState();
+  const [updatedDescription, setUpdatedDescription] = useState();
+  const [file, setFile] = useState();
 
   const handleSubmit = async (blogId) => {
     console.log(blogId);
@@ -20,6 +22,7 @@ function Details() {
       .put(`/api/blogs/${blogId}`, {
         title: updatedTitle,
         description: updatedDescription,
+        filename: file,
       })
       .then((response) => {
         if (response.data.message) {
@@ -35,9 +38,13 @@ function Details() {
       const result = await axios.get(`/api/blogs/${id}`);
       // console.log(result.data[0]);
       setData(result.data[0]);
+      setUpdatedTitle(result.data[0]?.title);
+      setUpdatedDescription(result.data[0]?.description);
+      setFile(result.data[0]?.img);
     };
     handleData();
   }, [id]);
+
   // console.log(data);
 
   if (isLoading) return <p>Loading...</p>;
@@ -65,6 +72,7 @@ function Details() {
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
+
           <div>
             <label
               htmlFor="title"
@@ -72,15 +80,26 @@ function Details() {
             >
               Upload Image
             </label>
-            <input
-              type="file"
-              placeholder="Title..."
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            {file?.length > 0 ? (
+              <Image
+                // src={`https://lh3.googleusercontent.com/d/${file}=s220?authuser=0`}
+                src={`https://drive.google.com/thumbnail?id=${file}`}
+                // src={`https://drive.google.com/uc?export=view&id=${file}`}
+                alt="PHOTO"
+                height={300}
+                width={300}
+              />
+            ) : (
+              <span></span>
+            )}
+            <InputFile
+              name="photo"
+              label="Photo"
+              accept="image/*"
+              action={setFile}
             />
           </div>
+
           <div>
             <label
               htmlFor="description"

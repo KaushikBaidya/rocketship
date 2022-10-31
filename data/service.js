@@ -37,11 +37,16 @@ const createService = async (title, description, img) => {
   }
 };
 
-const updateService = async (serviceId, updateTitle, updateDescription) => {
+const updateService = async (
+  serviceId,
+  updateTitle,
+  updateDescription,
+  updateImg
+) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `UPDATE serviceTable SET title = "${updateTitle}", description= "${updateDescription}" WHERE serviceId = ${serviceId}`
+      `UPDATE serviceTable SET title = "${updateTitle}", description= "${updateDescription}", img="${updateImg}"  WHERE serviceId = ${serviceId}`
     );
     return rows;
   } catch (e) {

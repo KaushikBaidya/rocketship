@@ -43,8 +43,8 @@ export default function Add() {
     <div className="card w-full">
       <TopHeader
         title="Services List"
-        btn="Save"
-        path="/dashboard/service/addService"
+        // btn="Save"
+        // path="/dashboard/service/addService"
       />
 
       <div className="list-wrapper">

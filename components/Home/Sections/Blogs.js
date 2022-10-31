@@ -1,32 +1,22 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { FaRocket } from "react-icons/fa";
 
 const Blogs = () => {
-  const data = [
-    {
-      id: "1",
-      img: "/blog1.jpeg",
-      date: "25 aug, 2021",
-      title: "How to make use of your free time to study",
-      auth: "Jenne",
-    },
-    {
-      id: "2",
-      img: "/blog2.jpeg",
-      date: "25 aug, 2021",
-      title: "How to make use of your free time to study",
-      auth: "Jenne",
-    },
-    {
-      id: "3",
-      img: "/blog3.jpg",
-      date: "25 aug, 2021",
-      title: "How to make use of your free time to study",
-      auth: "Jenne",
-    },
-  ];
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const handledata = async () => {
+      const result = await fetch(`/api/blogs`);
+      const data = await result.json();
+      setData(data);
+    };
+    handledata();
+  }, []);
+  console.log(data);
+
   return (
     <section>
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
@@ -40,33 +30,36 @@ const Blogs = () => {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-5 p-5">
-          {data.map((item) => {
+          {data?.map((item) => {
             return (
               <div
-                key={item.id}
+                key={item.blogId}
                 className="w-full bg-purple-100 flex flex-col justify-between items-center rounded-lg overflow-hidden h-full hover:drop-shadow-lg cursor-pointer "
               >
-                <Link href="/pages/single">
+                <Link href={`/blogs/${item.blogId}`}>
                   <div>
                     <div className="rounded-lg overflow-hidden">
                       <Image
-                        src={item.img}
-                        width={359}
+                        // src={`https://lh3.googleusercontent.com/d/${file}=s220?authuser=0`}
+                        src={`https://drive.google.com/thumbnail?id=${item.img}`}
+                        // src={`https://drive.google.com/uc?export=view&id=${item.img}`}
+                        alt="PHOTO"
                         height={210}
+                        width={359}
                         objectFit="cover"
-                        alt=""
                       />
                     </div>
                     <div className="bg-purple-100 flex flex-col items-start ">
                       <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
-                        {item.date}
+                        {item.date?.split("T")[0]}
+                        {/* {new Date(item.date)} */}
                       </p>
                       <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
                         {item.title}
                       </h2>
-                      <p className="text-justify font-light text-base lg:text-lg px-5 pb-5">
+                      {/* <p className="text-justify font-light text-base lg:text-lg px-5 pb-5">
                         By {item.auth}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </Link>

@@ -5,7 +5,7 @@ const createBlog = async (title, description, img) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `INSERT INTO blogTable ( title, description, img) VALUES ("${title}", "${description}", "${img}");`
+      `INSERT INTO blogTable ( title, description, img, date) VALUES ("${title}", "${description}", "${img}", CURDATE());`
     );
     return rows;
   } catch (e) {
@@ -37,11 +37,16 @@ const getBlogById = async (blogId) => {
   }
 };
 
-const updateBlog = async (blogId, updateTitle, updateDescription) => {
+const updateBlog = async (
+  blogId,
+  updateTitle,
+  updateDescription,
+  updateImg
+) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `UPDATE blogTable SET title = "${updateTitle}", description= "${updateDescription}" WHERE blogId = ${blogId}`
+      `UPDATE blogTable SET title = "${updateTitle}", description= "${updateDescription}", img="${updateImg}" WHERE blogId = ${blogId}`
     );
     return rows;
   } catch (e) {

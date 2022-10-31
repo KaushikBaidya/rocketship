@@ -36,8 +36,14 @@ export default async function handler(req, res) {
     case "PUT":
       const updateTitle = req.body.title;
       const updateDescription = req.body.description;
+      const updateImg = req.body.filename;
 
-      result = await updateService(serviceId, updateTitle, updateDescription);
+      result = await updateService(
+        serviceId,
+        updateTitle,
+        updateDescription,
+        updateImg
+      );
       res.json({ ...result, message: `blog with title: ${serviceId} updated` });
       break;
 

@@ -3,7 +3,6 @@ import Axios from "axios";
 import TopHeader from "../../../components/dashboard/TopHeader";
 import InputFile from "../../../components/layout/InputFile";
 import Image from "next/image";
-import Private from "../../../components/private";
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
@@ -15,14 +14,9 @@ const AddBlog = () => {
       title: title,
       description: description,
       filename: file,
-    }).then((response) => {
-      if (response.data.message) {
-        console.log(response.data.message);
-      } else {
-        console.log("failed to post data");
-      }
     });
   };
+
   return (
     <div className="card w-full max-w-screen-xl">
       <TopHeader
