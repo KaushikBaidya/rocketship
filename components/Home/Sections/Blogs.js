@@ -15,7 +15,6 @@ const Blogs = () => {
     };
     handledata();
   }, []);
-  console.log(data);
 
   return (
     <section>
