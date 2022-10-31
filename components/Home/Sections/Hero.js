@@ -48,14 +48,14 @@ const Hero = () => {
             spaceBetween={30}
             loop={true}
             autoplay={{
-              delay: 4000,
+              delay: 5500,
             }}
           >
             {data.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
                   <div className="w-full mx-auto my-5">
-                    <div className="rounded overflow-hidden m-3">
+                    {/* <div className="rounded overflow-hidden m-3">
                       <Image
                         src={item.img}
                         width={400}
@@ -63,6 +63,11 @@ const Hero = () => {
                         objectFit="cover"
                         alt=""
                       />
+                    </div> */}
+                    <div className="flex items-center justify-center mx-5">
+                      <div className="max-w-[500px] h-[300px]">
+                        <Image src={item.img} layout="fill" alt="" />
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
