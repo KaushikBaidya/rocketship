@@ -39,15 +39,17 @@ export default async function handler(req, res) {
     case "PUT":
       const updateTitle = req.body.title;
       const updateDescription = req.body.description;
+      const updateImg = req.body.filename;
 
       result = await updateTestimonial(
         testimonialId,
         updateTitle,
-        updateDescription
+        updateDescription,
+        updateImg
       );
       res.json({
         ...result,
-        message: `blog with title: ${testimonialId} updated`,
+        message: `Testimonial with title: ${testimonialId} updated`,
       });
       break;
 

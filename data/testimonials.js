@@ -40,12 +40,13 @@ const createTestimonial = async (title, description, img) => {
 const updateTestimonial = async (
   testimonialId,
   updateTitle,
-  updateDescription
+  updateDescription,
+  updateImg
 ) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows, fields] = await connection.execute(
-      `UPDATE testimonialTable SET title = "${updateTitle}", description= "${updateDescription}" WHERE testimonialId = ${testimonialId}`
+      `UPDATE testimonialTable SET title = "${updateTitle}", description= "${updateDescription}", img="${updateImg}" WHERE testimonialId = ${testimonialId}`
     );
     return rows;
   } catch (e) {
