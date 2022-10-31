@@ -75,7 +75,7 @@ function Details() {
 
           <div>
             <label
-              htmlFor="title"
+              htmlFor="upload_image"
               className="block text-sm font-semibold text-gray-800"
             >
               Upload Image
