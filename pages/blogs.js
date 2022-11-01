@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { FaRocket } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Blogs = () => {
   const [data, setData] = useState();
@@ -11,19 +9,14 @@ const Blogs = () => {
     const handledata = async () => {
       const result = await fetch(`/api/blogs`);
       const data = await result.json();
-      setData(data.slice(0, 3));
+      setData(data);
     };
     handledata();
   }, []);
-
   return (
-    <section>
+    <section className="pt-28">
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
         <div className="flex flex-col items-center mx-auto mb-5">
-          <FaRocket className="text-4xl text-[#EF1C26] font-bold mb-3" />
-          <h3 className="text-lg text-[#211A56] text-center mx-28">
-            From The Blog Post
-          </h3>
           <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
             News & Articles
           </h2>

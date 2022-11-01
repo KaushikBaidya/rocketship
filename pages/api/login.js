@@ -9,7 +9,7 @@ const getUser = async (user) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
     const [rows] = await connection.execute(
-      `SELECT * FROM userdb.usertable where user = '${user}'`
+      `SELECT * FROM userTable where user = '${user}'`
     );
     return rows;
   } catch (e) {

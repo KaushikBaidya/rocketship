@@ -5,7 +5,7 @@ import OurPrograms from "./Sections/OurPrograms";
 import Achievements from "./Sections/Achievements";
 import Testimonial from "./Sections/Testimonial";
 import Blogs from "./Sections/Blogs";
-import Contact from "./Sections/Contact";
+import Contact from "../../pages/contact";
 
 const HomeMain = () => {
   return (

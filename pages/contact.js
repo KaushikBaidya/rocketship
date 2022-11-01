@@ -1,10 +1,10 @@
 import Image from "next/image";
-import banner from "../../../public/banner.jpg";
+import banner from "../public/banner.jpg";
 
 const Contact = () => {
   return (
     <section>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-28">
         <div className="mx-10 text-center">
           <h1 className="text-xl lg:text-3xl text-[#211A56] font-semibold">
             GET IN TOUCH

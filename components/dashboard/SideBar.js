@@ -56,7 +56,7 @@ function SideBar() {
               <a>Testimonial</a>
             </Link>
           </li>
-          <li
+          {/* <li
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
           >
@@ -64,7 +64,7 @@ function SideBar() {
             <Link href="/dashboard/achievement">
               <a>Achievement</a>
             </Link>
-          </li>
+          </li> */}
           <li
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
