@@ -1,18 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Blogs = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState()
 
   useEffect(() => {
     const handledata = async () => {
-      const result = await fetch(`/api/blogs`);
-      const data = await result.json();
-      setData(data);
-    };
-    handledata();
-  }, []);
+      const result = await fetch(`/api/blogs`)
+      const data = await result.json()
+      setData(data)
+    }
+    handledata()
+  }, [])
   return (
     <section className="pt-28">
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
@@ -43,7 +43,7 @@ const Blogs = () => {
                     </div>
                     <div className="bg-purple-100 flex flex-col items-start ">
                       <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
-                        {item.date?.split("T")[0]}
+                        {item.date?.split('T')[0]}
                         {/* {new Date(item.date)} */}
                       </p>
                       <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
@@ -56,12 +56,12 @@ const Blogs = () => {
                   </div>
                 </Link>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blogs;
+export default Blogs

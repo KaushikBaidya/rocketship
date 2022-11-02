@@ -23,7 +23,7 @@ const SinglePage = () => {
         <Image
           class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
           alt="hero"
-          src={`https://drive.google.com/thumbnail?id=${data?.img}`}
+          src={`https://drive.google.com/uc?export=view&id=${data?.img}`}
           width={700}
           height={300}
         />

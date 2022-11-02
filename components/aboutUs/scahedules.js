@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import teacher from "../../public/service/1.png";
+import Image from 'next/image'
+import React from 'react'
+import teacher from '../../public/service/1.png'
 
-const Schedules = () => {
+const Scahedules = () => {
   return (
     <section className="w-full">
       <div className="max-w-2xl mx-auto pb-5">
@@ -93,7 +93,7 @@ const Schedules = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Schedules;
+export default Scahedules

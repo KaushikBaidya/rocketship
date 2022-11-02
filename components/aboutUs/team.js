@@ -1,7 +1,7 @@
-import Image from "next/image";
-import teacher from "../../public/student1.jpg";
-import essay from "../../public/student2.jpg";
-import finance from "../../public/student3.jpg";
+import Image from 'next/image'
+import teacher from '../../public/student1.jpg'
+import essay from '../../public/student2.jpg'
+import finance from '../../public/student3.jpg'
 
 const OurTeams = () => {
   return (
@@ -45,7 +45,7 @@ const OurTeams = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default OurTeams;
+export default OurTeams

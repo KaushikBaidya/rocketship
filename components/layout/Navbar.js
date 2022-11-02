@@ -77,7 +77,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="px-4 border-transparent border-b-4 hover:border-[#EF1C24] py-2 font-medium uppercase">
-              <Link href="/contact">
+              <Link href="/Contact">
                 <a onClick={() => setNavbarOpen(!navbarOpen)}>Contact</a>
               </Link>
             </li>

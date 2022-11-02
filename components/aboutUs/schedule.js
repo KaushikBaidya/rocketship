@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import teacher from "../../public/service/1.png";
+import Image from 'next/image'
+import React from 'react'
+import teacher from '../../public/service/1.png'
 
 const Schedule = () => {
   return (
@@ -93,7 +93,7 @@ const Schedule = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Schedule;
+export default Schedule

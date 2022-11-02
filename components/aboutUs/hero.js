@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Service from "../../public/service/3.png";
+import Image from 'next/image'
+import Service from '../../public/service/3.png'
 
 const Hero = () => {
   return (
@@ -27,7 +27,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

@@ -67,7 +67,7 @@ const OurValues = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default OurValues;
+export default OurValues

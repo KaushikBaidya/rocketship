@@ -73,28 +73,23 @@ const Footer = () => {
             </p>
             <div className="text-[#211A56] text-lg grid grid-cols-1 justify-items-center">
               <p className="hover:text-[#EF1C26]">
-                <Link href="/">
+                <Link href="#seeHero">
                   <a>Home</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="/about">
+                <Link href="#seeHero">
                   <a>About</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="/service">
+                <Link href="#seeHero">
                   <a>Services</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="/blogs">
+                <Link href="#seeHero">
                   <a>Blogs</a>
-                </Link>
-              </p>
-              <p className="hover:text-[#EF1C26]">
-                <Link href="/login">
-                  <a>Login</a>
                 </Link>
               </p>
             </div>
