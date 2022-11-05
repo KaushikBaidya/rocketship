@@ -38,15 +38,7 @@ function SideBar() {
               <a>Post</a>
             </Link>
           </li>
-          <li
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex items-center gap-1 "
-          >
-            <AiFillControl className="text-red-500 mb-1" />
-            <Link href="/dashboard/service">
-              <a>Service</a>
-            </Link>
-          </li>
+
           <li
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "
@@ -56,15 +48,7 @@ function SideBar() {
               <a>Testimonial</a>
             </Link>
           </li>
-          {/* <li
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex items-center gap-1 "
-          >
-            <AiFillCrown className="text-red-500 mb-1" />
-            <Link href="/dashboard/achievement">
-              <a>Achievement</a>
-            </Link>
-          </li> */}
+
           <li
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="flex items-center gap-1 "

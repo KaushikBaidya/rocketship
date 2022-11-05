@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import TopHeader from "../../../components/dashboard/TopHeader";
-import InputFile from "../../../components/layout/InputFile";
-import Image from "next/image";
+import React, { useState } from 'react'
+import Axios from 'axios'
+import TopHeader from '../../../components/dashboard/TopHeader'
+import InputFile from '../../../components/layout/InputFile'
+import Image from 'next/image'
 
 const AddTestimonial = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [file, setFile] = useState("");
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [file, setFile] = useState('')
 
   const handleSubmit = async () => {
-    await Axios.post("/api/testimonials/createTestimonial", {
+    await Axios.post('/api/testimonials/createTestimonial', {
       title: title,
       description: description,
       filename: file,
     }).then((response) => {
       if (response.data.message) {
-        console.log(response.data.message);
+        console.log(response.data.message)
       } else {
-        console.log("failed to post data");
+        console.log('failed to post data')
       }
-    });
-  };
+    })
+  }
   return (
     <div className="card w-full max-w-screen-xl">
       <TopHeader
@@ -36,13 +36,13 @@ const AddTestimonial = () => {
               htmlFor="title"
               className="block text-sm font-semibold text-gray-800"
             >
-              Title
+              Name
             </label>
             <input
               type="text"
               placeholder="Title..."
               onChange={(e) => {
-                setTitle(e.target.value);
+                setTitle(e.target.value)
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -78,13 +78,13 @@ const AddTestimonial = () => {
               htmlFor="description"
               className="block text-sm font-semibold text-gray-800"
             >
-              Description
+              Opinion
             </label>
             <textarea
               type="text"
               placeholder="Description..."
               onChange={(e) => {
-                setDescription(e.target.value);
+                setDescription(e.target.value)
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -100,7 +100,7 @@ const AddTestimonial = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddTestimonial;
+export default AddTestimonial
