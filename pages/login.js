@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
-import { useRouter } from "next/router";
-import { useGlobalContext } from "../context/context";
+import React, { useEffect, useState } from 'react'
+import Axios from 'axios'
+import { useRouter } from 'next/router'
+import { useGlobalContext } from '../context/context'
 
 export default function Login() {
-  const router = useRouter();
-  const value = useGlobalContext();
+  const router = useRouter()
+  const value = useGlobalContext()
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const signin = (e) => {
-    Axios.post("/api/login", {
+    Axios.post('/api/login', {
       username: username,
       password: password,
     }).then((response) => {
       if (response.data.message) {
-        value.setUser(username);
-        value.setToken(response.data.token);
-        router.push("/dashboard");
+        value.setUser(username)
+        value.setToken(response.data.token)
+        router.push('/dashboard')
       } else {
-        setLoginStatus(response.data[0].username);
+        setLoginStatus(response.data[0].username)
       }
-    });
-    console.log(e);
-    e.preventDefault();
-  };
+    })
+
+    e.preventDefault()
+  }
 
   useEffect(() => {
     if (value?.user) {
-      router.push("/dashboard");
+      router.push('/dashboard')
     }
-  });
+  })
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -51,7 +51,7 @@ export default function Login() {
               type="text"
               placeholder="Username..."
               onChange={(e) => {
-                setUsername(e.target.value);
+                setUsername(e.target.value)
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -67,7 +67,7 @@ export default function Login() {
               type="password"
               placeholder="Password..."
               onChange={(e) => {
-                setPassword(e.target.value);
+                setPassword(e.target.value)
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -83,5 +83,5 @@ export default function Login() {
         </form>
       </div>
     </div>
-  );
+  )
 }
