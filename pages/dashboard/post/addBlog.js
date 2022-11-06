@@ -1,21 +1,35 @@
-import React, { useState } from "react";
-import axios from "axios";
-import TopHeader from "../../../components/dashboard/TopHeader";
-import InputFile from "../../../components/layout/InputFile";
-import Image from "next/image";
+import React, { useState, useRef } from 'react'
+import axios from 'axios'
+import TopHeader from '../../../components/dashboard/TopHeader'
+import InputFile from '../../../components/layout/InputFile'
+import Image from 'next/image'
+import JoditEditor from 'jodit-react'
 
 const AddBlog = () => {
-  const [title, setTitle] = useState("");
-  const [file, setFile] = useState("");
-  const [description, setDescription] = useState("");
+  const editor = useRef(null)
 
-  const handleSubmit = async () => {
-    await axios.post("/api/blogs/createBlog", {
+  const [title, setTitle] = useState('')
+  const [file, setFile] = useState('')
+  const [description, setDescription] = useState('')
+
+  const contentFieldChanged = (data) => {
+    setDescription(data)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await axios.post('/api/blogs/createBlog', {
       title: title,
       filename: file,
       description: description,
-    });
-  };
+    })
+
+    setTitle('')
+    setFile('')
+    setDescription('')
+  }
+
+  // console.log(description)
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -36,9 +50,10 @@ const AddBlog = () => {
             <input
               type="text"
               name="title"
+              value={title}
               placeholder="Title..."
               onChange={(e) => {
-                setTitle(e.target.value);
+                setTitle(e.target.value)
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -77,7 +92,7 @@ const AddBlog = () => {
             >
               Description
             </label>
-            <textarea
+            {/* <textarea
               type="text"
               name="description"
               placeholder="Description..."
@@ -85,6 +100,14 @@ const AddBlog = () => {
                 setDescription(e.target.value);
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            /> */}
+            <JoditEditor
+              ref={editor}
+              value={description}
+              onChange={(e) => {
+                setDescription(e)
+              }}
+              // onChange={(newContent) => contentFieldChanged(newContent)}
             />
           </div>
           <div className="mt-6">
@@ -98,7 +121,7 @@ const AddBlog = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddBlog;
+export default AddBlog
