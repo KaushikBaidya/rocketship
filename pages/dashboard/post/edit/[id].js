@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import TopHeader from "../../../../components/dashboard/TopHeader";
-import axios from "axios";
-import Image from "next/image";
-import InputFile from "../../../../components/layout/InputFile";
+import React, { useEffect, useState, useRef } from 'react'
+import { useRouter } from 'next/router'
+import TopHeader from '../../../../components/dashboard/TopHeader'
+import axios from 'axios'
+import Image from 'next/image'
+import InputFile from '../../../../components/layout/InputFile'
+import JoditEditor from 'jodit-react'
 
 function Details() {
-  const router = useRouter();
-  const { id } = router.query;
+  const editor = useRef(null)
+  const router = useRouter()
+  const { id } = router.query
 
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false)
 
-  const [data, setData] = useState();
-  const [updatedTitle, setUpdatedTitle] = useState();
-  const [updatedDescription, setUpdatedDescription] = useState();
-  const [file, setFile] = useState();
+  const [data, setData] = useState()
+  const [updatedTitle, setUpdatedTitle] = useState()
+  const [updatedDescription, setUpdatedDescription] = useState()
+  const [file, setFile] = useState()
 
   const handleSubmit = async (blogId) => {
-    console.log(blogId);
+    console.log(blogId)
     await axios
       .put(`/api/blogs/${blogId}`, {
         title: updatedTitle,
@@ -26,28 +28,28 @@ function Details() {
       })
       .then((response) => {
         if (response.data.message) {
-          console.log(response.data.message);
+          console.log(response.data.message)
         } else {
-          console.log("failed to post data");
+          console.log('failed to post data')
         }
-      });
-  };
+      })
+  }
 
   useEffect(() => {
     const handleData = async () => {
-      const result = await axios.get(`/api/blogs/${id}`);
+      const result = await axios.get(`/api/blogs/${id}`)
       // console.log(result.data[0]);
-      setData(result.data[0]);
-      setUpdatedTitle(result.data[0]?.title);
-      setUpdatedDescription(result.data[0]?.description);
-      setFile(result.data[0]?.img);
-    };
-    handleData();
-  }, [id]);
+      setData(result.data[0])
+      setUpdatedTitle(result.data[0]?.title)
+      setUpdatedDescription(result.data[0]?.description)
+      setFile(result.data[0]?.img)
+    }
+    handleData()
+  }, [id])
 
   // console.log(data);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -67,7 +69,7 @@ function Details() {
               type="text"
               defaultValue={data?.title}
               onChange={(e) => {
-                setUpdatedTitle(e.target.value);
+                setUpdatedTitle(e.target.value)
               }}
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -107,13 +109,21 @@ function Details() {
             >
               Description
             </label>
-            <textarea
+            {/* <textarea
               type="text"
               defaultValue={data?.description}
               onChange={(e) => {
                 setUpdatedDescription(e.target.value);
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            /> */}
+            <JoditEditor
+              ref={editor}
+              value={updatedDescription}
+              onChange={(e) => {
+                setUpdatedDescription(e)
+              }}
+              // onChange={(newContent) => contentFieldChanged(newContent)}
             />
           </div>
           <div className="mt-6">
@@ -127,7 +137,7 @@ function Details() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default Details;
+export default Details
