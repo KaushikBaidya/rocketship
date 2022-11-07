@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { useGlobalContext } from "../context/context";
-import SideBar from "./dashboard/SideBar";
-import Header from "./dashboard/Header";
-import { PuffLoading } from "./Loader";
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { useGlobalContext } from '../context/context'
+import SideBar from './dashboard/SideBar'
+import Header from './dashboard/Header'
+import { PuffLoading } from './Loader'
 
 const Private = ({ children }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
-  const Router = useRouter();
-  const value = useGlobalContext();
+  const Router = useRouter()
+  const value = useGlobalContext()
 
   useEffect(() => {
-    if (!value.user) Router.push("/login");
+    if (!value.user) Router.push('/login')
     else {
-      setLoading(false);
+      setLoading(false)
     }
-  }, [value.user, Router]);
+  }, [value.user, Router])
 
-  if (loading) return <PuffLoading />;
+  if (loading) return <PuffLoading />
 
   return (
     <>
@@ -36,7 +36,7 @@ const Private = ({ children }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Private;
+export default Private

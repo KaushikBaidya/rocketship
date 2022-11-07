@@ -4,10 +4,62 @@ import TopHeader from '../../../../components/dashboard/TopHeader'
 import axios from 'axios'
 import Image from 'next/image'
 import InputFile from '../../../../components/layout/InputFile'
+<<<<<<< HEAD
+import 'react-quill/dist/quill.snow.css'
+import dynamic from 'next/dynamic'
+
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
+
+const modules = {
+  toolbar: [
+    [{ header: '1' }, { header: '2' }, { font: [] }],
+    [{ size: ['12px', '16px', '18px'] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' },
+    ],
+    ['link', 'image', 'video'],
+    ['clean'],
+    [{ color: [] }, { background: [] }],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+}
+
+const formats = [
+  'header',
+  'font',
+  'fontsize',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
+  'color',
+  'background',
+]
+
+function Details() {
+=======
 import JoditEditor from 'jodit-react'
 
 function Details() {
   const editor = useRef(null)
+>>>>>>> e3ec64dbd7482f74091878a306e41a23a06fd7bc
   const router = useRouter()
   const { id } = router.query
 
@@ -117,13 +169,29 @@ function Details() {
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             /> */}
+<<<<<<< HEAD
+            {/* <JoditEditor
+=======
             <JoditEditor
+>>>>>>> e3ec64dbd7482f74091878a306e41a23a06fd7bc
               ref={editor}
               value={updatedDescription}
               onChange={(e) => {
                 setUpdatedDescription(e)
               }}
               // onChange={(newContent) => contentFieldChanged(newContent)}
+<<<<<<< HEAD
+            /> */}
+            <QuillNoSSRWrapper
+              value={updatedDescription}
+              onChange={(e) => {
+                setUpdatedDescription(e)
+              }}
+              modules={modules}
+              formats={formats}
+              theme="snow"
+=======
+>>>>>>> e3ec64dbd7482f74091878a306e41a23a06fd7bc
             />
           </div>
           <div className="mt-6">

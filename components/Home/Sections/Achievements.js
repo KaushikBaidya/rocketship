@@ -1,4 +1,5 @@
-import { FaPenNib, FaCheckCircle, FaUniversity, FaGlobe } from "react-icons/fa";
+import { FaPenNib, FaCheckCircle, FaUniversity, FaGlobe } from 'react-icons/fa'
+
 const Achievements = () => {
   return (
     <section className=" bg-white antialiased ">
@@ -32,7 +33,7 @@ const Achievements = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Achievements;
+export default Achievements

@@ -3,7 +3,53 @@ import axios from 'axios'
 import TopHeader from '../../../components/dashboard/TopHeader'
 import InputFile from '../../../components/layout/InputFile'
 import Image from 'next/image'
-import JoditEditor from 'jodit-react'
+import 'react-quill/dist/quill.snow.css'
+import dynamic from 'next/dynamic'
+
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
+
+const modules = {
+  toolbar: [
+    [{ header: '1' }, { header: '2' }, { font: [] }],
+    [{ size: [] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' },
+    ],
+    ['link', 'image', 'video'],
+    ['clean'],
+    [{ color: [] }, { background: [] }],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+}
+
+const formats = [
+  'header',
+  'font',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
+  'color',
+  'background',
+]
 
 const AddBlog = () => {
   const editor = useRef(null)
@@ -11,10 +57,6 @@ const AddBlog = () => {
   const [title, setTitle] = useState('')
   const [file, setFile] = useState('')
   const [description, setDescription] = useState('')
-
-  const contentFieldChanged = (data) => {
-    setDescription(data)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -101,13 +143,14 @@ const AddBlog = () => {
               }}
               className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             /> */}
-            <JoditEditor
-              ref={editor}
+            <QuillNoSSRWrapper
               value={description}
+              modules={modules}
+              formats={formats}
+              theme="snow"
               onChange={(e) => {
                 setDescription(e)
               }}
-              // onChange={(newContent) => contentFieldChanged(newContent)}
             />
           </div>
           <div className="mt-6">
