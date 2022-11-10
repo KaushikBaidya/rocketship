@@ -5,7 +5,7 @@ import InputFile from '../../../components/layout/InputFile'
 import Image from 'next/image'
 import 'react-quill/dist/quill.snow.css'
 import dynamic from 'next/dynamic'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
@@ -54,8 +54,6 @@ const formats = [
 ]
 
 const AddBlog = () => {
-  const editor = useRef(null)
-
   const [title, setTitle] = useState('')
   const [file, setFile] = useState('')
   const [description, setDescription] = useState('')
@@ -147,15 +145,7 @@ const AddBlog = () => {
             >
               Description
             </label>
-            {/* <textarea
-              type="text"
-              name="description"
-              placeholder="Description..."
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-              className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            /> */}
+
             <QuillNoSSRWrapper
               value={description}
               modules={modules}

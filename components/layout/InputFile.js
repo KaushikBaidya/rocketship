@@ -1,34 +1,45 @@
-import React from "react";
+import React, { useState } from 'react'
 
-const InputFile = ({ name, label, accept = "image/*", register, action }) => {
+const InputFile = ({
+  name,
+  label,
+  accept = 'image/*',
+  register,
+  action,
+  defaultImage,
+}) => {
+  // const [file, setFile] = useState(defaultImage)
+  console.log(defaultImage)
   const driveUpload = (e) => {
-    var file = e.target.files[0]; //the file
-    if (typeof file === "undefined") return;
-    console.log(file.type, "dssfsd", file, "dsfds");
+    var file = e.target.files[0] //the file
+    if (typeof file === 'undefined') return
+    console.log(file.type, 'dssfsd', file, 'dsfds')
     //if (!(file.type === "image/jpeg" || file.type === "image/png")) return;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i
 
-    if (!allowedExtensions.exec(file.name)) return;
-    var reader = new FileReader(); //this for convert to Base64
-    reader.readAsDataURL(e.target.files[0]); //start conversion...
+    if (!allowedExtensions.exec(file.name)) return
+    var reader = new FileReader() //this for convert to Base64
+    reader.readAsDataURL(e.target.files[0]) //start conversion...
     reader.onload = function (e) {
       //.. once finished..
-      var rawLog = reader.result.split(",")[1]; //extract only thee file data part
+      var rawLog = reader.result.split(',')[1] //extract only thee file data part
       var dataSend = {
         dataReq: { data: rawLog, name: file.name, type: file.type },
-        fname: "uploadFilesToGoogleDrive",
-      }; //preapre info to send to API
+        fname: 'uploadFilesToGoogleDrive',
+      } //preapre info to send to API
       fetch(
-        "https://script.google.com/macros/s/AKfycbyPYSAxwvQTnmVmC7r15tz9caXfim2tLuB-GWko-oEzKRSw9ns/exec", //your AppsScript URL
-        { method: "POST", body: JSON.stringify(dataSend) }
+        'https://script.google.com/macros/s/AKfycbyPYSAxwvQTnmVmC7r15tz9caXfim2tLuB-GWko-oEzKRSw9ns/exec', //your AppsScript URL
+        { method: 'POST', body: JSON.stringify(dataSend) },
       ) //send to Api
         .then((res) => res.json())
         .then((a) => {
-          action(a.id);
+          action(a.id)
+          // console.log(a.id)
+          // setFile(a.id)
         })
-        .catch((e) => console.log(e)); // Or Error in console
-    };
-  };
+        .catch((e) => console.log(e)) // Or Error in console
+    }
+  }
   return (
     <div className="form-row w-full">
       <label>{label}</label>
@@ -36,10 +47,12 @@ const InputFile = ({ name, label, accept = "image/*", register, action }) => {
         type="file"
         accept={accept}
         className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+        // {...register(name)}
+        defaultValue={defaultImage}
         onChange={(e) => driveUpload(e)}
       />
     </div>
-  );
-};
+  )
+}
 
-export default InputFile;
+export default InputFile
