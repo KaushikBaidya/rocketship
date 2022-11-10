@@ -1,49 +1,35 @@
-import React, { Fragment, useState } from "react";
-import { AiOutlineRest } from "react-icons/ai";
-// import { useDeleteData } from "../../hooks/dataApi";
-import { Dialog, Transition } from "@headlessui/react";
-import axios from "axios";
-// import { useRouter } from "next/router";
-// import toast from "react-hot-toast";
+import React, { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { useRouter } from 'next/router'
+import { useDeleteData } from '../../../hooks/DataApi'
+import { toast } from 'react-toastify'
+import { BiTrash } from 'react-icons/bi'
 
-const DeleteButton = ({ path }) => {
-  let [isOpen, setIsOpen] = useState(false);
+const DeleteButton = ({ path, action }) => {
+  let [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
 
-  // const { mutateAsync } = useDeleteData();
-  // const onSubmit = async () => {
-  //   try {
-  //     const { status } = await mutateAsync({ path });
-  //     if (status === 204) {
-  //       toast.success("Successfully deleted!");
-  //     }
-  //   } catch (error) {
-  //     if (error.response) {
-  //       toast.error("Response : " + error.response.data);
-  //     } else if (error.request) {
-  //       toast.error("Request : " + error.message);
-  //     } else {
-  //       toast.error("Error :", error.message);
-  //     }
-  //   } finally {
-  //     closeModal();
-  //     action();
-  //   }
-  // };
+  const { mutateAsync } = useDeleteData()
 
   const onSubmit = async () => {
-    await axios.delete(path).then(() => {
-      console.log("deleted");
-    });
-    // const remaining = data.filter((item) => item.id !== id);
-    // setData(remaining);
-  };
+    try {
+      await mutateAsync({ path }).then((response) => {
+        console.log(response.data.message)
+        toast.error(response.data.message, { icon: '❌' })
+      })
+    } catch (error) {
+      toast.error(error)
+    } finally {
+      action()
+    }
+  }
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
 
   return (
@@ -51,10 +37,10 @@ const DeleteButton = ({ path }) => {
       <button
         className="btn-danger w-12 h-10"
         onClick={() => {
-          openModal();
+          openModal()
         }}
       >
-        <AiOutlineRest size={24} />
+        <BiTrash size={24} />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -116,7 +102,7 @@ const DeleteButton = ({ path }) => {
         </Dialog>
       </Transition>
     </>
-  );
-};
+  )
+}
 
-export default DeleteButton;
+export default DeleteButton

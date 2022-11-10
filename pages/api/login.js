@@ -1,43 +1,43 @@
-import mysqlConfig from "../../data/db";
-import jwt from "jsonwebtoken";
+import mysqlConfig from '../../data/db'
+import jwt from 'jsonwebtoken'
 
-const mysql = require("mysql2/promise");
+const mysql = require('mysql2/promise')
 
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt')
 
 const getUser = async (user) => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows] = await connection.execute(
-      `SELECT * FROM userTable where user = '${user}'`
-    );
-    return rows;
+      `SELECT * FROM userTable where user = '${user}'`,
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
 export default async function handler(req, res) {
-  const method = req.method;
-  if (method === "POST") {
-    let result;
+  const method = req.method
+  if (method === 'POST') {
+    let result
 
-    const user = req.body.username;
-    const password = req.body.password;
+    const user = req.body.username
+    const password = req.body.password
 
-    result = await getUser(user);
+    result = await getUser(user)
 
-    const hashedPassword = result[0].password;
+    const hashedPassword = result[0].password
     if (await bcrypt.compare(password, hashedPassword)) {
-      var token = jwt.sign({ user, password }, "jwtSecret", {
-        expiresIn: "2d",
-      });
-      res.status(200).json({ success: true, token, message: "success login" });
-      console.log({ token });
+      var token = jwt.sign({ user, password }, 'jwtSecret', {
+        expiresIn: '2d',
+      })
+      res.status(200).json({ success: true, token, message: 'success login' })
+      console.log({ token })
     } else {
-      res.json({ message: "not success login" });
+      res.json({ message: 'not success login' })
     }
   } else {
-    return res.status(405).end(`Method ${method} Not Allowed`);
+    return res.status(405).end(`Method ${method} Not Allowed`)
   }
 }

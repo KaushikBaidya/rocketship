@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useState } from 'react'
 import {
   AiFillAppstore,
   AiFillControl,
@@ -8,14 +8,14 @@ import {
   AiFillDashboard,
   AiFillFileAdd,
   AiOutlineLogin,
-} from "react-icons/ai";
-import { useGlobalContext } from "../../context/context";
+} from 'react-icons/ai'
+import { useGlobalContext } from '../../context/context'
 
-import logoPic from "../../public/logo.png";
+import logoPic from '../../public/logo.png'
 
 function SideBar() {
-  const value = useGlobalContext();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const value = useGlobalContext()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
     <div className="fixed w-[200px] h-full bg-gray-100 drop-shadow-md ">
       <div className="flex justify-center p-3">
@@ -48,6 +48,15 @@ function SideBar() {
               <a>Testimonial</a>
             </Link>
           </li>
+          <li
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-1 "
+          >
+            <AiFillAppstore className="text-red-500 mb-1" />
+            <Link href="/dashboard/achievement">
+              <a>Achievement</a>
+            </Link>
+          </li>
 
           <li
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -63,7 +72,7 @@ function SideBar() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default SideBar;
+export default SideBar

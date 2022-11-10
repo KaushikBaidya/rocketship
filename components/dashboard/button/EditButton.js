@@ -1,14 +1,17 @@
-import React from "react";
-import { FiEdit } from "react-icons/fi";
-import { useRouter } from "next/router";
+import React from 'react'
+import { BiEdit } from 'react-icons/bi'
+import { useRouter } from 'next/router'
 
-const EditButton = ({ path, id }) => {
-  const router = useRouter();
+const EditButton = ({ path }) => {
+  const router = useRouter()
   return (
-    <button className="btn-edit" onClick={() => router.push(path)}>
-      <FiEdit />
+    <button
+      className="bg-sky-500 w-12 h-10 btn"
+      onClick={() => router.push(path)}
+    >
+      <BiEdit size={24} />
     </button>
-  );
-};
+  )
+}
 
-export default EditButton;
+export default EditButton

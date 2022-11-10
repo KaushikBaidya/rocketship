@@ -5,6 +5,8 @@ import InputFile from '../../../components/layout/InputFile'
 import Image from 'next/image'
 import 'react-quill/dist/quill.snow.css'
 import dynamic from 'next/dynamic'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -60,11 +62,22 @@ const AddBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.post('/api/blogs/createBlog', {
-      title: title,
-      filename: file,
-      description: description,
-    })
+    await axios
+      .post('/api/blogs/createBlog', {
+        title: title,
+        filename: file,
+        description: description,
+      })
+      .then((response) => {
+        if (response.data.message) {
+          // console.log(response.data.message)
+          toast.success('Success Notification !', {
+            position: toast.POSITION.TOP_CENTER,
+          })
+        } else {
+          console.log('failed to post data')
+        }
+      })
 
     setTitle('')
     setFile('')

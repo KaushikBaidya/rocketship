@@ -1,69 +1,69 @@
-const mysql = require("mysql2/promise");
-import mysqlConfig from "./db";
+const mysql = require('mysql2/promise')
+import mysqlConfig from './db'
 
 const getAchievement = async () => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      "SELECT * FROM `achievementTable`"
-    );
-    return rows;
+      'SELECT * FROM `achievementTable`',
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
 const getAchievementById = async (achievementId) => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows] = await connection.execute(
-      `SELECT * FROM achievementTable WHERE achievementId = ${achievementId}`
-    );
-    return rows;
+      `SELECT * FROM achievementTable WHERE achievementId = ${achievementId}`,
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
-const createAchievement = async (title) => {
+const createAchievement = async (title, description) => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      `INSERT INTO achievementTable ( title) VALUES ("${title}");`
-    );
-    return rows;
+      `INSERT INTO achievementTable ( title, description) VALUES ("${title}", "${description}");`,
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
 const updateAchievement = async (
   achievementId,
   updateTitle,
-  updateDescription
+  updateDescription,
 ) => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      `UPDATE achievementTable SET title = "${updateTitle}", description= "${updateDescription}" WHERE achievementId = ${achievementId}`
-    );
-    return rows;
+      `UPDATE achievementTable SET title = "${updateTitle}", description= "${updateDescription}" WHERE achievementId = ${achievementId}`,
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
 const deleteAchievementId = async (achievementId) => {
   try {
-    const connection = await mysql.createConnection(mysqlConfig);
+    const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      `DELETE FROM achievementTable WHERE achievementId = ${achievementId}`
-    );
-    return rows;
+      `DELETE FROM achievementTable WHERE achievementId = ${achievementId}`,
+    )
+    return rows
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
-};
+}
 
 const achievement = {
   getAchievement,
@@ -71,6 +71,6 @@ const achievement = {
   createAchievement,
   updateAchievement,
   deleteAchievementId,
-};
+}
 
-module.exports = achievement;
+module.exports = achievement

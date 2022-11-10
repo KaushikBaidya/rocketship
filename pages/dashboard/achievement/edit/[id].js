@@ -1,46 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import TopHeader from "../../../../components/dashboard/TopHeader";
-import axios from "axios";
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import TopHeader from '../../../../components/dashboard/TopHeader'
+import { useGetData, usePutData } from '../../../../hooks/DataApi'
+import AchievementFrom from '../../../../components/forms/achievementFrom'
+import { PuffLoading } from '../../../../components/Loader'
 
 function Details() {
-  const [data, setData] = useState();
-  const [updatedTitle, setUpdatedTitle] = useState(data?.title);
-  const [updatedDescription, setUpdatedDescription] = useState(
-    data?.description
-  );
-  const [isLoading, setLoading] = useState(false);
-  const router = useRouter();
-  const { id } = router.query;
+  const router = useRouter()
+  const { id } = router.query
+  console.log(id)
+  const [isLoading, setLoading] = useState(true)
+  const { mutateAsync } = usePutData()
 
-  const handleSubmit = async (achievementId) => {
-    console.log(achievementId);
-    await axios
-      .put(`/api/achievenent/${achievementId}`, {
-        title: updatedTitle,
-        description: updatedDescription,
-      })
-      .then((response) => {
-        if (response.data.message) {
-          console.log(response.data.message);
-        } else {
-          console.log("failed to post data");
-        }
-      });
-  };
+  const { data, refetch } = useGetData('achievement', `/achievement/${id}`)
+  const [list, setList] = useState()
 
   useEffect(() => {
-    const handleData = async () => {
-      const result = await axios.get(`/api/achievement/${id}`);
-      // console.log(result.data[0]);
-      setData(result.data[0]);
-    };
-    handleData();
-  }, [id]);
-  // console.log(data);
+    setList(data?.data[0])
+    setLoading(false)
+  }, [data])
+  console.log(list)
 
-  if (isLoading) return <p>Loading...</p>;
-
+  if (isLoading) return <PuffLoading />
   return (
     <div className="card w-full max-w-screen-xl">
       <TopHeader
@@ -48,54 +29,22 @@ function Details() {
         btn="Return"
         path="/dashboard/achievement"
       />
-
-      <div>
-        <form>
-          <div>
-            <input />
-            <label
-              htmlFor="title"
-              className="block text-sm font-semibold text-gray-800"
-            >
-              Title
-            </label>
-            <input
-              type="text"
-              defaultValue={data?.title}
-              onChange={(e) => {
-                setUpdatedTitle(e.target.value);
-              }}
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-sm font-semibold text-gray-800"
-            >
-              Description
-            </label>
-            <textarea
-              type="text"
-              defaultValue={data?.description}
-              onChange={(e) => {
-                setUpdatedDescription(e.target.value);
-              }}
-              className="block w-full h-[300px] px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-          </div>
-          <div className="mt-6">
-            <button
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-              onClick={() => handleSubmit(data?.achievementId)}
-            >
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
+      {list && (
+        <AchievementFrom
+          defaultValues={{
+            achievementId: list.achievementId,
+            title: list.title,
+            description: list.description,
+          }}
+          action={refetch}
+          btnText="Update"
+          mutateAsync={mutateAsync}
+          path={`achievement/${id}`}
+          returnPath="/dashboard/achievement"
+        />
+      )}
     </div>
-  );
+  )
 }
 
-export default Details;
+export default Details

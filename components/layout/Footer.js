@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   FiFacebook,
   FiTwitter,
@@ -7,10 +7,10 @@ import {
   FiMapPin,
   FiMail,
   FiPhoneCall,
-} from "react-icons/fi";
-import Link from "next/link";
-import Image from "next/image";
-import logoPic from "../../public/logo.png";
+} from 'react-icons/fi'
+import Link from 'next/link'
+import Image from 'next/image'
+import logoPic from '../../public/logo.png'
 
 const Footer = () => {
   return (
@@ -73,23 +73,28 @@ const Footer = () => {
             </p>
             <div className="text-[#211A56] text-lg grid grid-cols-1 justify-items-center">
               <p className="hover:text-[#EF1C26]">
-                <Link href="#seeHero">
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="#seeHero">
+                <Link href="/about">
                   <a>About</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="#seeHero">
+                <Link href="/service">
                   <a>Services</a>
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="#seeHero">
+                <Link href="/blogs">
                   <a>Blogs</a>
+                </Link>
+              </p>
+              <p className="hover:text-[#EF1C26]">
+                <Link href="login">
+                  <a>Login</a>
                 </Link>
               </p>
             </div>
@@ -115,7 +120,7 @@ const Footer = () => {
         </p>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
