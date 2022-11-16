@@ -28,3 +28,39 @@ const TextArea = ({
 }
 
 export default TextArea
+
+// import React from 'react'
+// import ErrorMessage from './ErrorMessage'
+// import { Controller } from 'react-hook-form'
+
+// const TextArea = ({
+//   control,
+//   name,
+//   label,
+//   errorMessage = '',
+//   //isAutoFocus = false,
+// }) => {
+//   return (
+//     <div className="form-row w-full">
+//       <label>{label}</label>
+//       <Controller
+//         control={control}
+//         name={name}
+//         render={({ field }) => (
+//           <textarea
+//             className={
+//               errorMessage
+//                 ? 'h-40 form-control input-border-danger'
+//                 : 'h-40 form-control input-border-primary'
+//             }
+//             {...field}
+//             //autoFocus={isAutoFocus}
+//           />
+//         )}
+//       />
+//       <ErrorMessage message={errorMessage} />
+//     </div>
+//   )
+// }
+
+// export default TextArea

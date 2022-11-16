@@ -1,17 +1,17 @@
-import React, { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { AiOutlineBars } from "react-icons/ai";
-import SideBar from "./SideBar";
+import React, { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { AiOutlineBars } from 'react-icons/ai'
+import MbSideBar from './MbSideBar'
 
 const MobileSidebar = () => {
-  let [isOpen, setIsOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
 
   return (
@@ -48,14 +48,14 @@ const MobileSidebar = () => {
               leaveTo="opacity-0 transform -translate-x-20"
             >
               <div className="relative bg-white">
-                <SideBar action={closeModal} />
+                <MbSideBar action={closeModal} />
               </div>
             </Transition.Child>
           </div>
         </Dialog>
       </Transition>
     </>
-  );
-};
+  )
+}
 
-export default MobileSidebar;
+export default MobileSidebar
