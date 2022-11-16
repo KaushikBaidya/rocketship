@@ -17,11 +17,11 @@ const Career = () => {
               Career Coaching
             </h1>
             <h2 className="text-[16px] text-justify lg:text-xl p-5">
-              Prepory career coaches offer unlimited guidance. We tailor resumes
-              for each position and industry that you target, provide cover
-              letter help, share job application advice, conduct mock interviews
-              and more. Prepory career coaches believe in you and your career.
-              It’s our job to find your job.
+              RocketShip career coaches offer unlimited guidance. We tailor
+              resumes for each position and industry that you target, provide
+              cover letter help, share job application advice, conduct mock
+              interviews and more. RocketShip career coaches believe in you and
+              your career. It’s our job to find your job.
             </h2>
           </div>
         </Fade>
