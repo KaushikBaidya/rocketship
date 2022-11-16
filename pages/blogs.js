@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Loader } from '../components/Loader'
 import { Error } from '../components/Error'
 import { useGetData } from '../hooks/DataApi'
+import Head from 'next/head'
 
 const Blogs = () => {
   const { data: list, error, isLoading, isError } = useGetData(
@@ -18,6 +19,9 @@ const Blogs = () => {
 
   return (
     <section className="pt-28">
+      <Head>
+        <title>Our Blogs </title>
+      </Head>
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
         <div className="flex flex-col items-center mx-auto mb-5">
           <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">

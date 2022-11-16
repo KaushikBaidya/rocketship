@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import banner from '../public/banner.jpg'
-import Fade from 'react-reveal/Fade'
+import Head from 'next/head'
 
 const Contact = () => {
   return (
     <section>
+      <Head>
+        <title>RocketShip</title>
+      </Head>
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 h-full py-28">
         <div className="mx-10 text-center">
           <h1 className="text-xl lg:text-3xl text-[#211A56] font-semibold">

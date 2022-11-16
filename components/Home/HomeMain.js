@@ -8,17 +8,8 @@ import Blogs from './Sections/Blogs'
 import Contact from '../../pages/Contact'
 
 const HomeMain = () => {
-  const seo = {
-    title: 'RocketShip Education',
-    description: 'description',
-    fbAppId: '',
-  }
   return (
     <div>
-      <Head>
-        <title>RocketShip Education </title>
-      </Head>
-
       <Hero />
       <Success />
       <OurPrograms />
