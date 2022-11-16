@@ -78,7 +78,6 @@ const BlogsForm = ({ defaultValues, path, returnPath, mutateAsync }) => {
       reset()
       setDescription()
       setPhoto('')
-      console.log(description)
       setSubmitting(false)
     }
   }

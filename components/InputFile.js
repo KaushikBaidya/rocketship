@@ -12,7 +12,7 @@ const InputFile = ({
   const driveUpload = (e) => {
     var file = e.target.files[0] //the file
     if (typeof file === 'undefined') return
-    console.log(file.type, 'dssfsd', file, 'dsfds')
+    // console.log(file.type, 'dssfsd', file, 'dsfds')
     //if (!(file.type === "image/jpeg" || file.type === "image/png")) return;
     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i
 

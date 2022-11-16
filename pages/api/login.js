@@ -26,7 +26,6 @@ export default async function handler(req, res) {
     const password = req.body.password
 
     result = await getUser(user)
-    console.log(result)
     const hashedPassword = result[0].password
     if (await bcrypt.compare(password, hashedPassword)) {
       var token = jwt.sign(

@@ -39,7 +39,6 @@ export default function Login() {
         path: '/login',
         formData: formData,
       }).then((response) => {
-        console.log(response)
         if (response) {
           const decode = jwt_decode(response.data.token)
           toast.success('Log In')
