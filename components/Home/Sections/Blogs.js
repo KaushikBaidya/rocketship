@@ -1,10 +1,7 @@
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Fade from 'react-reveal/Fade'
 import { Error } from '../../../components/Error'
-
-//data.slice(0, 3)
 
 import { FaRocket } from 'react-icons/fa'
 import { Loader } from '../../Loader'
@@ -20,7 +17,7 @@ const Blogs = () => {
 
   if (isError) return <Error message={error.message} />
 
-  const data = list.data
+  const data = list.data.slice(0, 3)
 
   return (
     <section>
@@ -59,14 +56,10 @@ const Blogs = () => {
                       <div className="bg-purple-100 flex flex-col items-start ">
                         <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
                           {item.date?.split('T')[0]}
-                          {/* {new Date(item.date)} */}
                         </p>
                         <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
                           {item.title}
                         </h2>
-                        {/* <p className="text-justify font-light text-base lg:text-lg px-5 pb-5">
-                        By {item.auth}
-                      </p> */}
                       </div>
                     </div>
                   </Link>
