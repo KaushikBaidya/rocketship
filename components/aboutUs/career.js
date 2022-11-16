@@ -1,6 +1,6 @@
-import Fade from 'react-reveal/Fade'
-import Image from 'next/image'
-import Service from '../../public/service/3.png'
+import Fade from "react-reveal/Fade";
+import Image from "next/image";
+import Service from "../../public/service/3.png";
 
 const Career = () => {
   return (
@@ -21,7 +21,7 @@ const Career = () => {
               resumes for each position and industry that you target, provide
               cover letter help, share job application advice, conduct mock
               interviews and more. RocketShip career coaches believe in you and
-              your career. It’s our job to find your job.
+              your career. It's our job to find your job.
             </h2>
           </div>
         </Fade>
@@ -34,7 +34,7 @@ const Career = () => {
         </Fade>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Career
+export default Career;

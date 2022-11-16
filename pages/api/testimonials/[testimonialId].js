@@ -3,54 +3,54 @@ import {
   createTestimonial,
   updateTestimonial,
   deleteTestimonialId,
-} from '../../../data/testimonials'
+} from "../../../data/testimonials";
 
 export default async function handler(req, res) {
-  const testimonialId = req.query.testimonialId
-  const method = req.method
+  const testimonialId = req.query.testimonialId;
+  const method = req.method;
 
-  let result
+  let result;
   switch (method) {
-    case 'GET':
-      result = await getTestimonialById(testimonialId)
-      res.json(result)
-      break
+    case "GET":
+      result = await getTestimonialById(testimonialId);
+      res.json(result);
+      break;
 
-    case 'DELETE':
-      result = await deleteTestimonialId(testimonialId)
+    case "DELETE":
+      result = await deleteTestimonialId(testimonialId);
       res.json({
         ...result,
-        message: `blog with testimonialId: ${testimonialId} deleted`,
-      })
-      break
+        message: `testimonial with testimonialId: ${testimonialId} deleted`,
+      });
+      break;
 
-    case 'POST':
-      const title = req.body.title
-      const description = req.body.description
-      const img = req.body.img
+    case "POST":
+      const title = req.body.title;
+      const description = req.body.description;
+      const img = req.body.img;
 
-      result = await createTestimonial(title, description, img)
+      result = await createTestimonial(title, description, img);
       res.status(201).json({
         ...result,
         message: `testimonial with title: ${title} created`,
-      })
-      break
+      });
+      break;
 
-    case 'PUT':
-      const updateTitle = req.body.title
-      const updateDescription = req.body.description
-      const updateImg = req.body.img
+    case "PUT":
+      const updateTitle = req.body.title;
+      const updateDescription = req.body.description;
+      const updateImg = req.body.img;
 
       result = await updateTestimonial(
         testimonialId,
         updateTitle,
         updateDescription,
-        updateImg,
-      )
-      res.status(204).end('end')
-      break
+        updateImg
+      );
+      res.status(204).end("end");
+      break;
 
     default:
-      res.status(405).end(`Method ${method} Not Allowed`)
+      res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

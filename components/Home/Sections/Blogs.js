@@ -1,22 +1,21 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import Fade from 'react-reveal/Fade'
+import Image from "next/image";
+import Link from "next/link";
+import Fade from "react-reveal/Fade";
 
-import { FaRocket } from 'react-icons/fa'
-import { Loader } from '../../Loader'
-import { useGetData } from '../../../hooks/DataApi'
+import { FaRocket } from "react-icons/fa";
+import { Loader } from "../../Loader";
+import { useGetData } from "../../../hooks/DataApi";
 
 const Blogs = () => {
-  const { data: list, isLoading } = useGetData('blogs', `/getBlogs`)
+  const { data: list, isLoading } = useGetData("blogs", `/getBlogs`);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-  const data = list.data.slice(0, 3)
+  const data = list.data.slice(0, 3);
 
   return (
     <section>
       <Fade bottom>
-        {' '}
         <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
           <div className="flex flex-col items-center mx-auto mb-5">
             <FaRocket className="text-4xl text-[#EF1C26] font-bold mb-3" />
@@ -49,7 +48,7 @@ const Blogs = () => {
                       </div>
                       <div className="bg-purple-100 flex flex-col items-start ">
                         <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
-                          {item.date?.split('T')[0]}
+                          {item.date?.split("T")[0]}
                         </p>
                         <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
                           {item.title}
@@ -58,13 +57,13 @@ const Blogs = () => {
                     </div>
                   </Link>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </Fade>
     </section>
-  )
-}
+  );
+};
 
-export default Blogs
+export default Blogs;

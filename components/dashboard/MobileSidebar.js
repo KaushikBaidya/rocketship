@@ -48,7 +48,7 @@ const MobileSidebar = () => {
               leaveTo="opacity-0 transform -translate-x-20"
             >
               <div className="relative bg-white">
-                <SideBar />
+                <SideBar action={closeModal} />
               </div>
             </Transition.Child>
           </div>

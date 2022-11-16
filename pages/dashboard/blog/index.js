@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import EditButton from '../../../components/dashboard/button/EditButton'
+import React, { useEffect, useState } from "react";
+import EditButton from "../../../components/dashboard/button/EditButton";
 import {
   ListCol,
   ListHeader,
-} from '../../../components/dashboard/ListColWithHeader'
-import TopHeader from '../../../components/dashboard/TopHeader'
-import { useGetData } from '../../../hooks/DataApi'
-import DeleteButton from '../../../components/dashboard/button/DeleteButton'
-import { Loader } from '../../../components/Loader'
-import { Error } from '../../../components/Error'
+} from "../../../components/dashboard/ListColWithHeader";
+import TopHeader from "../../../components/dashboard/TopHeader";
+import { useGetData } from "../../../hooks/DataApi";
+import DeleteButton from "../../../components/dashboard/button/DeleteButton";
+import { Loader } from "../../../components/Loader";
+import { Error } from "../../../components/Error";
 
 export default function Index() {
-  const { data: list, error, isLoading, isError, refetch } = useGetData(
-    'blogs',
-    `/getBlogs`,
-  )
+  const {
+    data: list,
+    error,
+    isLoading,
+    isError,
+    refetch,
+  } = useGetData("blogs", `/getBlogs`);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-  if (isError) return <Error message={error.message} />
+  if (isError) return <Error message={error.message} />;
 
-  const data = list.data
+  const data = list.data;
 
   return (
     <div className="card w-full">
@@ -38,7 +41,6 @@ export default function Index() {
               className="grid grid-cols-1 md:grid-cols-2 list-body"
             >
               <ListCol label="Title :" value={item.title} />
-              {/* <ListCol label="Description :" value={item.description} /> */}
               <div>
                 <div className="flex justify-end space-x-2">
                   <EditButton path={`/dashboard/blog/edit/${item.blogId}`} />
@@ -59,5 +61,5 @@ export default function Index() {
         </div>
       </div>
     </div>
-  )
+  );
 }

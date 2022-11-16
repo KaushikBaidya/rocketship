@@ -1,23 +1,25 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { Loader } from '../../components/Loader'
-import { Error } from '../../components/Error'
-import { useGetData } from '../../hooks/DataApi'
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { Loader } from "../../components/Loader";
+import { Error } from "../../components/Error";
+import { useGetData } from "../../hooks/DataApi";
 
 const SinglePage = () => {
-  const router = useRouter()
-  const { id } = router.query
+  const router = useRouter();
+  const { id } = router.query;
 
-  const { data: list, error, isLoading, isError, refetch } = useGetData(
-    'blogs',
-    `/blogs/${id}`,
-  )
+  const {
+    data: list,
+    error,
+    isLoading,
+    isError,
+  } = useGetData("blogs", `/blogs/${id}`);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-  if (isError) return <Error message={error.message} />
+  if (isError) return <Error message={error.message} />;
 
-  const data = list.data[0]
+  const data = list.data[0];
 
   return (
     <section className="text-gray-600 body-font">
@@ -37,7 +39,7 @@ const SinglePage = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SinglePage
+export default SinglePage;
