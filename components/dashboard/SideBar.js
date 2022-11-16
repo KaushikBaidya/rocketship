@@ -3,8 +3,6 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import {
   AiFillAppstore,
-  AiFillControl,
-  AiFillCrown,
   AiFillDashboard,
   AiFillFileAdd,
   AiOutlineLogin,
@@ -46,15 +44,6 @@ function SideBar() {
             <AiFillAppstore className="text-red-500 mb-1" />
             <Link href="/dashboard/testimonials">
               <a>Testimonial</a>
-            </Link>
-          </li>
-          <li
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex items-center gap-1 "
-          >
-            <AiFillAppstore className="text-red-500 mb-1" />
-            <Link href="/dashboard/achievement">
-              <a>Achievement</a>
             </Link>
           </li>
 
