@@ -4,10 +4,8 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { toast } from 'react-hot-toast'
 import Image from 'next/image'
-import InputFile from '../InputFile'
+import InputFile from '../layout/InputFile'
 import Input from '../Input'
-import { useRouter } from 'next/router'
-import SaveButton from '../dashboard/button/SaveButton'
 
 const schema = yup
   .object({
@@ -19,11 +17,14 @@ const schema = yup
     img: yup.mixed(),
   })
 
-const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
+const TestimonialForm = ({
+  defaultValues,
+  action,
+  path,
+  returnPath,
+  mutateAsync,
+}) => {
   const [imageUrl, setPhoto] = useState(defaultValues.img)
-  const [submitting, setSubmitting] = useState(false)
-
-  const router = useRouter()
 
   const {
     register,
@@ -37,37 +38,28 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
   const { title, description, img } = errors
 
   const onSubmit = async (formData) => {
-    setSubmitting(true)
+    console.log(formData)
     let data = {
       testimonialId: formData.testimonialId,
       title: formData.title,
       description: formData.description,
       img: imageUrl,
     }
+    console.log(data)
     try {
-      const { status } = await mutateAsync({
+      await mutateAsync({
         path: path,
         formData: data,
+      }).then((response) => {
+        console.log(response.status)
+        if (response.status === 200) {
+          toast.success('Data Saved!')
+        }
       })
-      if (status === 201) {
-        toast.success('Saved successfully!')
-      }
-      if (status === 204) {
-        toast.success('Update successful!')
-        router.push('/dashboard/testimonials')
-      }
     } catch (error) {
-      if (error.response) {
-        toast.error('Response : ' + error.response.data)
-      } else if (error.request) {
-        toast.error('Request : ' + error.message)
-      } else {
-        toast.error('Error :', error.message)
-      }
+      toast.error('error')
     } finally {
       reset()
-      setPhoto('')
-      setSubmitting(false)
     }
   }
 
@@ -75,7 +67,7 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="hidden" {...register('testimonialId')} />
 
-      <div className="form-col">
+      <div>
         {imageUrl?.length > 0 ? (
           <Image
             // src={`https://lh3.googleusercontent.com/d/${imageUrl}=s220?authuser=0`}
@@ -96,7 +88,8 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
           action={setPhoto}
           errorMessage={img?.message}
         />
-
+      </div>
+      <div>
         <Input
           name="title"
           label="Title"
@@ -104,7 +97,8 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
           register={register}
           errorMessage={title?.message}
         />
-
+      </div>
+      <div>
         <Input
           name="description"
           label="Description"
@@ -112,8 +106,9 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
           register={register}
           errorMessage={description?.message}
         />
-
-        <SaveButton btnText="Save" disabled={submitting} />
+      </div>
+      <div className="mt-6">
+        <button className="save-btn">Save</button>
       </div>
     </form>
   )

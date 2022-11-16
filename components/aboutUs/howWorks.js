@@ -3,16 +3,19 @@ import Image from 'next/image'
 import React from 'react'
 import teacher from '../../public/service/1.png'
 
-const Schedule = () => {
+const HowWeWork = () => {
   return (
     <section className="w-full">
-      <div className="max-w-2xl mx-auto pb-5">
-        <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
-          What We Do
-        </h2>
-      </div>
-      <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 h-full pb-5 lg:pb-12 mx-auto z-10">
-        <Fade left>
+      <Fade bottom>
+        <div className="max-w-2xl mx-auto pb-5">
+          <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+            How it works
+          </h2>
+        </div>
+        <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 h-full pb-5 mx-auto z-10">
+          <div className="max-w-[500px] mx-auto">
+            <Image src={teacher} alt="" />
+          </div>
           <div className="flex items-center justify-center mx-5">
             <div className="md:w-2/3 md:pr-2 md:py-6">
               <div className="flex relative pb-12">
@@ -34,9 +37,11 @@ const Schedule = () => {
                 </div>
                 <div className="flex-grow pl-4">
                   <h2 className="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">
-                    Participate and engage with a college admissions coach based
-                    on your potential major, career interests, and time
-                    availability.
+                    Your career coach will get to know you through a strengths
+                    and weaknesses evaluation and a personality assessment.
+                    Next, you will work with your career coach to explore
+                    industries and identify companies and cultures that are best
+                    fit for you.
                   </h2>
                 </div>
               </div>
@@ -59,9 +64,9 @@ const Schedule = () => {
                 </div>
                 <div className="flex-grow pl-4">
                   <h2 className="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">
-                    Prepory college admissions coaches provide guidance on
-                    extracurricular profiles, academics, personal statements,
-                    college applications, course selection, and more.
+                    Your career coach will help you set goals and identify ideal
+                    positions, locations, and compensation packages that match
+                    your individual skill set and professional expertise.
                   </h2>
                 </div>
               </div>
@@ -82,24 +87,17 @@ const Schedule = () => {
                 </div>
                 <div className="flex-grow pl-4">
                   <h2 className="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">
-                    Join the many students that we’ve helped get admitted into
-                    elite colleges and Ivy League universities around the U.S.,
-                    and increase your college acceptance rates by 2x!
+                    We create resumes and cover letters, customizing multiple
+                    versions for each industry you target.
                   </h2>
                 </div>
               </div>
             </div>
           </div>
-        </Fade>
-
-        <Fade right>
-          <div className="max-w-[500px] mx-auto">
-            <Image src={teacher} alt="" />
-          </div>
-        </Fade>
-      </div>
+        </div>
+      </Fade>
     </section>
   )
 }
 
-export default Schedule
+export default HowWeWork

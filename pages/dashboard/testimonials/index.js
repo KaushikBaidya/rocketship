@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import EditButton from '../../../components/dashboard/button/EditButton'
 import {
   ListCol,
@@ -7,22 +7,27 @@ import {
 import TopHeader from '../../../components/dashboard/TopHeader'
 import { useGetData } from '../../../hooks/DataApi'
 import DeleteButton from '../../../components/dashboard/button/DeleteButton'
+import { Loader } from '../../../components/Loader'
+import { Error } from '../../../components/Error'
 
-export default function Add() {
-  const [list, setList] = useState()
+export default function Index() {
+  const { data: list, error, isLoading, isError, refetch } = useGetData(
+    'testimonials',
+    `/getTestimonials`,
+  )
 
-  const { data, refetch } = useGetData('testimonials', `/testimonials`)
+  if (isLoading) return <Loader />
 
-  useEffect(() => {
-    setList(data?.data)
-  }, [data])
+  if (isError) return <Error message={error.message} />
+
+  const data = list.data
 
   return (
     <div className="card w-full">
       <TopHeader
         title="Testimonial List"
         btn="Save"
-        path="/dashboard/testimonials/addTestimonial"
+        path="/dashboard/testimonials/Add"
       />
 
       <div className="list-wrapper">
@@ -31,8 +36,8 @@ export default function Add() {
           <ListHeader label="Description" />
           <ListHeader label="" />
         </div>
-        {list?.length > 0 &&
-          list.map((item) => (
+        {data.length > 0 &&
+          data.map((item) => (
             <div
               key={item.testimonialId}
               className="grid grid-cols-1 md:grid-cols-3 list-body"
@@ -56,7 +61,7 @@ export default function Add() {
         <div className="list-footer">
           <div className="col-span-10"></div>
           <div className="flex justify-center">
-            <span className="font-semibold">TOTAL : {list?.length}</span>
+            <span className="font-semibold">TOTAL : {data.length}</span>
           </div>
         </div>
       </div>

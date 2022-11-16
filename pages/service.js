@@ -1,9 +1,10 @@
-import React from "react";
-import Hero from "../components/service/hero";
-import Details from "../components/service/detail";
-import Steps from "../components/service/steps";
-import Show from "../components/service/Show";
-import Success from "../components/Home/Sections/Success";
+import React from 'react'
+import Hero from '../components/service/Hero'
+import Details from '../components/service/Detail'
+import Steps from '../components/service/Steps'
+import Success from '../components/Home/Sections/Success'
+import Review from '../components/service/Review'
+import Successful from '../components/service/Successful'
 
 const service = () => {
   return (
@@ -12,9 +13,10 @@ const service = () => {
       <Details />
       <Success />
       <Steps />
-      {/* <Show /> */}
+      <Review />
+      <Successful />
     </div>
-  );
-};
+  )
+}
 
-export default service;
+export default service

@@ -1,5 +1,3 @@
-import Private from "../../components/private";
-
 function Index() {
   return (
     <>
@@ -7,7 +5,7 @@ function Index() {
         <h1 className="text-4xl font-semibold ">This is dashboard</h1>
       </div>
     </>
-  );
+  )
 }
 
-export default Index;
+export default Index

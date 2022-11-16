@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useGlobalContext } from '../context/context'
 import SideBar from './dashboard/SideBar'
 import Header from './dashboard/Header'
-import { PuffLoading } from './Loader'
+import { Loader } from './Loader'
 
 const Private = ({ children }) => {
   const [loading, setLoading] = useState(true)
@@ -12,13 +12,13 @@ const Private = ({ children }) => {
   const value = useGlobalContext()
 
   useEffect(() => {
-    if (!value.user) Router.push('/login')
+    if (!value.token) Router.push('/login')
     else {
       setLoading(false)
     }
-  }, [value.user, Router])
+  }, [value.token, Router])
 
-  if (loading) return <PuffLoading />
+  if (loading) return <Loader />
 
   return (
     <>

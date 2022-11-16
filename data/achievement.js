@@ -5,7 +5,7 @@ const getAchievement = async () => {
   try {
     const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      'SELECT * FROM `achievementTable`',
+      'SELECT * FROM achievementTable',
     )
     return rows
   } catch (e) {
@@ -29,7 +29,7 @@ const createAchievement = async (title, description) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig)
     const [rows, fields] = await connection.execute(
-      `INSERT INTO achievementTable ( title, description) VALUES ("${title}", "${description}");`,
+      `INSERT INTO achievementTable ( title,description) VALUES ("${title}", "${description}");`,
     )
     return rows
   } catch (e) {

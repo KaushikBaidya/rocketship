@@ -34,8 +34,8 @@ function SideBar() {
             className="flex items-center gap-1 "
           >
             <AiFillFileAdd className="text-red-500 mb-1" />
-            <Link href="/dashboard/post">
-              <a>Post</a>
+            <Link href="/dashboard/blog">
+              <a>Blogs</a>
             </Link>
           </li>
 

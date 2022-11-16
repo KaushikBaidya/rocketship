@@ -27,10 +27,10 @@ export default async function handler(req, res) {
     case 'POST':
       const title = req.body.title
       const description = req.body.description
-      const img = req.body.filename
+      const img = req.body.img
 
       result = await createTestimonial(title, description, img)
-      res.json({
+      res.status(201).json({
         ...result,
         message: `testimonial with title: ${title} created`,
       })
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     case 'PUT':
       const updateTitle = req.body.title
       const updateDescription = req.body.description
-      const updateImg = req.body.filename
+      const updateImg = req.body.img
 
       result = await updateTestimonial(
         testimonialId,
@@ -47,10 +47,7 @@ export default async function handler(req, res) {
         updateDescription,
         updateImg,
       )
-      res.json({
-        ...result,
-        message: `Testimonial with title: ${testimonialId} updated`,
-      })
+      res.status(204).end('end')
       break
 
     default:

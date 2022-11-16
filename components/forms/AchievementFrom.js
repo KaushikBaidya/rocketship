@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-// import { usePutData, usePostData } from '../../hooks/DataApi'
+import { toast } from 'react-hot-toast'
+import Input from '../../components/Input'
+import SaveButton from '../dashboard/button/SaveButton'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+// import { usePostData } from '../../hooks/DataApi'
 
 const schema = yup.object({
   achievementId: yup.string().max(50),
@@ -12,19 +14,9 @@ const schema = yup.object({
   description: yup.string().required('Required.'),
 })
 
-const AchievementFrom = ({
-  defaultValues,
-  action,
-  path,
-  returnPath,
-  mutateAsync,
-}) => {
+const AchievementFrom = ({ defaultValues, path, mutateAsync }) => {
+  const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
-
-  // const { mutateAsync } = usePutData()
-  // const { mutateAsync } = {defaultValues.length === 0 ? usePostData():usePutData()}
-
-  // const { mutateAsync } = usePostData()
 
   const {
     register,
@@ -36,66 +28,58 @@ const AchievementFrom = ({
     resolver: yupResolver(schema),
   })
   const { title, description } = errors
+  // const { mutateAsync } = usePostData()
 
-  const onSubmit = async (data) => {
-    // var data = new FormData()
-    // data.append('achievementId', formData.achievementId)
-    // data.append('title', formData.title)
-    // data.append('description', formData.description)
+  const onSubmit = async (formData) => {
+    setSubmitting(true)
     try {
-      await mutateAsync({
+      const { status } = await mutateAsync({
         path: path,
-        formData: data,
-      }).then((response) => {
-        console.log(response.status)
-        if (response.status === 200) {
-          toast.success('Data Saved!')
-        }
+        formData: formData,
       })
+      if (status === 201) {
+        toast.success('Saved successfully!')
+      }
+      if (status === 204) {
+        toast.success('Update successful!')
+        router.push('/dashboard/achievement')
+      }
     } catch (error) {
-      toast.error('error')
+      if (error.response) {
+        toast.error('Response : ' + error.response.data)
+        console.log(error)
+      } else if (error.request) {
+        toast.error('Request : ' + error.message)
+      } else {
+        toast.error('Error :', error.message)
+      }
     } finally {
       reset()
+      setSubmitting(false)
     }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="hidden" {...register('achievementId')} />
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-semibold text-gray-800"
-        >
-          Title
-        </label>
-        <input
+      <div className="form-col">
+        <Input
+          name="title"
+          label="Title"
           type="text"
-          placeholder="Title..."
-          defaultValue={defaultValues.title}
-          {...register('title')}
-          className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          register={register}
+          errorMessage={title?.message}
         />
-      </div>
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-semibold text-gray-800"
-        >
-          Title
-        </label>
-        <input
+
+        <Input
+          name="description"
+          label="Description"
           type="text"
-          placeholder="Title..."
-          {...register('description')}
-          defaultValue={defaultValues.description}
-          className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          register={register}
+          errorMessage={description?.message}
         />
-      </div>
-      <div className="mt-6">
-        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-          Save
-        </button>
+
+        <SaveButton btnText="Save" disabled={submitting} />
       </div>
     </form>
   )

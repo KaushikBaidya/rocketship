@@ -1,6 +1,6 @@
-import React from "react";
-import Hero from "./hero";
-import Detail from "./detail";
+import React from 'react'
+import Hero from './Hero'
+import Detail from './Detail'
 
 const Essay = () => {
   return (
@@ -8,7 +8,7 @@ const Essay = () => {
       <Hero />
       <Detail />
     </section>
-  );
-};
+  )
+}
 
-export default Essay;
+export default Essay

@@ -9,7 +9,7 @@ const getUser = async (user) => {
   try {
     const connection = await mysql.createConnection(mysqlConfig)
     const [rows] = await connection.execute(
-      `SELECT * FROM userTable where user = '${user}'`,
+      `SELECT * FROM userTable where userName = '${user}'`,
     )
     return rows
   } catch (e) {
@@ -26,14 +26,18 @@ export default async function handler(req, res) {
     const password = req.body.password
 
     result = await getUser(user)
-
+    console.log(result)
     const hashedPassword = result[0].password
     if (await bcrypt.compare(password, hashedPassword)) {
-      var token = jwt.sign({ user, password }, 'jwtSecret', {
-        expiresIn: '2d',
-      })
-      res.status(200).json({ success: true, token, message: 'success login' })
-      console.log({ token })
+      var token = jwt.sign(
+        { success: true, user, fullName: result[0].fullName, role: 'admin' },
+        'jwtSecret',
+        {
+          expiresIn: '2d',
+        },
+      )
+      res.status(200).json({ token })
+      // console.log({ token, fullName })
     } else {
       res.json({ message: 'not success login' })
     }

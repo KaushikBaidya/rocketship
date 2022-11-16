@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-hot-toast'
+import Input from '../Input'
+import SaveButton from '../dashboard/button/SaveButton'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
 import Image from 'next/image'
-import 'react-quill/dist/quill.snow.css'
-import dynamic from 'next/dynamic'
-import InputFile from '../layout/InputFile'
+import InputFile from '../InputFile'
 
 const schema = yup
   .object({
@@ -19,62 +19,10 @@ const schema = yup
     img: yup.mixed(),
   })
 
-const QuillNoSSRWrapper = dynamic(import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-})
-
-const modules = {
-  toolbar: [
-    [{ header: '1' }, { header: '2' }, { font: [] }],
-    [{ size: [] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
-    ['link', 'image', 'video'],
-    ['clean'],
-    [{ color: [] }, { background: [] }],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
-  },
-}
-
-const formats = [
-  'header',
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
-  'strike',
-  'blockquote',
-  'list',
-  'bullet',
-  'indent',
-  'link',
-  'image',
-  'video',
-  'color',
-  'background',
-]
-
-const BlogsForm = ({
-  defaultValues,
-  action,
-  path,
-  returnPath,
-  mutateAsync,
-}) => {
+const BlogsForm = ({ defaultValues, path, mutateAsync }) => {
+  const [imageUrl, setPhoto] = useState(defaultValues.img)
+  const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
-
-  const [file, setFile] = useState(defaultValues.img)
-  const [description, setDescription] = useState(defaultValues.description)
 
   const {
     register,
@@ -85,104 +33,84 @@ const BlogsForm = ({
     defaultValues: defaultValues,
     resolver: yupResolver(schema),
   })
-  //   const { title, description } = errors
+  const { title, description, img } = errors
 
-  const onSubmit = async (FormData) => {
-    console.log('clicked')
-    console.log(FormData)
-    var data = new FormData()
-    data.append('blogId', FormData.blogId)
-    data.append('title', FormData.title)
-    data.append('description', description)
-    data.append('img', file)
+  const onSubmit = async (formData) => {
+    setSubmitting(true)
+    let data = {
+      blogId: formData.blogId,
+      title: formData.title,
+      description: formData.description,
+      img: imageUrl,
+    }
     try {
-      await mutateAsync({
+      const { status } = await mutateAsync({
         path: path,
         formData: data,
-      }).then((response) => {
-        console.log(response.status)
-        if (response.status === 200) {
-          toast.success('Data Saved!')
-        }
       })
+      if (status === 201) {
+        toast.success('Saved successfully!')
+      }
+      if (status === 204) {
+        toast.success('Update successful!')
+        router.push(returnPath)
+      }
     } catch (error) {
-      toast.error('error')
+      if (error.response) {
+        toast.error('Response : ' + error.response.data)
+      } else if (error.request) {
+        toast.error('Request : ' + error.message)
+      } else {
+        toast.error('Error :', error.message)
+      }
     } finally {
       reset()
+      setPhoto('')
+      setSubmitting(false)
     }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="hidden" {...register('blogId')} />
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-semibold text-gray-800"
-        >
-          Title
-        </label>
-        <input
-          type="text"
-          placeholder="Title..."
-          defaultValue={defaultValues.title}
-          {...register('title')}
-          className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-        />
-      </div>
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-semibold text-gray-800"
-        >
-          Upload Image
-        </label>
-
-        {file?.length > 0 ? (
+      <div className="form-col">
+        {imageUrl?.length > 0 ? (
           <Image
-            // src={`https://lh3.googleusercontent.com/d/${file}=s220?authuser=0`}
-            src={`https://drive.google.com/thumbnail?id=${file}`}
-            // src={`https://drive.google.com/uc?export=view&id=${file}`}
+            // src={`https://lh3.googleusercontent.com/d/${imageUrl}=s220?authuser=0`}
+            src={`https://drive.google.com/thumbnail?id=${imageUrl}`}
+            // src={`https://drive.google.com/uc?export=view&id=${imageUrl}`}
             alt="PHOTO"
-            height={300}
-            width={300}
+            width={100}
+            height={100}
           />
         ) : (
           <span></span>
         )}
         <InputFile
-          name="photo"
-          label="Photo"
+          name="picture"
+          label="Upload Image"
           accept="image/*"
-          action={setFile}
+          register={register}
+          action={setPhoto}
+          errorMessage={img?.message}
         />
-      </div>
-      <div>
-        <label
-          htmlFor="description"
-          className="block text-sm font-semibold text-gray-800"
-        >
-          Description
-        </label>
+        <Input
+          name="title"
+          label="Title"
+          type="text"
+          register={register}
+          errorMessage={title?.message}
+        />
 
-        <QuillNoSSRWrapper
-          //   {...register('description')}
-          defaultValue={defaultValues.description}
-          modules={modules}
-          formats={formats}
-          theme="snow"
-          onChange={(e) => {
-            setDescription(e)
-          }}
+        <Input
+          name="description"
+          label="Description"
+          type="text"
+          register={register}
+          errorMessage={description?.message}
         />
-      </div>
-      <div className="mt-6">
-        <button
-          className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-          //   onClick={console.log('clicked')}
-        >
-          Save
-        </button>
+
+        <SaveButton btnText="Save" disabled={submitting} />
       </div>
     </form>
   )

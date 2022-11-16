@@ -1,21 +1,23 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { Loader } from '../../components/Loader'
+import { Error } from '../../components/Error'
+import { useGetData } from '../../hooks/DataApi'
 
 const SinglePage = () => {
   const router = useRouter()
   const { id } = router.query
-  const [data, setData] = useState()
 
-  useEffect(() => {
-    const handledata = async () => {
-      const result = await fetch(`/api/blogs/${id}`)
-      const data = await result.json()
-      setData(data[0])
-    }
-    handledata()
-  }, [id])
-  console.log(data)
+  const { data: list, error, isLoading, isError, refetch } = useGetData(
+    'blogs',
+    `/blogs/${id}`,
+  )
+
+  if (isLoading) return <Loader />
+
+  if (isError) return <Error message={error.message} />
+
+  const data = list.data[0]
 
   return (
     <section className="text-gray-600 body-font">
@@ -23,7 +25,7 @@ const SinglePage = () => {
         <Image
           className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
           alt="hero"
-          src={`https://drive.google.com/uc?export=view&id=${data?.img}`}
+          src={`https://drive.google.com/uc?export=view&id=${data.img}`}
           width={700}
           height={300}
         />
@@ -31,7 +33,7 @@ const SinglePage = () => {
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
             {data?.title}
           </h1>
-          <div dangerouslySetInnerHTML={{ __html: data?.description }}></div>
+          <div dangerouslySetInnerHTML={{ __html: data.description }}></div>
         </div>
       </div>
     </section>

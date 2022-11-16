@@ -2,9 +2,10 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import TopHeader from '../../../../components/dashboard/TopHeader'
 import { useGetData, usePutData } from '../../../../hooks/DataApi'
-import AchievementFrom from '../../../../components/forms/achievementFrom'
 import { Loader } from '../../../../components/Loader'
 import { Error } from '../../../../components/Error'
+// import TestimonialForm from '../../../../components/forms/TestimonialForm'
+import BlogsForm from '../../../../components/forms/BlogsForm'
 
 function Details() {
   const router = useRouter()
@@ -12,8 +13,8 @@ function Details() {
   const { mutateAsync } = usePutData()
 
   const { data: list, error, isLoading, isError, refetch } = useGetData(
-    'achievement',
-    `/achievement/${id}`,
+    'blogs',
+    `/blogs/${id}`,
   )
 
   if (isLoading) return <Loader />
@@ -24,23 +25,21 @@ function Details() {
 
   return (
     <div className="card w-full max-w-screen-xl">
-      <TopHeader
-        title="Edit achievement Post"
-        btn="Return"
-        path="/dashboard/achievement"
-      />
+      <TopHeader title="Edit Blogs" btn="Return" path="/dashboard/blog" />
+
       {data && (
-        <AchievementFrom
+        <BlogsForm
           defaultValues={{
-            achievementId: data.achievementId,
+            blogId: data.blogId,
             title: data.title,
             description: data.description,
+            img: data.img,
           }}
           action={refetch}
           btnText="Update"
           mutateAsync={mutateAsync}
-          path={`achievement/${id}`}
-          returnPath="/dashboard/achievement"
+          path={`/blogs/${data.blogId}`}
+          returnPath="/dashboard/blog"
         />
       )}
     </div>
@@ -48,3 +47,5 @@ function Details() {
 }
 
 export default Details
+
+//blogs/${blogId}

@@ -8,8 +8,6 @@ import {
 export default async function handler(req, res) {
   const achievementId = req.query.achievementId
   const method = req.method
-  // const title = req.body.title
-  // const description = req.body.description
 
   let result
   switch (method) {
@@ -31,11 +29,12 @@ export default async function handler(req, res) {
       const description = req.body.description
 
       result = await createAchievement(title, description)
-      res.json({ ...result, message: `user with userId: ${title} created` })
+      res
+        .status(201)
+        .json({ ...result, message: `user with userId: ${title} created` })
       break
 
     case 'PUT':
-      const achievementId = req.body.achievementId
       const updateTitle = req.body.title
       const updateDescription = req.body.description
 
@@ -44,10 +43,7 @@ export default async function handler(req, res) {
         updateTitle,
         updateDescription,
       )
-      res.json({
-        ...result,
-        message: `blog with title: ${achievementId} updated`,
-      })
+      res.status(204).end('end')
       break
 
     default:

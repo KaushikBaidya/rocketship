@@ -1,37 +1,37 @@
-import { request } from '../helper/axios-utils'
-import { useQuery, useMutation } from 'react-query'
-import { useGlobalContext } from '../context/context'
+import { request } from "../helper/axios-utils";
+import { useQuery, useMutation } from "react-query";
+import { useGlobalContext } from "../context/context";
 
 export const usePostData = () => {
-  const value = useGlobalContext()
+  const value = useGlobalContext();
   return useMutation(({ path, formData }) =>
     request({
-      method: 'POST',
+      method: "POST",
       url: path,
       data: formData,
       headers: {
-        Authorization: 'Bearer ' + value.user,
+        Authorization: "Bearer " + value.token,
       },
-    }),
-  )
-}
+    })
+  );
+};
 
 export const usePutData = () => {
-  const value = useGlobalContext()
+  const value = useGlobalContext();
   return useMutation(({ path, formData }) =>
     request({
-      method: 'PUT',
+      method: "PUT",
       url: path,
       data: formData,
       headers: {
-        Authorization: 'Bearer ' + value.user,
+        Authorization: "Bearer " + value.token,
       },
-    }),
-  )
-}
+    })
+  );
+};
 
 export const useGetData = (key, path) => {
-  const value = useGlobalContext()
+  const value = useGlobalContext();
 
   const { status, data, error, isLoading, isError, refetch } = useQuery(
     [
@@ -39,32 +39,32 @@ export const useGetData = (key, path) => {
       {
         path: path,
         headers: {
-          Authorization: 'Bearer ' + value.user,
+          Authorization: "Bearer " + value.token,
         },
       },
     ],
     ({ queryKey, signal }) => {
-      const { path, headers } = queryKey[1]
+      const { path, headers } = queryKey[1];
       return request({
-        method: 'GET',
+        method: "GET",
         url: path,
         headers: headers,
         signal,
-      })
-    },
-  )
-  return { status, data, error, isLoading, isError, refetch }
-}
+      });
+    }
+  );
+  return { status, data, error, isLoading, isError, refetch };
+};
 
 export const useDeleteData = () => {
-  const value = useGlobalContext()
+  const value = useGlobalContext();
   return useMutation(({ path }) =>
     request({
-      method: 'DELETE',
+      method: "DELETE",
       url: path,
       headers: {
-        Authorization: 'Bearer ' + value.user,
+        Authorization: "Bearer " + value.token,
       },
-    }),
-  )
-}
+    })
+  );
+};

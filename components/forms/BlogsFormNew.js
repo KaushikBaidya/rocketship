@@ -1,28 +1,38 @@
+import React, { Component } from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import Image from 'next/image'
 import InputFile from '../InputFile'
 import Input from '../Input'
-import { useRouter } from 'next/router'
 import SaveButton from '../dashboard/button/SaveButton'
+import 'react-quill/dist/quill.snow.css'
+import dynamic from 'next/dynamic'
 
 const schema = yup
   .object({
-    testimonialId: yup.string().max(50),
+    blogId: yup.string().max(50),
     title: yup.string().required('Required.').max(50),
-    description: yup.string().required('Required.'),
+    // description: yup.string().required('Required.'),
   })
   .shape({
     img: yup.mixed(),
   })
 
-const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
-  const [imageUrl, setPhoto] = useState(defaultValues.img)
-  const [submitting, setSubmitting] = useState(false)
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+})
 
+const BlogsForm = ({ defaultValues, path, returnPath, mutateAsync }) => {
+  const [imageUrl, setPhoto] = useState(defaultValues.img)
+  const [description, setDescription] = useState(
+    defaultValues.description === '' ? '' : defaultValues.description,
+  )
+  const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
 
   const {
@@ -34,14 +44,15 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
     defaultValues: defaultValues,
     resolver: yupResolver(schema),
   })
-  const { title, description, img } = errors
+
+  const { title, img } = errors
 
   const onSubmit = async (formData) => {
     setSubmitting(true)
     let data = {
-      testimonialId: formData.testimonialId,
+      blogId: formData.blogId,
       title: formData.title,
-      description: formData.description,
+      description: description,
       img: imageUrl,
     }
     try {
@@ -54,7 +65,7 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
       }
       if (status === 204) {
         toast.success('Update successful!')
-        router.push('/dashboard/testimonials')
+        router.push(returnPath)
       }
     } catch (error) {
       if (error.response) {
@@ -66,15 +77,16 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
       }
     } finally {
       reset()
+      setDescription()
       setPhoto('')
+      console.log(description)
       setSubmitting(false)
     }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="hidden" {...register('testimonialId')} />
-
+      <input type="hidden" {...register('blogId')} />
       <div className="form-col">
         {imageUrl?.length > 0 ? (
           <Image
@@ -96,7 +108,6 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
           action={setPhoto}
           errorMessage={img?.message}
         />
-
         <Input
           name="title"
           label="Title"
@@ -105,12 +116,22 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
           errorMessage={title?.message}
         />
 
-        <Input
+        {/* <Input
           name="description"
           label="Description"
           type="text"
           register={register}
           errorMessage={description?.message}
+        /> */}
+
+        <QuillNoSSRWrapper
+          defaultValue={defaultValues.description}
+          // modules={modules}
+          // formats={formats}
+          theme="snow"
+          onChange={(e) => {
+            setDescription(e)
+          }}
         />
 
         <SaveButton btnText="Save" disabled={submitting} />
@@ -119,4 +140,4 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
   )
 }
 
-export default TestimonialForm
+export default BlogsForm

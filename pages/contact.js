@@ -1,5 +1,6 @@
-import Image from "next/image";
-import banner from "../public/banner.jpg";
+import Image from 'next/image'
+import banner from '../public/banner.jpg'
+import Fade from 'react-reveal/Fade'
 
 const Contact = () => {
   return (
@@ -59,7 +60,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

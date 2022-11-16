@@ -1,18 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Loader } from '../components/Loader'
+import { Error } from '../components/Error'
+import { useGetData } from '../hooks/DataApi'
 
 const Blogs = () => {
-  const [data, setData] = useState()
+  const { data: list, error, isLoading, isError } = useGetData(
+    'blogs',
+    '/getBlogs',
+  )
 
-  useEffect(() => {
-    const handledata = async () => {
-      const result = await fetch(`/api/blogs`)
-      const data = await result.json()
-      setData(data)
-    }
-    handledata()
-  }, [])
+  if (isLoading) return <Loader />
+
+  if (isError) return <Error message={error.message} />
+
+  const data = list.data
+
   return (
     <section className="pt-28">
       <div className="w-full grid grid-cols-1 justify-items-center content-center mb-20">
@@ -22,7 +25,7 @@ const Blogs = () => {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-5 p-5">
-          {data?.map((item) => {
+          {data.map((item) => {
             return (
               <div
                 key={item.blogId}
@@ -44,14 +47,10 @@ const Blogs = () => {
                     <div className="bg-purple-100 flex flex-col items-start ">
                       <p className="bg-[#EF1C26] text-sm lg:text-xl text-center w-36 p-3 mt-5 ml-5 text-white">
                         {item.date?.split('T')[0]}
-                        {/* {new Date(item.date)} */}
                       </p>
                       <h2 className="text-[#211A56] font-bold text-base lg:text-2xl p-5">
                         {item.title}
                       </h2>
-                      {/* <p className="text-justify font-light text-base lg:text-lg px-5 pb-5">
-                        By {item.auth}
-                      </p> */}
                     </div>
                   </div>
                 </Link>

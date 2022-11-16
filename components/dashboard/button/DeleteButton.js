@@ -1,25 +1,30 @@
 import React, { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { useRouter } from 'next/router'
+import { AiOutlineRest } from 'react-icons/ai'
 import { useDeleteData } from '../../../hooks/DataApi'
-import { toast } from 'react-toastify'
-import { BiTrash } from 'react-icons/bi'
+import { Dialog, Transition } from '@headlessui/react'
+import { toast } from 'react-hot-toast'
 
 const DeleteButton = ({ path, action }) => {
   let [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
 
   const { mutateAsync } = useDeleteData()
-
   const onSubmit = async () => {
     try {
       await mutateAsync({ path }).then((response) => {
-        console.log(response.data.message)
-        toast.error(response.data.message, { icon: '❌' })
+        if (response) {
+          toast.success('Successfully deleted!')
+        }
       })
     } catch (error) {
-      toast.error(error)
+      if (error.response) {
+        toast.error('Response : ' + error.response.data)
+      } else if (error.request) {
+        toast.error('Request : ' + error.message)
+      } else {
+        toast.error('Error :', error.message)
+      }
     } finally {
+      closeModal()
       action()
     }
   }
@@ -40,7 +45,7 @@ const DeleteButton = ({ path, action }) => {
           openModal()
         }}
       >
-        <BiTrash size={24} />
+        <AiOutlineRest size={24} />
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>

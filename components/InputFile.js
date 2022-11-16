@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
+import ErrorMessage from './ErrorMessage'
 
 const InputFile = ({
   name,
   label,
   accept = 'image/*',
   register,
+  errorMessage = '',
   action,
-  defaultImage,
 }) => {
-  // const [file, setFile] = useState(defaultImage)
-  console.log(defaultImage)
   const driveUpload = (e) => {
     var file = e.target.files[0] //the file
     if (typeof file === 'undefined') return
@@ -34,8 +33,6 @@ const InputFile = ({
         .then((res) => res.json())
         .then((a) => {
           action(a.id)
-          // console.log(a.id)
-          // setFile(a.id)
         })
         .catch((e) => console.log(e)) // Or Error in console
     }
@@ -46,11 +43,11 @@ const InputFile = ({
       <input
         type="file"
         accept={accept}
-        className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+        className="border-red-800"
         // {...register(name)}
-        defaultValue={defaultImage}
         onChange={(e) => driveUpload(e)}
       />
+      <ErrorMessage message={errorMessage} />
     </div>
   )
 }

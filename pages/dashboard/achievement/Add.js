@@ -1,16 +1,15 @@
 import TopHeader from '../../../components/dashboard/TopHeader'
 import AchievementFrom from '../../../components/forms/achievementFrom'
-import 'react-toastify/dist/ReactToastify.css'
-import { usePostData } from '../../../hooks/DataApi'
+// import { usePostData } from "../../../hooks/DataApi";
 
-const AddTestimonial = () => {
+const Add = () => {
   const defaultValues = {
     achievementId: '',
     title: '',
     description: '',
   }
 
-  const { mutateAsync } = usePostData()
+  // const { mutateAsync } = usePostData();
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -25,10 +24,10 @@ const AddTestimonial = () => {
         btnText="Save"
         path="/achievement/createAchievement"
         returnPath="/dashboard/achievement"
-        mutateAsync={mutateAsync}
+        // mutateAsync={mutateAsync}
       />
     </div>
   )
 }
 
-export default AddTestimonial
+export default Add
