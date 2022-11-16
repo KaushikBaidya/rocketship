@@ -1,21 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Fade from 'react-reveal/Fade'
-import { Error } from '../../../components/Error'
 
 import { FaRocket } from 'react-icons/fa'
 import { Loader } from '../../Loader'
 import { useGetData } from '../../../hooks/DataApi'
 
 const Blogs = () => {
-  const { data: list, error, isLoading, isError } = useGetData(
-    'blogs',
-    `/getBlogs`,
-  )
+  const { data: list, isLoading } = useGetData('blogs', `/getBlogs`)
 
   if (isLoading) return <Loader />
-
-  if (isError) return <Error message={error.message} />
 
   const data = list.data.slice(0, 3)
 

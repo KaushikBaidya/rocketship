@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-const Error = ({ message }) => {
+export const Error = ({ message }) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="card w-5/6 h-24 border-l-8 border-red-400 md:w-96 shadow-lg">
@@ -19,5 +19,5 @@ const Error = ({ message }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
