@@ -6,7 +6,6 @@ import { toast } from 'react-hot-toast'
 import Input from '../../components/Input'
 import SaveButton from '../dashboard/button/SaveButton'
 import { useRouter } from 'next/router'
-// import { usePostData } from '../../hooks/DataApi'
 
 const schema = yup.object({
   achievementId: yup.string().max(50),
@@ -28,7 +27,6 @@ const AchievementFrom = ({ defaultValues, path, mutateAsync }) => {
     resolver: yupResolver(schema),
   })
   const { title, description } = errors
-  // const { mutateAsync } = usePostData()
 
   const onSubmit = async (formData) => {
     setSubmitting(true)

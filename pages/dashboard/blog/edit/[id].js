@@ -4,7 +4,6 @@ import TopHeader from '../../../../components/dashboard/TopHeader'
 import { useGetData, usePutData } from '../../../../hooks/DataApi'
 import { Loader } from '../../../../components/Loader'
 import { Error } from '../../../../components/Error'
-// import TestimonialForm from '../../../../components/forms/TestimonialForm'
 import BlogsForm from '../../../../components/forms/BlogsForm'
 
 function Details() {
@@ -47,5 +46,3 @@ function Details() {
 }
 
 export default Details
-
-//blogs/${blogId}

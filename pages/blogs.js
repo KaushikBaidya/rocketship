@@ -35,9 +35,7 @@ const Blogs = () => {
                   <div>
                     <div className="rounded-lg overflow-hidden">
                       <Image
-                        // src={`https://lh3.googleusercontent.com/d/${file}=s220?authuser=0`}
                         src={`https://drive.google.com/thumbnail?id=${item.img}`}
-                        // src={`https://drive.google.com/uc?export=view&id=${item.img}`}
                         alt="PHOTO"
                         height={210}
                         width={359}

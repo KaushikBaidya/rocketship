@@ -1,12 +1,12 @@
-import React from "react";
-import ErrorMessage from "./ErrorMessage";
+import React from 'react'
+import ErrorMessage from './ErrorMessage'
 
 const Input = ({
   name,
   label,
-  type = "text",
+  type = 'text',
   register,
-  errorMessage = "",
+  errorMessage = '',
   isAutoFocus = false,
   isReadOnly = false,
   showPlaceHolder = false,
@@ -17,19 +17,14 @@ const Input = ({
       <input
         type={type}
         className="form-new-input"
-        // className={
-        //   "form-control " +
-        //   (errorMessage ? "input-border-danger " : "input-border-primary ") +
-        //   (isReadOnly === true ? "bg-gray-100" : "bg-white")
-        // }
         {...register(name)}
         autoFocus={isAutoFocus}
         readOnly={isReadOnly}
-        placeholder={showPlaceHolder === true ? label : ""}
+        placeholder={showPlaceHolder === true ? label : ''}
       />
       <ErrorMessage message={errorMessage} />
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

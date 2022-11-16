@@ -1,6 +1,5 @@
 import TopHeader from '../../../components/dashboard/TopHeader'
 import AchievementFrom from '../../../components/forms/achievementFrom'
-// import { usePostData } from "../../../hooks/DataApi";
 
 const Add = () => {
   const defaultValues = {
@@ -9,7 +8,7 @@ const Add = () => {
     description: '',
   }
 
-  // const { mutateAsync } = usePostData();
+  const { mutateAsync } = usePostData()
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -24,7 +23,7 @@ const Add = () => {
         btnText="Save"
         path="/achievement/createAchievement"
         returnPath="/dashboard/achievement"
-        // mutateAsync={mutateAsync}
+        mutateAsync={mutateAsync}
       />
     </div>
   )

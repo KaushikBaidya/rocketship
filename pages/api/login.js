@@ -37,7 +37,6 @@ export default async function handler(req, res) {
         },
       )
       res.status(200).json({ token })
-      // console.log({ token, fullName })
     } else {
       res.json({ message: 'not success login' })
     }

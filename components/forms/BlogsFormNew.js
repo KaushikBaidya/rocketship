@@ -16,7 +16,6 @@ const schema = yup
   .object({
     blogId: yup.string().max(50),
     title: yup.string().required('Required.').max(50),
-    // description: yup.string().required('Required.'),
   })
   .shape({
     img: yup.mixed(),
@@ -90,9 +89,7 @@ const BlogsForm = ({ defaultValues, path, returnPath, mutateAsync }) => {
       <div className="form-col">
         {imageUrl?.length > 0 ? (
           <Image
-            // src={`https://lh3.googleusercontent.com/d/${imageUrl}=s220?authuser=0`}
             src={`https://drive.google.com/thumbnail?id=${imageUrl}`}
-            // src={`https://drive.google.com/uc?export=view&id=${imageUrl}`}
             alt="PHOTO"
             width={100}
             height={100}
@@ -115,14 +112,6 @@ const BlogsForm = ({ defaultValues, path, returnPath, mutateAsync }) => {
           register={register}
           errorMessage={title?.message}
         />
-
-        {/* <Input
-          name="description"
-          label="Description"
-          type="text"
-          register={register}
-          errorMessage={description?.message}
-        /> */}
 
         <QuillNoSSRWrapper
           defaultValue={defaultValues.description}

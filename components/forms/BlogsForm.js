@@ -76,9 +76,7 @@ const BlogsForm = ({ defaultValues, path, mutateAsync }) => {
       <div className="form-col">
         {imageUrl?.length > 0 ? (
           <Image
-            // src={`https://lh3.googleusercontent.com/d/${imageUrl}=s220?authuser=0`}
             src={`https://drive.google.com/thumbnail?id=${imageUrl}`}
-            // src={`https://drive.google.com/uc?export=view&id=${imageUrl}`}
             alt="PHOTO"
             width={100}
             height={100}
