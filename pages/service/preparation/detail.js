@@ -1,21 +1,23 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image'
+import React from 'react'
 
 const Detail = () => {
   const data = [
     {
       id: 0,
-      img: "/service/2.png",
-      title: "GRE/GMAT/SAT Preparation",
-      des: "The college application can be better understood as the culmination of the growth a student will experience in high school. Prepory aims towards long-term outcomes that maximize student success, both academically and personally.",
+      img: '/service/2.png',
+      title: 'GRE/GMAT/SAT Preparation',
+      des:
+        'The college application can be better understood as the culmination of the growth a student will experience in high school. RocketShip aims towards long-term outcomes that maximize student success, both academically and personally.',
     },
     {
       id: 2,
-      img: "/service/2.png",
-      title: "IELTS/TOEFL Preparation",
-      des: "Colleges want to learn about who you are in your college application. Our student-centric curriculum developed by former admissions officers and college admissions strategists builds the self-awareness high school students need to leverage their strengths and showcase their talents in their college application.",
+      img: '/service/2.png',
+      title: 'IELTS/TOEFL Preparation',
+      des:
+        'Colleges want to learn about who you are in your college application. Our student-centric curriculum developed by former admissions officers and college admissions strategists builds the self-awareness high school students need to leverage their strengths and showcase their talents in their college application.',
     },
-  ];
+  ]
   return (
     <div>
       <div className="max-w-2xl mx-auto pt-10">
@@ -34,8 +36,8 @@ const Detail = () => {
               <div
                 className={
                   item.id % 2 === 0
-                    ? "order-1 flex items-center justify-center col-span-1"
-                    : "order-2 flex items-center justify-center col-span-1"
+                    ? 'order-1 flex items-center justify-center col-span-1'
+                    : 'order-2 flex items-center justify-center col-span-1'
                 }
               >
                 <Image
@@ -49,8 +51,8 @@ const Detail = () => {
               <div
                 className={
                   item.id % 2 === 0
-                    ? "order-2 text-black text-lg md:text-2xl col-span-2"
-                    : "order-1 text-black text-lg md:text-2xl col-span-2"
+                    ? 'order-2 text-black text-lg md:text-2xl col-span-2'
+                    : 'order-1 text-black text-lg md:text-2xl col-span-2'
                 }
               >
                 <h1 className="my-5 font-semibold uppercase">{item.title}</h1>
@@ -60,7 +62,7 @@ const Detail = () => {
           </div>
         ))}
     </div>
-  );
-};
+  )
+}
 
-export default Detail;
+export default Detail

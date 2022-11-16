@@ -11,7 +11,7 @@ const Steps = () => {
       img: '/service/3.png',
       title: 'Individualized, growth-oriented coaching ',
       des:
-        'The college application can be better understood as the culmination of the growth a student will experience in high school. Prepory aims towards long-term outcomes that maximize student success, both academically and personally.',
+        'The college application can be better understood as the culmination of the growth a student will experience in high school. RocketShip aims towards long-term outcomes that maximize student success, both academically and personally.',
     },
   ]
   return (
@@ -77,7 +77,7 @@ const Steps = () => {
                   </h3>
                   <p className="text-lg">
                     Join our virtual workshops to interact with our network of
-                    Prepory coaches from the nation’s top schools, find your
+                    RocketShip coaches from the nation’s top schools, find your
                     college fit, and prepare for college admissions success.
                   </p>
                 </div>

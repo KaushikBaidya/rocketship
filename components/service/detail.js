@@ -9,7 +9,7 @@ const Detail = () => {
       img: '/service/3.png',
       title: 'Individualized, growth-oriented coaching ',
       des:
-        'The college application can be better understood as the culmination of the growth a student will experience in high school. Prepory aims towards long-term outcomes that maximize student success, both academically and personally.',
+        'The college application can be better understood as the culmination of the growth a student will experience in high school. RocketShip aims towards long-term outcomes that maximize student success, both academically and personally.',
     },
     {
       id: 1,

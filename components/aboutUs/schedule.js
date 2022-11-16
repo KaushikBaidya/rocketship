@@ -59,7 +59,7 @@ const Schedule = () => {
                 </div>
                 <div className="flex-grow pl-4">
                   <h2 className="font-medium title-font text-lg text-gray-900 mb-1 tracking-wider">
-                    Prepory college admissions coaches provide guidance on
+                    RocketShip college admissions coaches provide guidance on
                     extracurricular profiles, academics, personal statements,
                     college applications, course selection, and more.
                   </h2>

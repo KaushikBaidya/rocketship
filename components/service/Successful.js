@@ -11,8 +11,9 @@ const Successful = () => {
               How do we create success
             </h2>
             <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis.
+              Join our virtual workshops to interact with our network of
+              RocketShip coaches from the nation’s top schools, find your
+              college fit, and prepare for college admissions success.
             </p>
           </div>
 
@@ -44,8 +45,9 @@ const Successful = () => {
                   Create a free account
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Join our virtual workshops to interact with our network of
+                  RocketShip coaches from the nation’s top schools, find your
+                  college fit, and prepare for college admissions success.
                 </p>
               </div>
             </li>
@@ -77,8 +79,9 @@ const Successful = () => {
                   Build your website
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Join our virtual workshops to interact with our network of
+                  RocketShip coaches from the nation’s top schools, find your
+                  college fit, and prepare for college admissions success.
                 </p>
               </div>
             </li>
@@ -105,8 +108,9 @@ const Successful = () => {
                   Release & launch
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Join our virtual workshops to interact with our network of
+                  RocketShip coaches from the nation’s top schools, find your
+                  college fit, and prepare for college admissions success.
                 </p>
               </div>
             </li>
