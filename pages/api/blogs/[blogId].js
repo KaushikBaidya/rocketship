@@ -44,8 +44,7 @@ export default async function handler(req, res) {
         updateImg,
       )
       res
-        .status(204)
-        .json({ ...result, message: `blog with title: ${blogId} updated` })
+      res.status(204).end('end')
       break
 
     default:

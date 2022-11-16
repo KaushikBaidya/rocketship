@@ -8,6 +8,7 @@ import SaveButton from '../dashboard/button/SaveButton'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import InputFile from '../InputFile'
+import TextArea from '../TextArea'
 
 const schema = yup
   .object({
@@ -53,7 +54,7 @@ const BlogsForm = ({ defaultValues, path, mutateAsync }) => {
       }
       if (status === 204) {
         toast.success('Update successful!')
-        router.push(returnPath)
+        router.push('/dashboard/blog')
       }
     } catch (error) {
       if (error.response) {
@@ -78,7 +79,7 @@ const BlogsForm = ({ defaultValues, path, mutateAsync }) => {
           <Image
             src={`https://drive.google.com/thumbnail?id=${imageUrl}`}
             alt="PHOTO"
-            width={100}
+            width={200}
             height={100}
           />
         ) : (
@@ -100,7 +101,7 @@ const BlogsForm = ({ defaultValues, path, mutateAsync }) => {
           errorMessage={title?.message}
         />
 
-        <Input
+        <TextArea
           name="description"
           label="Description"
           type="text"

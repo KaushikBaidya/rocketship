@@ -8,6 +8,7 @@ import InputFile from '../InputFile'
 import Input from '../Input'
 import { useRouter } from 'next/router'
 import SaveButton from '../dashboard/button/SaveButton'
+import TextArea from '../TextArea'
 
 const schema = yup
   .object({
@@ -97,13 +98,13 @@ const TestimonialForm = ({ defaultValues, path, mutateAsync }) => {
 
         <Input
           name="title"
-          label="Title"
+          label="Name"
           type="text"
           register={register}
           errorMessage={title?.message}
         />
 
-        <Input
+        <TextArea
           name="description"
           label="Description"
           type="text"

@@ -93,7 +93,7 @@ const Footer = () => {
                 </Link>
               </p>
               <p className="hover:text-[#EF1C26]">
-                <Link href="/Login">
+                <Link href="/login">
                   <a>Login</a>
                 </Link>
               </p>
