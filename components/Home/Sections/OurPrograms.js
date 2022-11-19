@@ -24,7 +24,7 @@ const OurPrograms = () => {
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 College Admissions Counseling
               </h2>
-              <Link href="/service/counselling">
+              <Link href="/services/counselling">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
                   Learn More
                 </button>
@@ -37,7 +37,7 @@ const OurPrograms = () => {
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Essay Editing Services
               </h2>
-              <Link href="service/essay">
+              <Link href="services/essay">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
                   Learn More
                 </button>
@@ -50,7 +50,7 @@ const OurPrograms = () => {
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Financial Planning Assistance
               </h2>
-              <Link href="/service/finance">
+              <Link href="/services/finance">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
                   Learn More
                 </button>
@@ -63,7 +63,7 @@ const OurPrograms = () => {
               <h2 className="text-center text-[#211A56] font-bold text-xl p-5">
                 Test Preparation
               </h2>
-              <Link href="/service/preparation">
+              <Link href="/services/preparation">
                 <button className="bg-[#EF1C26] p-2 rounded-full text-white font-semibold">
                   Learn More
                 </button>
