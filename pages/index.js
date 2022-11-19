@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import HomeMain from '../components/Home/HomeMain'
+import Head from "next/head";
+import HomeMain from "../components/Home/HomeMain";
 export default function Home() {
   return (
     <div>
@@ -10,5 +10,5 @@ export default function Home() {
         <HomeMain />
       </main>
     </div>
-  )
+  );
 }

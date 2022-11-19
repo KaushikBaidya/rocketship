@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+
+import Image from "next/image";
 import teacher from "../../public/service/1.png";
 
 const Schedule = () => {

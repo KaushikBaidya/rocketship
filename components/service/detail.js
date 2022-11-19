@@ -13,8 +13,8 @@ const Detail = () => {
       id: 1,
       img: "/service/3.png",
       title:
-        "Mentorship from the nation's most impressive college admissions team",
-      des: "College admissions coaches hail from the nation’s top colleges and universities, including Harvard, Duke, and Columbia. When you work with our team, you receive the most strategic college guidance with a personable and professional touch. Our coaches are relatable, approachable, and invested in your success.",
+        "Mentorship from the nations most impressive college admissions team",
+      des: "College admissions coaches hail from the nations top colleges and universities, including Harvard, Duke, and Columbia. When you work with our team, you receive the most strategic college guidance with a personable and professional touch. Our coaches are relatable, approachable, and invested in your success.",
     },
     {
       id: 2,

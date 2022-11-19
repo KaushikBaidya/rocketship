@@ -1,16 +1,16 @@
-import TopHeader from '../../../components/dashboard/TopHeader'
-import { usePostData } from '../../../hooks/DataApi'
-import TestimonialForm from '../../../components/forms/TestimonialForm'
+import TopHeader from "../../../components/dashboard/TopHeader";
+import { usePostData } from "../../../hooks/DataApi";
+import TestimonialForm from "../../../components/forms/TestimonialForm";
 
 const Add = () => {
   const defaultValues = {
-    testimonialId: '',
-    title: '',
-    description: '',
-    img: '',
-  }
+    testimonialId: "",
+    title: "",
+    description: "",
+    img: "",
+  };
 
-  const { mutateAsync } = usePostData()
+  const { mutateAsync } = usePostData();
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -28,7 +28,7 @@ const Add = () => {
         mutateAsync={mutateAsync}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Add
+export default Add;

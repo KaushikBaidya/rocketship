@@ -1,40 +1,40 @@
-import React, { Fragment, useState } from 'react'
-import { AiOutlineRest } from 'react-icons/ai'
-import { useDeleteData } from '../../../hooks/DataApi'
-import { Dialog, Transition } from '@headlessui/react'
-import { toast } from 'react-hot-toast'
+import React, { Fragment, useState } from "react";
+import { AiOutlineRest } from "react-icons/ai";
+import { useDeleteData } from "../../../hooks/DataApi";
+import { Dialog, Transition } from "@headlessui/react";
+import { toast } from "react-hot-toast";
 
 const DeleteButton = ({ path, action }) => {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
-  const { mutateAsync } = useDeleteData()
+  const { mutateAsync } = useDeleteData();
   const onSubmit = async () => {
     try {
       await mutateAsync({ path }).then((response) => {
         if (response) {
-          toast.success('Successfully deleted!')
+          toast.success("Successfully deleted!");
         }
-      })
+      });
     } catch (error) {
       if (error.response) {
-        toast.error('Response : ' + error.response.data)
+        toast.error("Response : " + error.response.data);
       } else if (error.request) {
-        toast.error('Request : ' + error.message)
+        toast.error("Request : " + error.message);
       } else {
-        toast.error('Error :', error.message)
+        toast.error("Error :", error.message);
       }
     } finally {
-      closeModal()
-      action()
+      closeModal();
+      action();
     }
-  }
+  };
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   return (
@@ -42,7 +42,7 @@ const DeleteButton = ({ path, action }) => {
       <button
         className="btn-danger w-12 h-10"
         onClick={() => {
-          openModal()
+          openModal();
         }}
       >
         <AiOutlineRest size={24} />
@@ -107,7 +107,7 @@ const DeleteButton = ({ path, action }) => {
         </Dialog>
       </Transition>
     </>
-  )
-}
+  );
+};
 
-export default DeleteButton
+export default DeleteButton;

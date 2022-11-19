@@ -1,26 +1,29 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import TopHeader from '../../../../components/dashboard/TopHeader'
-import { useGetData, usePutData } from '../../../../hooks/DataApi'
-import { Loader } from '../../../../components/Loader'
-import { Error } from '../../../../components/Error'
-import BlogsForm from '../../../../components/forms/BlogsForm'
+import React from "react";
+import { useRouter } from "next/router";
+import TopHeader from "../../../../components/dashboard/TopHeader";
+import { useGetData, usePutData } from "../../../../hooks/DataApi";
+import { Loader } from "../../../../components/Loader";
+import { Error } from "../../../../components/Error";
+import BlogsForm from "../../../../components/forms/BlogsForm";
 
 function Details() {
-  const router = useRouter()
-  const { id } = router.query
-  const { mutateAsync } = usePutData()
+  const router = useRouter();
+  const { id } = router.query;
+  const { mutateAsync } = usePutData();
 
-  const { data: list, error, isLoading, isError, refetch } = useGetData(
-    'blogs',
-    `/blogs/${id}`,
-  )
+  const {
+    data: list,
+    error,
+    isLoading,
+    isError,
+    refetch,
+  } = useGetData("blogs", `/blogs/${id}`);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-  if (isError) return <Error message={error.message} />
+  if (isError) return <Error message={error.message} />;
 
-  const data = list.data[0]
+  const data = list.data[0];
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -42,7 +45,7 @@ function Details() {
         />
       )}
     </div>
-  )
+  );
 }
 
-export default Details
+export default Details;

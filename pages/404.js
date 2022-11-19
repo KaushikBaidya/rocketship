@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import error from '../public/Error.gif'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import error from "../public/Error.gif";
 
 const ErrorPage = () => {
   return (
@@ -23,7 +23,7 @@ const ErrorPage = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

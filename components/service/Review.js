@@ -33,7 +33,7 @@ const Review = () => {
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
                   Join our virtual workshops to interact with our network of
-                  RocketShip coaches from the nation’s top schools, find your
+                  RocketShip coaches from the nations top schools, find your
                   college fit, and prepare for college admissions success.
                 </p>
               </div>
@@ -60,7 +60,7 @@ const Review = () => {
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
                   Join our virtual workshops to interact with our network of
-                  RocketShip coaches from the nation’s top schools, find your
+                  RocketShip coaches from the nations top schools, find your
                   college fit, and prepare for college admissions success.
                 </p>
               </div>
@@ -87,7 +87,7 @@ const Review = () => {
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
                   Join our virtual workshops to interact with our network of
-                  RocketShip coaches from the nation’s top schools, find your
+                  RocketShip coaches from the nations top schools, find your
                   college fit, and prepare for college admissions success.
                 </p>
               </div>
@@ -114,7 +114,7 @@ const Review = () => {
                 </h3>
                 <p className="mt-4 text-base text-gray-600">
                   Join our virtual workshops to interact with our network of
-                  RocketShip coaches from the nation’s top schools, find your
+                  RocketShip coaches from the nations top schools, find your
                   college fit, and prepare for college admissions success.
                 </p>
               </div>

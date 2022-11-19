@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import banner from '../public/banner.jpg'
-import Head from 'next/head'
+import Image from "next/image";
+import banner from "../public/banner.jpg";
+import Head from "next/head";
 
 const Contact = () => {
   return (
@@ -63,7 +63,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

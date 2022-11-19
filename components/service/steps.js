@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 import Service from "../../public/service/3.png";
 import { GiGraduateCap } from "react-icons/gi";
 
@@ -59,7 +60,7 @@ const Steps = () => {
               <div>
                 <h3 className="text-2xl font-semibold">Parent Check-Ins</h3>
                 <p className="text-lg">
-                  Connect with us to discuss your child’s progress and receive
+                  Connect with us to discuss your childs progress and receive
                   tips on how to best support their college admissions journey.
                 </p>
               </div>
@@ -74,7 +75,7 @@ const Steps = () => {
                 </h3>
                 <p className="text-lg">
                   Join our virtual workshops to interact with our network of
-                  RocketShip coaches from the nation’s top schools, find your
+                  RocketShip coaches from the nations top schools, find your
                   college fit, and prepare for college admissions success.
                 </p>
               </div>

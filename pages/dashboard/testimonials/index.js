@@ -1,26 +1,31 @@
-import React from 'react'
-import EditButton from '../../../components/dashboard/button/EditButton'
+import React from "react";
+import EditButton from "../../../components/dashboard/button/EditButton";
 import {
   ListCol,
   ListHeader,
-} from '../../../components/dashboard/ListColWithHeader'
-import TopHeader from '../../../components/dashboard/TopHeader'
-import { useGetData } from '../../../hooks/DataApi'
-import DeleteButton from '../../../components/dashboard/button/DeleteButton'
-import { Loader } from '../../../components/Loader'
-import { Error } from '../../../components/Error'
+} from "../../../components/dashboard/ListColWithHeader";
+import TopHeader from "../../../components/dashboard/TopHeader";
+import { useGetData } from "../../../hooks/DataApi";
+import DeleteButton from "../../../components/dashboard/button/DeleteButton";
+import { Loader } from "../../../components/Loader";
+import { Error } from "../../../components/Error";
 
 export default function Index() {
-  const { data: list, error, isLoading, isError, refetch } = useGetData(
-    'testimonials',
-    `/getTestimonials`,
-  )
+  const {
+    data: list,
+    error,
+    isLoading,
+    isError,
+    refetch,
+  } = useGetData("testimonials", `/getTestimonials`);
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
-  if (isError) return <Error message={error.message} />
+  if (isError) return <Error message={error.message} />;
 
-  const data = list.data
+  const data = list.data;
+
+  console.log(data);
 
   return (
     <div className="card w-full">
@@ -66,5 +71,5 @@ export default function Index() {
         </div>
       </div>
     </div>
-  )
+  );
 }

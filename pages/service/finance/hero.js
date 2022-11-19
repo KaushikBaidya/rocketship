@@ -16,7 +16,7 @@ const Hero = () => {
           </h1>
           <h2 className="text-[16px] text-justify lg:text-xl p-5">
             Our start-to-finish BSN program consulting is meant to supercharge
-            your ability to get accepted at the country’s most competitive
+            your ability to get accepted at the countrys most competitive
             nursing school programs. We tailor every aspect of your application
             to ensure the best quality right from your personal statement to
             your interview.

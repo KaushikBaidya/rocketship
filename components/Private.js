@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useGlobalContext } from '../context/context'
-import SideBar from './dashboard/SideBar'
-import Header from './dashboard/Header'
-import { Loader } from './Loader'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useGlobalContext } from "../context/context";
+import SideBar from "./dashboard/SideBar";
+import Header from "./dashboard/Header";
+import { Loader } from "./Loader";
 
 const Private = ({ children }) => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const Router = useRouter()
-  const value = useGlobalContext()
+  const Router = useRouter();
+  const value = useGlobalContext();
 
   useEffect(() => {
-    if (!value.token) Router.push('/login')
+    if (!value.token) Router.push("/login");
     else {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [value.token, Router])
+  }, [value.token, Router]);
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <>
       <div className="w-screen h-screen overflow-hidden">
         <div className="grid w-full h-screen max-w-screen-3xl mx-auto">
           <div className="hidden lg:block">
-            <SideBar />
+            <SideBar action={() => {}} />
           </div>
           <div className="grid grid-rows-twoRows w-full h-screen overflow-hidden ">
             <Header />
@@ -36,7 +36,7 @@ const Private = ({ children }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Private
+export default Private;

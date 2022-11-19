@@ -17,12 +17,13 @@ const Hero = () => {
   ];
   return (
     <main className="h-[700px] py-20 md:py-0">
-      <div className="text-[#211A56] lg:px-24 py-20 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
-        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-2xl lg:text-5xl font-bold">
-          <div>
-            <h1 className="text-center md:text-left">
+      <div className="text-[#211A56] lg:px-24 pt-20 grid grid-cols-1 md:grid-cols-2 content-center justify-items-center gap-y-10 bg-gray-50 h-[700px]">
+        <div className="flex flex-col justify-center items-center md:items-start gap-y-10 text-left mx-2 text-2xl lg:text-5xl font-semibold">
+          <div className="lg:mr-16">
+            <h1 className="text-center text-4xl lg:text-6xl md:text-left mb-10">
               We will help you with your -{" "}
             </h1>
+
             <Typewriter
               options={{
                 strings: [
@@ -36,13 +37,14 @@ const Hero = () => {
                 skipAddStyles: true,
               }}
             />
+            <div className="hidden md:block">
+              <button className="text-lg bg-[#EF1C26] p-4 rounded-full text-white font-semibold my-5">
+                Book a Free Consult
+              </button>
+            </div>
           </div>
-
-          <button className="text-lg bg-[#EF1C26] p-4 rounded-full text-white font-semibold">
-            Book a Free Consult
-          </button>
         </div>
-        <div className="w-full px-5">
+        <div className="w-full  px-5">
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -67,6 +69,7 @@ const Hero = () => {
           </Swiper>
         </div>
       </div>
+      <h1></h1>
     </main>
   );
 };

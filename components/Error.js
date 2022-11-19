@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Error = ({ message }) => {
   return (
@@ -19,5 +19,5 @@ export const Error = ({ message }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

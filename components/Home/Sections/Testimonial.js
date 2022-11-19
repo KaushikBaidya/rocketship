@@ -23,7 +23,9 @@ const Testimonial = () => {
 
   if (isError) return <Error message={error.message} />;
 
-  const data = list.data;
+  const NewData = list.data;
+
+  console.log(typeof NewData);
 
   return (
     <section>
@@ -41,9 +43,9 @@ const Testimonial = () => {
               delay: 5000,
             }}
           >
-            {data.map((item) => {
+            {NewData.map((item) => {
               return (
-                <SwiperSlide key={item.id}>
+                <SwiperSlide key={item.testimonialId}>
                   <div className="w-[250px] md:w-[500px] lg:w-[1000px] flex flex-col items-center mx-auto my-5">
                     <div className="rounded-full overflow-hidden m-3">
                       <Image

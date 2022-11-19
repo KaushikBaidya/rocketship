@@ -10,7 +10,7 @@ const Blogs = () => {
 
   if (isLoading) return <Loader />;
 
-  const data = list.data.slice(0, 3);
+  const NewData = list.data.slice(0, 3);
 
   return (
     <section>
@@ -25,7 +25,7 @@ const Blogs = () => {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-5 p-5">
-          {data?.map((item) => {
+          {NewData?.map((item) => {
             return (
               <div
                 key={item.blogId}

@@ -60,7 +60,7 @@ const OurValues = () => {
                 Positivity
               </h2>
               <p className="text-justify p-4">
-                We are relational and optimistic in our approach to guiding
+                We’re relational and optimistic in our approach to guiding
                 people to where they should be.
               </p>
             </div>

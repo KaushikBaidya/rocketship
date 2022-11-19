@@ -1,17 +1,17 @@
-import TopHeader from '../../../components/dashboard/TopHeader'
-import { usePostData } from '../../../hooks/DataApi'
+import TopHeader from "../../../components/dashboard/TopHeader";
+import { usePostData } from "../../../hooks/DataApi";
 // import BlogsForm from '../../../components/forms/BlogsForm'
-import BlogsForm from '../../../components/forms/BlogsForm'
+import BlogsForm from "../../../components/forms/BlogsForm";
 
 const Add = () => {
   const defaultValues = {
-    blogId: '',
-    title: '',
-    description: '',
-    img: '',
-  }
+    blogId: "",
+    title: "",
+    description: "",
+    filepath: "",
+  };
 
-  const { mutateAsync } = usePostData()
+  const { mutateAsync } = usePostData();
 
   return (
     <div className="card w-full max-w-screen-xl">
@@ -25,7 +25,7 @@ const Add = () => {
         mutateAsync={mutateAsync}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Add
+export default Add;

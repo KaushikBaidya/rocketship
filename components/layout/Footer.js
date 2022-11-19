@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   FiFacebook,
   FiTwitter,
@@ -7,10 +7,10 @@ import {
   FiMapPin,
   FiMail,
   FiPhoneCall,
-} from 'react-icons/fi'
-import Link from 'next/link'
-import Image from 'next/image'
-import logoPic from '../../public/logo.png'
+} from "react-icons/fi";
+import Link from "next/link";
+import Image from "next/image";
+import logoPic from "../../public/logo.png";
 
 const Footer = () => {
   return (
@@ -120,7 +120,7 @@ const Footer = () => {
         </p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,12 +1,12 @@
-import React from 'react'
-import ErrorMessage from './ErrorMessage'
+import React from "react";
+import ErrorMessage from "./ErrorMessage";
 
 const Input = ({
   name,
   label,
-  type = 'text',
+  type = "text",
   register,
-  errorMessage = '',
+  errorMessage = "",
   isAutoFocus = false,
   isReadOnly = false,
   showPlaceHolder = false,
@@ -20,11 +20,11 @@ const Input = ({
         {...register(name)}
         autoFocus={isAutoFocus}
         readOnly={isReadOnly}
-        placeholder={showPlaceHolder === true ? label : ''}
+        placeholder={showPlaceHolder === true ? label : ""}
       />
       <ErrorMessage message={errorMessage} />
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
