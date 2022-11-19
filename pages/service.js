@@ -1,11 +1,11 @@
 import React from "react";
-import Hero from "../components/service/Hero";
-import Details from "../components/service/Detail";
+import Detail from "../components/service/Detail";
 import Steps from "../components/service/Steps";
 import Success from "../components/Home/Sections/Success";
 import Review from "../components/service/Review";
 import Successful from "../components/service/Successful";
 import Head from "next/head";
+import Hero from "../components/service/Hero";
 
 const service = () => {
   return (
@@ -14,7 +14,7 @@ const service = () => {
         <title>Our Services</title>
       </Head>
       <Hero />
-      <Details />
+      <Detail />
       <Success />
       <Steps />
       <Review />

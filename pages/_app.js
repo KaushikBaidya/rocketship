@@ -3,9 +3,10 @@ import Navbar from "../components/layout/Navbar";
 import "../styles/globals.css";
 import { useRouter } from "next/router";
 import { AppProvider } from "../context/context";
-import Private from "../components/private";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Toaster } from "react-hot-toast";
+import Private from "../components/Private";
 
 const queryClient = new QueryClient();
 
