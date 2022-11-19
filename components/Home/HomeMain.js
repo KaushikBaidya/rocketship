@@ -1,6 +1,6 @@
-import Contacts from "../../pages/Contact";
 import Achievements from "./Sections/Achievements";
 import Blogs from "./Sections/Blogs";
+import Contacts from "./Sections/Contact";
 import Hero from "./Sections/Hero";
 import OurPrograms from "./Sections/OurPrograms";
 import Success from "./Sections/Success";
