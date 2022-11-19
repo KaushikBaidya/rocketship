@@ -7,7 +7,7 @@ import Successful from "../components/service/Successful";
 import Head from "next/head";
 import Hero from "../components/service/Hero";
 
-const service = () => {
+const Service = () => {
   return (
     <div>
       <Head>
@@ -23,4 +23,4 @@ const service = () => {
   );
 };
 
-export default service;
+export default Service;
