@@ -11,7 +11,7 @@ import { useGlobalContext } from '../../context/context'
 
 import logoPic from '../../public/logo.png'
 
-function SideBar({ action }) {
+function MbSideBar({ action }) {
   const value = useGlobalContext()
 
   return (
@@ -55,4 +55,4 @@ function SideBar({ action }) {
   )
 }
 
-export default SideBar
+export default MbSideBar

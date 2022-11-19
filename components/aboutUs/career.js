@@ -21,7 +21,7 @@ const Career = () => {
               resumes for each position and industry that you target, provide
               cover letter help, share job application advice, conduct mock
               interviews and more. RocketShip career coaches believe in you and
-              your career. It's our job to find your job.
+              your career. It&apos;s our job to find your job.
             </h2>
           </div>
         </Fade>
