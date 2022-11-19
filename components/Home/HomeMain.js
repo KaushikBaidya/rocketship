@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Hero from "./Sections/Hero";
 import Success from "./Sections/Success";
 import OurPrograms from "./Sections/OurPrograms";
