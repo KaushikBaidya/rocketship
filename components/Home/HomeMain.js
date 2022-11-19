@@ -1,10 +1,10 @@
-import Hero from "./Sections/Hero";
-import Success from "./Sections/Success";
-import OurPrograms from "./Sections/OurPrograms";
-import Achievements from "./Sections/Achievements";
-import Testimonial from "./Sections/Testimonial";
-import Blogs from "./Sections/Blogs";
 import Contact from "../../pages/Contact";
+import Achievements from "./Sections/Achievements";
+import Blogs from "./Sections/Blogs";
+import Hero from "./Sections/Hero";
+import OurPrograms from "./Sections/OurPrograms";
+import Success from "./Sections/Success";
+import Testimonial from "./Sections/Testimonial";
 
 const HomeMain = () => {
   return (
