@@ -2,7 +2,7 @@ import Image from "next/image";
 import banner from "../public/banner.jpg";
 import Head from "next/head";
 
-const Contact = () => {
+const Contacts = () => {
   return (
     <section>
       <Head>
@@ -66,4 +66,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contacts;

@@ -1,4 +1,4 @@
-import Contact from "../../pages/Contact";
+import Contacts from "../../pages/Contact";
 import Achievements from "./Sections/Achievements";
 import Blogs from "./Sections/Blogs";
 import Hero from "./Sections/Hero";
@@ -15,7 +15,7 @@ const HomeMain = () => {
       <Achievements />
       <Testimonial />
       <Blogs />
-      <Contact />
+      <Contacts />
     </div>
   );
 };
