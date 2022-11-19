@@ -1,5 +1,5 @@
 import Image from "next/image";
-import banner from "../public/banner.jpg";
+import banner from "../../../public/banner.jpg";
 import Head from "next/head";
 
 const Contacts = () => {

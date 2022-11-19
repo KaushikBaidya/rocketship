@@ -20,7 +20,7 @@ const Blogs = () => {
           <h3 className="text-lg text-[#211A56] text-center mx-28">
             From The Blog Post
           </h3>
-          <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center px-5 uppercase tracking-wider">
+          <h2 className="text-[24px] text-[#211A56] font-semibold lg:text-[45px] text-center uppercase tracking-wider p-5">
             News & Articles
           </h2>
         </div>
