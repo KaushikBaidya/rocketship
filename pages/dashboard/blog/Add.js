@@ -1,6 +1,5 @@
 import TopHeader from "../../../components/dashboard/TopHeader";
 import { usePostData } from "../../../hooks/DataApi";
-// import BlogsForm from '../../../components/forms/BlogsForm'
 import BlogsForm from "../../../components/forms/BlogsForm";
 
 const Add = () => {

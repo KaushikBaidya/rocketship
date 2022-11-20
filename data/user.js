@@ -1,6 +1,6 @@
 const mysql = require("mysql2/promise");
 import mysqlConfig from "./db";
-
+//change
 const getUsers = async () => {
   try {
     const connection = await mysql.createConnection(mysqlConfig);
