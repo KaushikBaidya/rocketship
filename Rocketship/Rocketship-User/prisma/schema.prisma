@@ -1,0 +1,110 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  binaryTargets   = ["linux-musl"]
+}
+
+
+datasource db {
+  provider = "mysql"
+  // url      = "mysql://root:@localhost/rocketship"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id               Int     @id @default(autoincrement())
+  email            String  @unique
+  password         String
+  username         String
+}
+
+model analytics {
+  analyticsId      Int     @id @default(autoincrement())
+  code             String
+}
+
+model institution {
+  institutionId    Int     @id @default(autoincrement())
+  image            String
+  name             String
+}
+
+model home_hero {
+  heroId           Int     @id @default(autoincrement())
+  image            String
+  title            String
+  subtitle         String
+}
+
+model about_hero {
+  heroId           Int     @id @default(autoincrement())
+  image            String
+  title            String
+  subtitle         String
+}
+
+model service_hero {
+  heroId           Int     @id @default(autoincrement())
+  image            String
+  title            String
+  subtitle         String
+}
+
+model home_seo {
+  seoId            Int     @id @default(autoincrement())
+  image            String
+  title            String
+  description      String
+  keywords         String
+  facebookApp      String
+}
+
+model about_seo {
+  seoId            Int     @id @default(autoincrement())
+  image            String
+  title            String
+  description      String
+  keywords         String
+  facebookApp      String
+}
+
+model service_seo {
+  seoId            Int     @id @default(autoincrement())
+  image            String
+  title            String
+  description      String
+  keywords         String
+  facebookApp      String
+}
+
+model testimonial {
+  testimonialId    Int     @id @default(autoincrement())
+  img              String
+  title            String
+  description      String
+  designation      String
+}
+
+model blog {
+  blogId           Int     @id @default(autoincrement())
+  img              String
+  title            String
+  description      String
+  permalink        String
+  keywords         String
+  seoDescription   String
+  isPublished      String
+}
+
+model consult {
+  consultId        Int     @id @default(autoincrement())
+  firstname        String
+  lastname         String
+  email            String
+  phone            String
+  consultdate      DateTime
+  consulttime      DateTime
+  details          String
+}

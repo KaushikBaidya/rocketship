@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+}
+/* @font-face {
+  font-family: "Avenir";
+  src: url("../public/AvenirLight.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  font-family: "Avenir";
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+  @apply text-4xl font-semibold;
+}
+h3 {
+  @apply text-3xl font-medium;
+}
+.ql-size-large {
+  @apply text-2xl;
+}
+.ql-size-huge {
+  @apply text-3xl;
+}
+.ql-size-small {
+  @apply text-xs;
+}
+.Typewriter {
+  /* display: inline; */
+  color: red;
+}
+.card {
+  @apply grid grid-cols-1 place-self-center bg-white rounded-lg shadow-sm break-words p-5;
+}
+.list-wrapper {
+  @apply border-green-100 grid grid-cols-1 space-y-1 text-xs;
+}
+.list-header {
+  @apply hidden bg-gray-200 text-base p-3 rounded-t-md;
+}
+.list-body-def {
+  @apply odd:bg-gray-100 even:bg-gray-100 hover:bg-[#907ce9]  hover:text-white;
+}
+
+.list-body {
+  @apply py-3 px-3 text-base list-body-def;
+}
+.list-footer {
+  @apply bg-gray-300 rounded-b-md p-3 mt-2;
+}
+.btn {
+  @apply p-2  font-semibold text-white flex justify-center items-center rounded-lg shadow-lg cursor-pointer transition delay-75;
+}
+.btn-success {
+  @apply btn bg-green-600 hover:bg-green-700;
+}
+.btn-danger {
+  @apply btn bg-red-600 hover:bg-red-700;
+}
+.form-col {
+  @apply grid grid-cols-1 gap-4 place-items-start;
+}
+.form-row {
+  @apply grid grid-cols-1;
+}
+
+.form-control {
+  @apply w-full p-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none sm:text-sm;
+}
+
+.input-border-primary {
+  @apply focus:ring-primary focus:border-primary;
+}
+
+.input-border-danger {
+  @apply focus:ring-red-400 focus:border-red-400;
+}
+.form-height {
+  @apply h-8;
+}
+
+.form-new-input {
+  @apply block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-[#1D1853] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40 text-sm;
+}
+.save-btn {
+  @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#1D1853] rounded-md hover:bg-[#3b31a3] focus:outline-none;
+}
+.draft-btn {
+  @apply w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-teal-600 rounded-md hover:bg-teal-500 focus:outline-none focus:bg-teal-600;
+}
+
+.progressVisualFull {
+  display: flex;
+  /* change the value if you want different thickness */
+  height: 18px;
+}
+
+.progressVisualPart {
+  /* Number of the seconds for complete animation */
+  transition: width 5s;
+  transition-delay: 5s;
+}
+
+.progressLabel {
+  /* Nothing here, move along */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.form-label {
+  @apply peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6;
+}
+table,
+td,
+th {
+  border: 1px solid;
+  padding: 15px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-left: 10%;
+  margin-right: 10%; */
+}
